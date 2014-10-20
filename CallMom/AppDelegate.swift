@@ -6,13 +6,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var brain = Brain()
     var airportsProvider = AirportsProvider()
-    var locationWatcher = LocationWatcher()
+    var airportsWatcher = AirportsWatcher()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         NSLog("parsing airports...")
         airportsProvider.parseFromResource("airports")
         NSLog("adding airports into location watcher...")
-        locationWatcher.registerAirports(airportsProvider)
+        airportsWatcher.registerAirports(airportsProvider)
         NSLog("starting app")
         return true
     }

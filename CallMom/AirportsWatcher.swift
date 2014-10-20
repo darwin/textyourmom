@@ -1,6 +1,6 @@
 import CoreLocation
 
-protocol LocationWatcherDelegate {
+protocol AirportsWatcherDelegate {
     func insideRegion(regionIdentifier: String)
     func didEnterRegion(regionIdentifier: String)
     func didExitRegion(regionIdentifier: String)
@@ -14,9 +14,9 @@ func buildRegionFromAirport(airport: Airport) -> CLRegion {
     return region;
 }
 
-class LocationWatcher: NSObject {
+class AirportsWatcher: NSObject {
     var locationManager: CLLocationManager = CLLocationManager()
-    var delegate: LocationWatcherDelegate?
+    var delegate: AirportsWatcherDelegate?
     
     override init() {
         super.init()
@@ -38,45 +38,45 @@ class LocationWatcher: NSObject {
     }
     
     func start() {
-        NSLog("LocationWatcher: start");
+        NSLog("AirportsWatcher: start");
     }
     
     func stop() {
-        NSLog("LocationWatcher: stop");
+        NSLog("AirportsWatcher: stop");
     }
 }
 
 // MARK: CLLocationManagerDelegate
-extension LocationWatcher : CLLocationManagerDelegate {
+extension AirportsWatcher : CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didStartMonitoringForRegion region: CLRegion!) {
-        NSLog("LocationWatcher: didStartMonitoringForRegion")
+        NSLog("AirportsWatcher: didStartMonitoringForRegion")
         locationManager.requestStateForRegion(region) // should locationManager be manager?
     }
     
     func locationManager(manager: CLLocationManager, didEnterRegion:CLRegion) {
-        NSLog("LocationWatcher: didEnterRegion \(didEnterRegion.identifier)")
+        NSLog("AirportsWatcher: didEnterRegion \(didEnterRegion.identifier)")
         delegate?.didEnterRegion(didEnterRegion.identifier)
     }
     
     func locationManager(manager: CLLocationManager, didExitRegion:CLRegion) {
-        NSLog("LocationWatcher: didExitRegion \(didExitRegion.identifier)")
+        NSLog("AirportsWatcher: didExitRegion \(didExitRegion.identifier)")
         delegate?.didExitRegion(didExitRegion.identifier)
     }
     
     func locationManager(manager: CLLocationManager!, didDetermineState state: CLRegionState, forRegion region: CLRegion!) {
-        NSLog("LocationWatcher: didDetermineState \(state)");
+        NSLog("AirportsWatcher: didDetermineState \(state)");
         
         switch state {
         case .Inside:
-            NSLog("LocationWatcher: didDetermineState CLRegionState.Inside \(region.identifier)");
+            NSLog("AirportsWatcher: didDetermineState CLRegionState.Inside \(region.identifier)");
             delegate?.insideRegion(region.identifier)
         case .Outside:
-            NSLog("LocationWatcher: didDetermineState CLRegionState.Outside");
+            NSLog("AirportsWatcher: didDetermineState CLRegionState.Outside");
         case .Unknown:
-            NSLog("LocationWatcher: didDetermineState CLRegionState.Unknown");
+            NSLog("AirportsWatcher: didDetermineState CLRegionState.Unknown");
         default:
-            NSLog("LocationWatcher: didDetermineState default");
+            NSLog("AirportsWatcher: didDetermineState default");
         }
     }
     
