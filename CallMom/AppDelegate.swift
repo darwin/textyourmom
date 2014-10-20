@@ -4,24 +4,26 @@ import UIKit
 class AppDelegate: UIResponder {
 
     var window: UIWindow?
-    var brain = Brain()
     var airportsProvider = AirportsProvider()
     var airportsWatcher = AirportsWatcher()
+    var brain = Brain()
+    var executor = Executor()
 
 }
 
-// MARK: UIApplicationDelegate
+// MARK: UIApplicationDelegate / Life Cycle
 extension AppDelegate : UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        NSLog("parsing airports...")
+        brain.delegate = executor // executor will resond to brain decisions
+        NSLog("AppDelegate: Parsing airports...")
         airportsProvider.parseFromResource("airports")
-        NSLog("adding airports into airports watcher...")
+        NSLog("AppDelegate: Adding airports into airports watcher...")
         airportsWatcher.delegate = self
         airportsWatcher.registerAirports(airportsProvider)
-        NSLog("starting app")
+        NSLog("AppDelegate: Starting app...")
         if !airportsWatcher.start() {
-            NSLog("airportsWatcher failed to start")
+            NSLog("AppDelegate: airportsWatcher failed to start")
         }
         return true
     }
@@ -55,6 +57,24 @@ extension AppDelegate : UIApplicationDelegate {
     
 }
 
+// MARK: UIApplicationDelegate / Notifications
+extension AppDelegate : UIApplicationDelegate {
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        NSLog("AppDelegate: didReceiveLocalNotification #\(notification)")
+        if application.applicationState == .Active {
+            // TODO: how to handle notification when active?
+        }
+    }
+    
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification,
+completionHandler: () -> Void) {
+        NSLog("AppDelegate: handleActionWithIdentifier #\(identifier)")
+        executor.handleActionWithIdentifier(identifier, completionHandler)
+    }
+    
+}
+
 // MARK: AirportsWatcherDelegate
 extension AppDelegate : AirportsWatcherDelegate {
 
@@ -72,5 +92,3 @@ extension AppDelegate : AirportsWatcherDelegate {
     }
 
 }
-
-

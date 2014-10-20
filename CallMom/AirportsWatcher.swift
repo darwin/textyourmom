@@ -10,7 +10,9 @@ class AirportsWatcher: NSObject {
     var delegate: AirportsWatcherDelegate?
     var regions: [CLCircularRegion] = []
     var lastAirport : Int = 0 // 0 means no airport
-    
+    var lastLatitude : Double = 0
+    var lastLongitude : Double = 0
+ 
     override init() {
         super.init()
         locationManager.delegate = self
@@ -96,8 +98,14 @@ extension AirportsWatcher : CLLocationManagerDelegate {
 
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [CLLocation]!) {
         for location in locations {
-            let age = location.timestamp.timeIntervalSinceNow
-            NSLog("AirportsWatcher: Location update \(location.coordinate.latitude), \(location.coordinate.longitude) accuracy=\(location.horizontalAccuracy) age=\(age)")
+            
+            if location.coordinate.latitude != lastLatitude || location.coordinate.longitude != lastLongitude {
+                let age = location.timestamp.timeIntervalSinceNow
+                NSLog("AirportsWatcher: Location update \(location.coordinate.latitude), \(location.coordinate.longitude) accuracy=\(location.horizontalAccuracy) age=\(age)")
+                
+                lastLatitude = location.coordinate.latitude
+                lastLongitude = location.coordinate.longitude
+            }
             
             if let region = hitTest(location.coordinate.latitude, location.coordinate.longitude) {
                 let id = region.identifier.toInt()!
