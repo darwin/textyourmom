@@ -1,4 +1,5 @@
 import UIKit
+import Dollar
 
 class AirportsProvider {
     var airports : [Airport]
@@ -6,7 +7,15 @@ class AirportsProvider {
     init() {
         airports = [];
     }
+    
+    func lookupAirport(id:Int) -> Airport? {
+        return $.find(airports, { $0.id == id })
+    }
+}
 
+// MARK: parsing the data file
+extension AirportsProvider {
+    
     func parseFromResource(name:String, type:String="txt") -> Bool {
         let path = NSBundle.mainBundle().pathForResource(name, ofType: type)
         if path == nil {
@@ -73,4 +82,3 @@ class AirportsProvider {
         return true
     }
 }
-

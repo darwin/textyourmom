@@ -20,7 +20,13 @@
 		D6269FC219F4793100BE7A30 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6269FC119F4793100BE7A30 /* MapKit.framework */; };
 		D6269FC419F47F1800BE7A30 /* AirportsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6269FC319F47F1800BE7A30 /* AirportsProvider.swift */; };
 		D6269FC619F4825300BE7A30 /* airports.txt in Resources */ = {isa = PBXBuildFile; fileRef = D6269FC519F4825300BE7A30 /* airports.txt */; };
+		D67416E919F59FF400F05672 /* Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67416E419F59F5900F05672 /* Dollar.framework */; };
 		D690795419F57B150048E035 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795319F57B150048E035 /* Airport.swift */; };
+		D690795619F57BB60048E035 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795519F57BB60048E035 /* Utils.swift */; };
+		D690795D19F597C50048E035 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795919F597C50048E035 /* Dispatcher.swift */; };
+		D690795E19F597C50048E035 /* DispatchGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795A19F597C50048E035 /* DispatchGroup.swift */; };
+		D690795F19F597C50048E035 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795B19F597C50048E035 /* DispatchQueue.swift */; };
+		D690796019F597C50048E035 /* DispatchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795C19F597C50048E035 /* DispatchTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +36,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = D6269F9319F465EF00BE7A30;
 			remoteInfo = CallMom;
+		};
+		D67416E319F59F5900F05672 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D67416DE19F59F5900F05672 /* Dollar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 92E0D03C19467C67002ACC3D;
+			remoteInfo = Dollar;
+		};
+		D67416E519F59F5900F05672 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D67416DE19F59F5900F05672 /* Dollar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 92E6686F19F09C6400BB4FB8;
+			remoteInfo = DollarTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -51,7 +71,13 @@
 		D6269FC119F4793100BE7A30 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D6269FC319F47F1800BE7A30 /* AirportsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportsProvider.swift; sourceTree = "<group>"; };
 		D6269FC519F4825300BE7A30 /* airports.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airports.txt; sourceTree = "<group>"; };
+		D67416DE19F59F5900F05672 /* Dollar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Dollar.xcodeproj; path = CallMom/Dollar.swift/Dollar/Dollar.xcodeproj; sourceTree = "<group>"; };
 		D690795319F57B150048E035 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Airport.swift; path = ../../callmom/CallMom/Airport.swift; sourceTree = "<group>"; };
+		D690795519F57BB60048E035 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = ../../callmom/CallMom/Utils.swift; sourceTree = "<group>"; };
+		D690795919F597C50048E035 /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dispatcher.swift; path = ../../callmom/CallMom/dispatcher/Dispatcher.swift; sourceTree = "<group>"; };
+		D690795A19F597C50048E035 /* DispatchGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DispatchGroup.swift; path = ../../callmom/CallMom/dispatcher/DispatchGroup.swift; sourceTree = "<group>"; };
+		D690795B19F597C50048E035 /* DispatchQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DispatchQueue.swift; path = ../../callmom/CallMom/dispatcher/DispatchQueue.swift; sourceTree = "<group>"; };
+		D690795C19F597C50048E035 /* DispatchTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DispatchTimer.swift; path = ../../callmom/CallMom/dispatcher/DispatchTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D67416E919F59FF400F05672 /* Dollar.framework in Frameworks */,
 				D6269FC219F4793100BE7A30 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +103,7 @@
 		D6269F8B19F465EF00BE7A30 = {
 			isa = PBXGroup;
 			children = (
+				D67416DE19F59F5900F05672 /* Dollar.xcodeproj */,
 				D6269FC119F4793100BE7A30 /* MapKit.framework */,
 				D6269F9619F465EF00BE7A30 /* CallMom */,
 				D6269FAC19F465EF00BE7A30 /* CallMomTests */,
@@ -95,6 +123,8 @@
 		D6269F9619F465EF00BE7A30 /* CallMom */ = {
 			isa = PBXGroup;
 			children = (
+				D690796119F598190048E035 /* Dispatcher */,
+				D690795519F57BB60048E035 /* Utils.swift */,
 				D690795319F57B150048E035 /* Airport.swift */,
 				D6269FC319F47F1800BE7A30 /* AirportsProvider.swift */,
 				D6269FBE19F475C700BE7A30 /* AirportsWatcher.swift */,
@@ -135,6 +165,26 @@
 				D6269FAE19F465EF00BE7A30 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D67416DF19F59F5900F05672 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D67416E419F59F5900F05672 /* Dollar.framework */,
+				D67416E619F59F5900F05672 /* DollarTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D690796119F598190048E035 /* Dispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				D690795919F597C50048E035 /* Dispatcher.swift */,
+				D690795A19F597C50048E035 /* DispatchGroup.swift */,
+				D690795B19F597C50048E035 /* DispatchQueue.swift */,
+				D690795C19F597C50048E035 /* DispatchTimer.swift */,
+			);
+			name = Dispatcher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +237,9 @@
 					D6269F9319F465EF00BE7A30 = {
 						CreatedOnToolsVersion = 6.1;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
@@ -209,6 +262,12 @@
 			mainGroup = D6269F8B19F465EF00BE7A30;
 			productRefGroup = D6269F9519F465EF00BE7A30 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D67416DF19F59F5900F05672 /* Products */;
+					ProjectRef = D67416DE19F59F5900F05672 /* Dollar.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D6269F9319F465EF00BE7A30 /* CallMom */,
@@ -216,6 +275,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D67416E419F59F5900F05672 /* Dollar.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Dollar.framework;
+			remoteRef = D67416E319F59F5900F05672 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D67416E619F59F5900F05672 /* DollarTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DollarTests.xctest;
+			remoteRef = D67416E519F59F5900F05672 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D6269F9219F465EF00BE7A30 /* Resources */ = {
@@ -245,12 +321,17 @@
 			files = (
 				D6269FC419F47F1800BE7A30 /* AirportsProvider.swift in Sources */,
 				D690795419F57B150048E035 /* Airport.swift in Sources */,
+				D690796019F597C50048E035 /* DispatchTimer.swift in Sources */,
+				D690795619F57BB60048E035 /* Utils.swift in Sources */,
 				D6269F9C19F465EF00BE7A30 /* DebugController.swift in Sources */,
+				D690795D19F597C50048E035 /* Dispatcher.swift in Sources */,
 				D6269F9A19F465EF00BE7A30 /* AppDelegate.swift in Sources */,
 				D6269FBA19F4703000BE7A30 /* TutorialController.swift in Sources */,
 				D6269FC019F475C700BE7A30 /* AirportsWatcher.swift in Sources */,
 				D6269FBF19F475C700BE7A30 /* Brain.swift in Sources */,
+				D690795E19F597C50048E035 /* DispatchGroup.swift in Sources */,
 				D6269FBC19F472A400BE7A30 /* MomController.swift in Sources */,
+				D690795F19F597C50048E035 /* DispatchQueue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

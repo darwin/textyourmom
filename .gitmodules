@@ -1,0 +1,6 @@
+[submodule "CallMom/dispatcher"]
+	path = CallMom/dispatcher
+	url = git@github.com:aleclarson/dispatcher.git
+[submodule "CallMom/Dollar.swift"]
+	path = CallMom/Dollar.swift
+	url = https://github.com/ankurp/Dollar.swift.git
