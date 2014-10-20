@@ -4,10 +4,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var brain = Brain()
+    var airportsProvider = AirportsProvider()
+    var locationWatcher = LocationWatcher()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        NSLog("parsing airports...")
+        airportsProvider.parseFromResource("airports")
+        NSLog("adding airports into location watcher...")
+        locationWatcher.registerAirports(airportsProvider)
+        NSLog("starting app")
         return true
     }
 

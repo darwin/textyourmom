@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Debug Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="CallMom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="DebugController" customModule="CallMom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +15,104 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEBUG SCREEN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQw-bY-viw">
+                                <rect key="frame" x="175" y="42" width="251" height="38.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVD-Mk-xg3">
+                                <rect key="frame" x="260" y="164" width="80" height="30"/>
+                                <state key="normal" title="Reset State">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doResetState:" destination="vXZ-lx-hvc" eventType="touchDown" id="5LM-qZ-UQD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgD-wv-iuF">
+                                <rect key="frame" x="241" y="88" width="118" height="30"/>
+                                <state key="normal" title="Tutorial Workflow">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cbJ-Hp-adm" kind="show" id="ntv-em-rii"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hg4-PI-bFG">
+                                <rect key="frame" x="248" y="126" width="103" height="30"/>
+                                <state key="normal" title="Mom Workflow">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="HOD-W7-3rB" kind="show" id="J6r-0B-ciL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCl-yW-w9V">
+                                <rect key="frame" x="256.5" y="202" width="87" height="30"/>
+                                <state key="normal" title="Set Location">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doSetLocation:" destination="vXZ-lx-hvc" eventType="touchDown" id="5UK-Jd-tY5"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="LCl-yW-w9V" secondAttribute="centerX" id="Bul-Ae-Lzp"/>
+                            <constraint firstItem="LCl-yW-w9V" firstAttribute="top" secondItem="cVD-Mk-xg3" secondAttribute="bottom" constant="8" id="Coh-DQ-QBJ"/>
+                            <constraint firstAttribute="centerX" secondItem="dgD-wv-iuF" secondAttribute="centerX" id="Khd-7a-sJB"/>
+                            <constraint firstAttribute="centerX" secondItem="hg4-PI-bFG" secondAttribute="centerX" id="PGM-IK-bEm"/>
+                            <constraint firstItem="cVD-Mk-xg3" firstAttribute="top" secondItem="hg4-PI-bFG" secondAttribute="bottom" constant="8" id="QnK-lY-Xof"/>
+                            <constraint firstItem="iQw-bY-viw" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="22" id="ZDc-Vw-aMZ"/>
+                            <constraint firstItem="hg4-PI-bFG" firstAttribute="top" secondItem="dgD-wv-iuF" secondAttribute="bottom" constant="8" id="dm0-2U-ohx"/>
+                            <constraint firstAttribute="centerX" secondItem="cVD-Mk-xg3" secondAttribute="centerX" id="gXz-Nq-Z1s"/>
+                            <constraint firstAttribute="centerX" secondItem="hg4-PI-bFG" secondAttribute="centerX" id="on7-Ny-hlz"/>
+                            <constraint firstAttribute="centerX" secondItem="iQw-bY-viw" secondAttribute="centerX" id="uKq-vH-ZAy"/>
+                            <constraint firstItem="dgD-wv-iuF" firstAttribute="top" secondItem="iQw-bY-viw" secondAttribute="bottom" constant="7.5" id="wID-yA-RTm"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="419" y="347"/>
+        </scene>
+        <!--Tutorial Controller-->
+        <scene sceneID="kjT-7b-FTP">
+            <objects>
+                <viewController id="cbJ-Hp-adm" customClass="TutorialController" customModule="CallMom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SXG-Xc-IN2"/>
+                        <viewControllerLayoutGuide type="bottom" id="h7v-ew-FSz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zH8-ay-eiq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jHh-le-Du9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1115" y="347"/>
+        </scene>
+        <!--Mom Controller-->
+        <scene sceneID="4nr-pT-Yq4">
+            <objects>
+                <viewController id="HOD-W7-3rB" customClass="MomController" customModule="CallMom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kVs-MB-BFx"/>
+                        <viewControllerLayoutGuide type="bottom" id="2YZ-ay-9F6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H92-p0-SeI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dla-Vo-j0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1113" y="1023"/>
         </scene>
     </scenes>
 </document>
