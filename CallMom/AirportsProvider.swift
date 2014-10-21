@@ -19,7 +19,7 @@ extension AirportsProvider {
     func parseFromResource(name:String, type:String="txt") -> Bool {
         let path = NSBundle.mainBundle().pathForResource(name, ofType: type)
         if path == nil {
-            NSLog("Error forming path for resource \(name) of type \(type)")
+            log("Error forming path for resource \(name) of type \(type)")
             return false;
         }
         return parseFromFile(path!)
@@ -29,7 +29,7 @@ extension AirportsProvider {
         var err: NSError?
         let content = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: &err)
         if content == nil {
-            NSLog("Error loading file \(path): \(err)")
+            log("\(err)")
             return false;
         }
         
@@ -75,7 +75,7 @@ extension AirportsProvider {
             if let airport = parseAirportLine(line) {
                 airports.append(airport)
             } else {
-                NSLog("Error parsing line #\(counter): \(line)")
+                log("\(line)")
             }
         }
         

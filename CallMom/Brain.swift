@@ -18,9 +18,9 @@ class Brain {
 extension Brain {
     
     func enteredAiport(city:String, _ airportName:String) {
-        NSLog("Brain: entered airport \(airportName) in \(city)")
+        log("entered airport \(airportName) in \(city)")
         if lastVisitedAirport == airportName {
-            NSLog("Prevented duplicit airport reporting")
+            log("Prevented duplicit airport reporting")
             return
         }
         lastVisitedAirport = airportName

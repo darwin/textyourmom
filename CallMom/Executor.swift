@@ -16,7 +16,7 @@ class Executor {
 extension Executor {
     
     func handleActionWithIdentifier(identifier: String?, _ completionHandler: () -> Void) {
-        NSLog("Executor: handleActionWithIdentifier \(identifier)")
+        log("handleActionWithIdentifier \(identifier)")
         // TODO: implement me
         completionHandler()
     }
@@ -65,7 +65,7 @@ extension Executor {
     
     func scheduleMomNotification(city:String, _ fireOffset: Float = 5) -> Bool {
         if UIApplication.sharedApplication().scheduledLocalNotifications.count > 0 {
-            NSLog("Executor: scheduleMomNotification - other notification(s) are in flight => bail out")
+            log("scheduleMomNotification - other notification(s) are in flight => bail out")
             return false
         }
         let notification = UILocalNotification()
@@ -81,7 +81,7 @@ extension Executor {
 extension Executor : BrainDelegate {
     
     func remindCallMomFromAirport(city:String, _ airportName:String) {
-        NSLog("Executor: remindCallMomFromAirport \(airportName) in \(city)")
+        log("remindCallMomFromAirport \(airportName) in \(city)")
         scheduleMomNotification(city, 5) // display in 5 seconds, this is useful for testing
     }
    

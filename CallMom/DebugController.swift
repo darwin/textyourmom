@@ -13,11 +13,11 @@ class DebugController: UIViewController {
     }
     
     @IBAction func doResetState(AnyObject) {
-        NSLog("doResetState");
+        log("doResetState");
     }
 
     @IBAction func doSetLocation(AnyObject) {
-        NSLog("doSetLocation");
+        log("doSetLocation");
     }
 
 }

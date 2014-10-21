@@ -16,14 +16,14 @@ extension AppDelegate : UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         brain.delegate = executor // executor will resond to brain decisions
-        NSLog("AppDelegate: Parsing airports...")
+        log("Parsing airports...")
         airportsProvider.parseFromResource("airports")
-        NSLog("AppDelegate: Adding airports into airports watcher...")
+        log("Adding airports into airports watcher...")
         airportsWatcher.delegate = self
         airportsWatcher.registerAirports(airportsProvider)
-        NSLog("AppDelegate: Starting app...")
+        log("Starting app...")
         if !airportsWatcher.start() {
-            NSLog("AppDelegate: airportsWatcher failed to start")
+            log("airportsWatcher failed to start")
         }
         return true
     }
@@ -31,27 +31,27 @@ extension AppDelegate : UIApplicationDelegate {
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-        NSLog("AppDelegate: applicationWillResignActive")
+        log("applicationWillResignActive")
     }
     
     func applicationDidEnterBackground(application: UIApplication) {
-        NSLog("AppDelegate: applicationDidEnterBackground")
+        log("applicationDidEnterBackground")
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
     
     func applicationWillEnterForeground(application: UIApplication) {
-        NSLog("AppDelegate: applicationWillEnterForeground")
+        log("applicationWillEnterForeground")
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
     
     func applicationDidBecomeActive(application: UIApplication) {
-        NSLog("AppDelegate: applicationDidBecomeActive")
+        log("applicationDidBecomeActive")
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
     
     func applicationWillTerminate(application: UIApplication) {
-        NSLog("AppDelegate: applicationWillTerminate")
+        log("applicationWillTerminate")
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
@@ -61,7 +61,7 @@ extension AppDelegate : UIApplicationDelegate {
 extension AppDelegate : UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        NSLog("AppDelegate: didReceiveLocalNotification #\(notification)")
+        log("didReceiveLocalNotification #\(notification)")
         if application.applicationState == .Active {
             // TODO: how to handle notification when active?
         }
@@ -69,7 +69,7 @@ extension AppDelegate : UIApplicationDelegate {
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification,
 completionHandler: () -> Void) {
-        NSLog("AppDelegate: handleActionWithIdentifier #\(identifier)")
+        log("handleActionWithIdentifier #\(identifier)")
         executor.handleActionWithIdentifier(identifier, completionHandler)
     }
     
@@ -79,7 +79,7 @@ completionHandler: () -> Void) {
 extension AppDelegate : AirportsWatcherDelegate {
 
     func enteredAirport(airportId:Int) {
-        NSLog("AppDelegate: enteredAirport #\(airportId)")
+        log("enteredAirport #\(airportId)")
         if let airport = airportsProvider.lookupAirport(airportId) {
             brain.enteredAiport(airport.city, airport.name)
         } else {
@@ -88,7 +88,7 @@ extension AppDelegate : AirportsWatcherDelegate {
     }
     
     func enteredNoMansLand() {
-        NSLog("AppDelegate: enteredNoMansLand")
+        log("enteredNoMansLand")
     }
 
 }

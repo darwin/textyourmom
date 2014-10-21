@@ -24,7 +24,7 @@ class AirportsWatcher: NSObject {
         func buildRegionFromAirport(airport: Airport) -> CLCircularRegion {
             let center = CLLocationCoordinate2D(latitude:airport.latitude, longitude:airport.longitude)
             let radius = CLLocationDistance(10*1000) // 10km TODO: read this from settings
-            let id =  String(airport.id)
+            let id = String(airport.id)
             let region = CLCircularRegion(center: center, radius: radius, identifier: id)
             return region;
         }
@@ -46,7 +46,7 @@ class AirportsWatcher: NSObject {
     
     func requestRequiredAuthorizations() {
         if (ios8()) {
-            NSLog("AirportsWatcher: request authorization")
+            log("request authorization")
             locationManager.requestAlwaysAuthorization()
         }
     }
@@ -59,7 +59,7 @@ class AirportsWatcher: NSObject {
             return false
         }
         
-        NSLog("AirportsWatcher: start");
+        log("start");
 
         if inSimulator() {
             // startMonitoringSignificantLocationChanges does not work in simulator
@@ -73,7 +73,7 @@ class AirportsWatcher: NSObject {
     }
     
     func stop() -> Bool {
-        NSLog("AirportsWatcher: stop");
+        log("stop");
         if inSimulator() {
             locationManager.stopUpdatingLocation()
         } else {
@@ -101,7 +101,7 @@ extension AirportsWatcher : CLLocationManagerDelegate {
             
             if location.coordinate.latitude != lastLatitude || location.coordinate.longitude != lastLongitude {
                 let age = location.timestamp.timeIntervalSinceNow
-                NSLog("AirportsWatcher: Location update \(location.coordinate.latitude), \(location.coordinate.longitude) accuracy=\(location.horizontalAccuracy) age=\(age)")
+                log("Location update \(location.coordinate.latitude), \(location.coordinate.longitude) accuracy=\(location.horizontalAccuracy) age=\(age)")
                 
                 lastLatitude = location.coordinate.latitude
                 lastLongitude = location.coordinate.longitude
@@ -123,19 +123,19 @@ extension AirportsWatcher : CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        NSLog("AirportsWatcher: Location update failed: \(error.localizedDescription)")
+        log("\(error.localizedDescription)")
     }
     
     func locationManagerDidPauseLocationUpdates(manager: CLLocationManager!) {
-        NSLog("AirportsWatcher: Location updating was paused")
+        log("Location updating was paused")
     }
     
     func locationManagerDidResumeLocationUpdates(manager: CLLocationManager!) {
-        NSLog("AirportsWatcher: Location updating was resumed")
+        log("Location updating was resumed")
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        NSLog("AirportsWatcher: didChangeAuthorizationStatus \(status.rawValue)")
+        log("didChangeAuthorizationStatus \(status.rawValue)")
     }
 }
 

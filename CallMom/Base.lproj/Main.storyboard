@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Debug Controller-->
@@ -49,12 +50,22 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCl-yW-w9V">
-                                <rect key="frame" x="256.5" y="202" width="87" height="30"/>
+                                <rect key="frame" x="256" y="202" width="87" height="30"/>
                                 <state key="normal" title="Set Location">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="doSetLocation:" destination="vXZ-lx-hvc" eventType="touchDown" id="5UK-Jd-tY5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGn-8N-Vez">
+                                <rect key="frame" x="265" y="240" width="69" height="30"/>
+                                <state key="normal" title="Show Log">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doSetLocation:" destination="vXZ-lx-hvc" eventType="touchDown" id="9wR-dT-d5P"/>
+                                    <segue destination="OKk-nq-oXO" kind="show" id="JOl-zH-bnW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -65,13 +76,27 @@
                             <constraint firstAttribute="centerX" secondItem="dgD-wv-iuF" secondAttribute="centerX" id="Khd-7a-sJB"/>
                             <constraint firstAttribute="centerX" secondItem="hg4-PI-bFG" secondAttribute="centerX" id="PGM-IK-bEm"/>
                             <constraint firstItem="cVD-Mk-xg3" firstAttribute="top" secondItem="hg4-PI-bFG" secondAttribute="bottom" constant="8" id="QnK-lY-Xof"/>
+                            <constraint firstItem="PGn-8N-Vez" firstAttribute="top" secondItem="LCl-yW-w9V" secondAttribute="bottom" constant="8" id="XDw-nM-fkY"/>
                             <constraint firstItem="iQw-bY-viw" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="22" id="ZDc-Vw-aMZ"/>
                             <constraint firstItem="hg4-PI-bFG" firstAttribute="top" secondItem="dgD-wv-iuF" secondAttribute="bottom" constant="8" id="dm0-2U-ohx"/>
                             <constraint firstAttribute="centerX" secondItem="cVD-Mk-xg3" secondAttribute="centerX" id="gXz-Nq-Z1s"/>
+                            <constraint firstAttribute="centerX" secondItem="PGn-8N-Vez" secondAttribute="centerX" id="jOm-co-41Y"/>
                             <constraint firstAttribute="centerX" secondItem="hg4-PI-bFG" secondAttribute="centerX" id="on7-Ny-hlz"/>
                             <constraint firstAttribute="centerX" secondItem="iQw-bY-viw" secondAttribute="centerX" id="uKq-vH-ZAy"/>
                             <constraint firstItem="dgD-wv-iuF" firstAttribute="top" secondItem="iQw-bY-viw" secondAttribute="bottom" constant="7.5" id="wID-yA-RTm"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="XDw-nM-fkY"/>
+                                <exclude reference="jOm-co-41Y"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="XDw-nM-fkY"/>
+                                <include reference="jOm-co-41Y"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -112,7 +137,133 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dla-Vo-j0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1113" y="1023"/>
+            <point key="canvasLocation" x="1115" y="1091"/>
+        </scene>
+        <!--Logs Controller-->
+        <scene sceneID="Nlf-nR-h8a">
+            <objects>
+                <viewController id="OKk-nq-oXO" customClass="LogsController" customModule="CallMom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="04e-Xo-aEQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="OKl-6Z-IA3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="99b-DT-JF0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sm-s0-rGH">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Back to DEBUG SCREEN">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="show" id="kre-oG-ujg"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="20" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XRu-3I-Ow2">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="logItem" id="5Kb-Er-TtM" customClass="LogItemCell" customModule="CallMom" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="5Kb-Er-TtM" id="pId-r8-Wrn">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample log linenext line" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtk-dc-SBw">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="10"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Mtk-dc-SBw" firstAttribute="top" secondItem="pId-r8-Wrn" secondAttribute="top" id="0G3-Gz-gA8"/>
+                                                <constraint firstItem="Mtk-dc-SBw" firstAttribute="leading" secondItem="pId-r8-Wrn" secondAttribute="leading" id="Qch-Rz-PCv"/>
+                                                <constraint firstAttribute="bottom" secondItem="Mtk-dc-SBw" secondAttribute="bottom" id="txl-KQ-Xjs"/>
+                                                <constraint firstAttribute="trailing" secondItem="Mtk-dc-SBw" secondAttribute="trailing" id="vTh-ef-IeR"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="Mtk-dc-SBw"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="0G3-Gz-gA8"/>
+                                                    <exclude reference="Qch-Rz-PCv"/>
+                                                    <exclude reference="txl-KQ-Xjs"/>
+                                                    <exclude reference="vTh-ef-IeR"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="Mtk-dc-SBw"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="0G3-Gz-gA8"/>
+                                                    <include reference="Qch-Rz-PCv"/>
+                                                    <include reference="txl-KQ-Xjs"/>
+                                                    <include reference="vTh-ef-IeR"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.98884910721177288" green="1" blue="0.76994743167790936" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="message" destination="Mtk-dc-SBw" id="JjG-wG-zmM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="OKk-nq-oXO" id="xOB-LX-kFd"/>
+                                    <outlet property="delegate" destination="OKk-nq-oXO" id="pex-O6-WQf"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Sm-s0-rGH" firstAttribute="bottom" secondItem="OKl-6Z-IA3" secondAttribute="top" id="CYe-im-i4f"/>
+                            <constraint firstItem="8Sm-s0-rGH" firstAttribute="leading" secondItem="99b-DT-JF0" secondAttribute="leadingMargin" id="Fso-m5-42C"/>
+                            <constraint firstItem="8Sm-s0-rGH" firstAttribute="top" secondItem="XRu-3I-Ow2" secondAttribute="bottom" constant="2" id="HBE-rQ-b2i"/>
+                            <constraint firstItem="XRu-3I-Ow2" firstAttribute="trailing" secondItem="99b-DT-JF0" secondAttribute="trailingMargin" id="MB3-6W-Oho"/>
+                            <constraint firstItem="XRu-3I-Ow2" firstAttribute="top" secondItem="04e-Xo-aEQ" secondAttribute="bottom" constant="8" symbolic="YES" id="Rz1-Xs-IeO"/>
+                            <constraint firstItem="XRu-3I-Ow2" firstAttribute="leading" secondItem="8Sm-s0-rGH" secondAttribute="leading" id="Vdw-fs-D7l"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="8Sm-s0-rGH"/>
+                                <exclude reference="XRu-3I-Ow2"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="MB3-6W-Oho"/>
+                                <exclude reference="Rz1-Xs-IeO"/>
+                                <exclude reference="Vdw-fs-D7l"/>
+                                <exclude reference="CYe-im-i4f"/>
+                                <exclude reference="Fso-m5-42C"/>
+                                <exclude reference="HBE-rQ-b2i"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="8Sm-s0-rGH"/>
+                                <include reference="XRu-3I-Ow2"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="MB3-6W-Oho"/>
+                                <include reference="Rz1-Xs-IeO"/>
+                                <include reference="Vdw-fs-D7l"/>
+                                <include reference="CYe-im-i4f"/>
+                                <include reference="Fso-m5-42C"/>
+                                <include reference="HBE-rQ-b2i"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="XRu-3I-Ow2" id="ztO-Hb-kEZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CAT-o0-g4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1116" y="1785"/>
         </scene>
     </scenes>
 </document>
