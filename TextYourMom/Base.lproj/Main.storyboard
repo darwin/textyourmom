@@ -7,12 +7,12 @@
         <!--Debug Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="Debug" id="vXZ-lx-hvc" customClass="DebugController" customModule="CallMom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Debug" id="vXZ-lx-hvc" customClass="DebugController" customModule="TextYourMom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS" customClass="CanvasView" customModule="CallMom" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS" customClass="CanvasView" customModule="TextYourMom" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -98,12 +98,12 @@
         <!--Intro Controller-->
         <scene sceneID="kjT-7b-FTP">
             <objects>
-                <viewController storyboardIdentifier="Intro" id="cbJ-Hp-adm" customClass="IntroController" customModule="CallMom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Intro" id="cbJ-Hp-adm" customClass="IntroController" customModule="TextYourMom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SXG-Xc-IN2"/>
                         <viewControllerLayoutGuide type="bottom" id="h7v-ew-FSz"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zH8-ay-eiq" customClass="CanvasView" customModule="CallMom" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="zH8-ay-eiq" customClass="CanvasView" customModule="TextYourMom" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -186,12 +186,12 @@
         <!--Empty Controller-->
         <scene sceneID="Y6H-bt-0ce">
             <objects>
-                <viewController storyboardIdentifier="Empty" id="bJI-SH-pTH" customClass="EmptyController" customModule="CallMom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Empty" id="bJI-SH-pTH" customClass="EmptyController" customModule="TextYourMom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nRs-R7-eWF"/>
                         <viewControllerLayoutGuide type="bottom" id="rUv-nq-Eag"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="s9C-Hf-9dR" customClass="CanvasView" customModule="CallMom" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="s9C-Hf-9dR" customClass="CanvasView" customModule="TextYourMom" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -204,12 +204,12 @@
         <!--Main Controller-->
         <scene sceneID="pbK-58-kEF">
             <objects>
-                <viewController storyboardIdentifier="Main" id="jgb-Qu-2y9" customClass="MainController" customModule="CallMom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="jgb-Qu-2y9" customClass="MainController" customModule="TextYourMom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ouq-8R-bIL"/>
                         <viewControllerLayoutGuide type="bottom" id="6ik-MH-yPl"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bKa-4C-VUh" customClass="CanvasView" customModule="CallMom" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="bKa-4C-VUh" customClass="CanvasView" customModule="TextYourMom" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -259,12 +259,12 @@
         <!--No Location And Notifications Controller-->
         <scene sceneID="NNE-pZ-VUu">
             <objects>
-                <viewController storyboardIdentifier="NoLocationAndNotifications" id="VHD-of-5qi" customClass="NoLocationAndNotificationsController" customModule="CallMom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoLocationAndNotifications" id="VHD-of-5qi" customClass="NoLocationAndNotificationsController" customModule="TextYourMom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="05h-V7-DHe"/>
                         <viewControllerLayoutGuide type="bottom" id="Cou-IO-hf7"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sp2-uN-KeN" customClass="CanvasView" customModule="CallMom" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="sp2-uN-KeN" customClass="CanvasView" customModule="TextYourMom" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -314,12 +314,12 @@
         <!--No Notifications Controller-->
         <scene sceneID="U1A-EH-cgv">
             <objects>
-                <viewController storyboardIdentifier="NoNotifications" id="yrn-aF-7Yo" customClass="NoNotificationsController" customModule="CallMom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoNotifications" id="yrn-aF-7Yo" customClass="NoNotificationsController" customModule="TextYourMom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qwa-tS-TQj"/>
                         <viewControllerLayoutGuide type="bottom" id="EZn-7y-09c"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0RV-nH-WZd" customClass="CanvasView" customModule="CallMom" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="0RV-nH-WZd" customClass="CanvasView" customModule="TextYourMom" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -369,12 +369,12 @@
         <!--No Location Controller-->
         <scene sceneID="eL0-RF-kh9">
             <objects>
-                <viewController storyboardIdentifier="NoLocation" id="QbM-0V-zjR" customClass="NoLocationController" customModule="CallMom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoLocation" id="QbM-0V-zjR" customClass="NoLocationController" customModule="TextYourMom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9FN-zX-hLf"/>
                         <viewControllerLayoutGuide type="bottom" id="huh-qz-KL8"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="LeS-jL-bIY" customClass="CanvasView" customModule="CallMom" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="LeS-jL-bIY" customClass="CanvasView" customModule="TextYourMom" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -424,12 +424,12 @@
         <!--Logs Controller-->
         <scene sceneID="Nlf-nR-h8a">
             <objects>
-                <viewController storyboardIdentifier="Logs" id="OKk-nq-oXO" customClass="LogsController" customModule="CallMom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Logs" id="OKk-nq-oXO" customClass="LogsController" customModule="TextYourMom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="04e-Xo-aEQ"/>
                         <viewControllerLayoutGuide type="bottom" id="OKl-6Z-IA3"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="99b-DT-JF0" customClass="CanvasView" customModule="CallMom" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="99b-DT-JF0" customClass="CanvasView" customModule="TextYourMom" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -437,7 +437,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="logItem" id="5Kb-Er-TtM" customClass="LogItemCell" customModule="CallMom" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="logItem" id="5Kb-Er-TtM" customClass="LogItemCell" customModule="TextYourMom" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="5Kb-Er-TtM" id="pId-r8-Wrn">

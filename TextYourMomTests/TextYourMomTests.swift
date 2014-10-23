@@ -1,7 +1,7 @@
 import UIKit
 import XCTest
 
-class CallMomTests: XCTestCase {
+class TextYourMomTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

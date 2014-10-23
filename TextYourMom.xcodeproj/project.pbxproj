@@ -12,7 +12,7 @@
 		D6269F9F19F465EF00BE7A30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6269F9D19F465EF00BE7A30 /* Main.storyboard */; };
 		D6269FA119F465EF00BE7A30 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6269FA019F465EF00BE7A30 /* Images.xcassets */; };
 		D6269FA419F465EF00BE7A30 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6269FA219F465EF00BE7A30 /* LaunchScreen.xib */; };
-		D6269FB019F465EF00BE7A30 /* CallMomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6269FAF19F465EF00BE7A30 /* CallMomTests.swift */; };
+		D6269FB019F465EF00BE7A30 /* TextYourMomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6269FAF19F465EF00BE7A30 /* TextYourMomTests.swift */; };
 		D6269FBC19F472A400BE7A30 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6269FBB19F472A400BE7A30 /* MainController.swift */; };
 		D6269FBF19F475C700BE7A30 /* Brain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6269FBD19F475C700BE7A30 /* Brain.swift */; };
 		D6269FC019F475C700BE7A30 /* AirportsWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6269FBE19F475C700BE7A30 /* AirportsWatcher.swift */; };
@@ -47,7 +47,7 @@
 			containerPortal = D6269F8C19F465EF00BE7A30 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D6269F9319F465EF00BE7A30;
-			remoteInfo = CallMom;
+			remoteInfo = TextYourMom;
 		};
 		D67416E319F59F5900F05672 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -66,16 +66,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D6269F9419F465EF00BE7A30 /* CallMom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CallMom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6269F9419F465EF00BE7A30 /* TextYourMom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextYourMom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6269F9819F465EF00BE7A30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6269F9919F465EF00BE7A30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D6269F9B19F465EF00BE7A30 /* DebugController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugController.swift; sourceTree = "<group>"; };
 		D6269F9E19F465EF00BE7A30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6269FA019F465EF00BE7A30 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D6269FA319F465EF00BE7A30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		D6269FA919F465EF00BE7A30 /* CallMomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CallMomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6269FA919F465EF00BE7A30 /* TextYourMomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextYourMomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6269FAE19F465EF00BE7A30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6269FAF19F465EF00BE7A30 /* CallMomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallMomTests.swift; sourceTree = "<group>"; };
+		D6269FAF19F465EF00BE7A30 /* TextYourMomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextYourMomTests.swift; sourceTree = "<group>"; };
 		D6269FBB19F472A400BE7A30 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		D6269FBD19F475C700BE7A30 /* Brain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Brain.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D6269FBE19F475C700BE7A30 /* AirportsWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AirportsWatcher.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -94,14 +94,14 @@
 		D664C30D19F8686400366892 /* NoLocationsAndNotificationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoLocationsAndNotificationsController.swift; sourceTree = "<group>"; };
 		D664C30E19F8686400366892 /* NoNotificationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoNotificationsController.swift; sourceTree = "<group>"; };
 		D664C31219F882AC00366892 /* EmptyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyController.swift; sourceTree = "<group>"; };
-		D67416DE19F59F5900F05672 /* Dollar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Dollar.xcodeproj; path = CallMom/Dollar.swift/Dollar/Dollar.xcodeproj; sourceTree = "<group>"; };
+		D67416DE19F59F5900F05672 /* Dollar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Dollar.xcodeproj; path = TextYourMom/Dollar.swift/Dollar/Dollar.xcodeproj; sourceTree = "<group>"; };
 		D67416EB19F5B9AE00F05672 /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Executor.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		D690795319F57B150048E035 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Airport.swift; path = ../../callmom/CallMom/Airport.swift; sourceTree = "<group>"; };
+		D690795319F57B150048E035 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Airport.swift; path = ../../callmom/TextYourMom/Airport.swift; sourceTree = "<group>"; };
 		D690795519F57BB60048E035 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		D690795919F597C50048E035 /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dispatcher.swift; path = ../../callmom/CallMom/dispatcher/Dispatcher.swift; sourceTree = "<group>"; };
-		D690795A19F597C50048E035 /* DispatchGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DispatchGroup.swift; path = ../../callmom/CallMom/dispatcher/DispatchGroup.swift; sourceTree = "<group>"; };
-		D690795B19F597C50048E035 /* DispatchQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DispatchQueue.swift; path = ../../callmom/CallMom/dispatcher/DispatchQueue.swift; sourceTree = "<group>"; };
-		D690795C19F597C50048E035 /* DispatchTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DispatchTimer.swift; path = ../../callmom/CallMom/dispatcher/DispatchTimer.swift; sourceTree = "<group>"; };
+		D690795919F597C50048E035 /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dispatcher.swift; path = ../../callmom/TextYourMom/dispatcher/Dispatcher.swift; sourceTree = "<group>"; };
+		D690795A19F597C50048E035 /* DispatchGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DispatchGroup.swift; path = ../../callmom/TextYourMom/dispatcher/DispatchGroup.swift; sourceTree = "<group>"; };
+		D690795B19F597C50048E035 /* DispatchQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DispatchQueue.swift; path = ../../callmom/TextYourMom/dispatcher/DispatchQueue.swift; sourceTree = "<group>"; };
+		D690795C19F597C50048E035 /* DispatchTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DispatchTimer.swift; path = ../../callmom/TextYourMom/dispatcher/DispatchTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +129,8 @@
 			children = (
 				D67416DE19F59F5900F05672 /* Dollar.xcodeproj */,
 				D6269FC119F4793100BE7A30 /* MapKit.framework */,
-				D6269F9619F465EF00BE7A30 /* CallMom */,
-				D6269FAC19F465EF00BE7A30 /* CallMomTests */,
+				D6269F9619F465EF00BE7A30 /* TextYourMom */,
+				D6269FAC19F465EF00BE7A30 /* TextYourMomTests */,
 				D6269F9519F465EF00BE7A30 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -138,13 +138,13 @@
 		D6269F9519F465EF00BE7A30 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D6269F9419F465EF00BE7A30 /* CallMom.app */,
-				D6269FA919F465EF00BE7A30 /* CallMomTests.xctest */,
+				D6269F9419F465EF00BE7A30 /* TextYourMom.app */,
+				D6269FA919F465EF00BE7A30 /* TextYourMomTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D6269F9619F465EF00BE7A30 /* CallMom */ = {
+		D6269F9619F465EF00BE7A30 /* TextYourMom */ = {
 			isa = PBXGroup;
 			children = (
 				D664C30B19F8680E00366892 /* Plumbing */,
@@ -163,7 +163,7 @@
 				D6269FA219F465EF00BE7A30 /* LaunchScreen.xib */,
 				D6269F9719F465EF00BE7A30 /* Supporting Files */,
 			);
-			path = CallMom;
+			path = TextYourMom;
 			sourceTree = "<group>";
 		};
 		D6269F9719F465EF00BE7A30 /* Supporting Files */ = {
@@ -175,13 +175,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D6269FAC19F465EF00BE7A30 /* CallMomTests */ = {
+		D6269FAC19F465EF00BE7A30 /* TextYourMomTests */ = {
 			isa = PBXGroup;
 			children = (
-				D6269FAF19F465EF00BE7A30 /* CallMomTests.swift */,
+				D6269FAF19F465EF00BE7A30 /* TextYourMomTests.swift */,
 				D6269FAD19F465EF00BE7A30 /* Supporting Files */,
 			);
-			path = CallMomTests;
+			path = TextYourMomTests;
 			sourceTree = "<group>";
 		};
 		D6269FAD19F465EF00BE7A30 /* Supporting Files */ = {
@@ -242,9 +242,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D6269F9319F465EF00BE7A30 /* CallMom */ = {
+		D6269F9319F465EF00BE7A30 /* TextYourMom */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D6269FB319F465EF00BE7A30 /* Build configuration list for PBXNativeTarget "CallMom" */;
+			buildConfigurationList = D6269FB319F465EF00BE7A30 /* Build configuration list for PBXNativeTarget "TextYourMom" */;
 			buildPhases = (
 				D6269F9019F465EF00BE7A30 /* Sources */,
 				D6269F9119F465EF00BE7A30 /* Frameworks */,
@@ -254,14 +254,14 @@
 			);
 			dependencies = (
 			);
-			name = CallMom;
-			productName = CallMom;
-			productReference = D6269F9419F465EF00BE7A30 /* CallMom.app */;
+			name = TextYourMom;
+			productName = TextYourMom;
+			productReference = D6269F9419F465EF00BE7A30 /* TextYourMom.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D6269FA819F465EF00BE7A30 /* CallMomTests */ = {
+		D6269FA819F465EF00BE7A30 /* TextYourMomTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D6269FB619F465EF00BE7A30 /* Build configuration list for PBXNativeTarget "CallMomTests" */;
+			buildConfigurationList = D6269FB619F465EF00BE7A30 /* Build configuration list for PBXNativeTarget "TextYourMomTests" */;
 			buildPhases = (
 				D6269FA519F465EF00BE7A30 /* Sources */,
 				D6269FA619F465EF00BE7A30 /* Frameworks */,
@@ -272,9 +272,9 @@
 			dependencies = (
 				D6269FAB19F465EF00BE7A30 /* PBXTargetDependency */,
 			);
-			name = CallMomTests;
-			productName = CallMomTests;
-			productReference = D6269FA919F465EF00BE7A30 /* CallMomTests.xctest */;
+			name = TextYourMomTests;
+			productName = TextYourMomTests;
+			productReference = D6269FA919F465EF00BE7A30 /* TextYourMomTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -303,7 +303,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D6269F8F19F465EF00BE7A30 /* Build configuration list for PBXProject "CallMom" */;
+			buildConfigurationList = D6269F8F19F465EF00BE7A30 /* Build configuration list for PBXProject "TextYourMom" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -322,8 +322,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				D6269F9319F465EF00BE7A30 /* CallMom */,
-				D6269FA819F465EF00BE7A30 /* CallMomTests */,
+				D6269F9319F465EF00BE7A30 /* TextYourMom */,
+				D6269FA819F465EF00BE7A30 /* TextYourMomTests */,
 			);
 		};
 /* End PBXProject section */
@@ -403,7 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6269FB019F465EF00BE7A30 /* CallMomTests.swift in Sources */,
+				D6269FB019F465EF00BE7A30 /* TextYourMomTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +412,7 @@
 /* Begin PBXTargetDependency section */
 		D6269FAB19F465EF00BE7A30 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D6269F9319F465EF00BE7A30 /* CallMom */;
+			target = D6269F9319F465EF00BE7A30 /* TextYourMom */;
 			targetProxy = D6269FAA19F465EF00BE7A30 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -518,7 +518,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = CallMom/Info.plist;
+				INFOPLIST_FILE = TextYourMom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -528,7 +528,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = CallMom/Info.plist;
+				INFOPLIST_FILE = TextYourMom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -546,10 +546,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = CallMomTests/Info.plist;
+				INFOPLIST_FILE = TextYourMomTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CallMom.app/CallMom";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TextYourMom.app/TextYourMom";
 			};
 			name = Debug;
 		};
@@ -561,17 +561,17 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = CallMomTests/Info.plist;
+				INFOPLIST_FILE = TextYourMomTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CallMom.app/CallMom";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TextYourMom.app/TextYourMom";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D6269F8F19F465EF00BE7A30 /* Build configuration list for PBXProject "CallMom" */ = {
+		D6269F8F19F465EF00BE7A30 /* Build configuration list for PBXProject "TextYourMom" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D6269FB119F465EF00BE7A30 /* Debug */,
@@ -580,7 +580,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D6269FB319F465EF00BE7A30 /* Build configuration list for PBXNativeTarget "CallMom" */ = {
+		D6269FB319F465EF00BE7A30 /* Build configuration list for PBXNativeTarget "TextYourMom" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D6269FB419F465EF00BE7A30 /* Debug */,
@@ -589,7 +589,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D6269FB619F465EF00BE7A30 /* Build configuration list for PBXNativeTarget "CallMomTests" */ = {
+		D6269FB619F465EF00BE7A30 /* Build configuration list for PBXNativeTarget "TextYourMomTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D6269FB719F465EF00BE7A30 /* Debug */,
