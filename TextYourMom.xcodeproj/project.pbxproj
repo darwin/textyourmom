@@ -34,7 +34,6 @@
 		D664C31719F9AB7E00366892 /* ErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C31619F9AB7E00366892 /* ErrorController.swift */; };
 		D67416E919F59FF400F05672 /* Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67416E419F59F5900F05672 /* Dollar.framework */; };
 		D67416EC19F5B9AE00F05672 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67416EB19F5B9AE00F05672 /* Executor.swift */; };
-		D690795419F57B150048E035 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795319F57B150048E035 /* Airport.swift */; };
 		D690795619F57BB60048E035 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795519F57BB60048E035 /* Utils.swift */; };
 		D690795D19F597C50048E035 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795919F597C50048E035 /* Dispatcher.swift */; };
 		D690795E19F597C50048E035 /* DispatchGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795A19F597C50048E035 /* DispatchGroup.swift */; };
@@ -98,7 +97,6 @@
 		D664C31619F9AB7E00366892 /* ErrorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorController.swift; sourceTree = "<group>"; };
 		D67416DE19F59F5900F05672 /* Dollar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Dollar.xcodeproj; path = TextYourMom/Dollar.swift/Dollar/Dollar.xcodeproj; sourceTree = "<group>"; };
 		D67416EB19F5B9AE00F05672 /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Executor.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		D690795319F57B150048E035 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Airport.swift; path = ../../callmom/TextYourMom/Airport.swift; sourceTree = "<group>"; };
 		D690795519F57BB60048E035 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D690795919F597C50048E035 /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dispatcher.swift; path = ../../callmom/TextYourMom/dispatcher/Dispatcher.swift; sourceTree = "<group>"; };
 		D690795A19F597C50048E035 /* DispatchGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DispatchGroup.swift; path = ../../callmom/TextYourMom/dispatcher/DispatchGroup.swift; sourceTree = "<group>"; };
@@ -152,14 +150,12 @@
 				D664C30B19F8680E00366892 /* Plumbing */,
 				D664C30A19F867F000366892 /* Views */,
 				D690796119F598190048E035 /* Dispatcher */,
+				D6269F9919F465EF00BE7A30 /* AppDelegate.swift */,
 				D664C30419F82E1400366892 /* MasterController.swift */,
-				D690795319F57B150048E035 /* Airport.swift */,
 				D6269FC319F47F1800BE7A30 /* AirportsProvider.swift */,
 				D6269FBE19F475C700BE7A30 /* AirportsWatcher.swift */,
 				D6269FBD19F475C700BE7A30 /* Brain.swift */,
 				D67416EB19F5B9AE00F05672 /* Executor.swift */,
-				D6269F9919F465EF00BE7A30 /* AppDelegate.swift */,
-				D664C2FE19F6F32A00366892 /* LogsModel.swift */,
 				D6269F9D19F465EF00BE7A30 /* Main.storyboard */,
 				D6269FA019F465EF00BE7A30 /* Images.xcassets */,
 				D6269FA219F465EF00BE7A30 /* LaunchScreen.xib */,
@@ -213,6 +209,7 @@
 		D664C30B19F8680E00366892 /* Plumbing */ = {
 			isa = PBXGroup;
 			children = (
+				D664C2FE19F6F32A00366892 /* LogsModel.swift */,
 				D664C2FC19F6F2F400366892 /* Globals.swift */,
 				D664C30119F82DCF00366892 /* Persistence.swift */,
 				D690795519F57BB60048E035 /* Utils.swift */,
@@ -375,7 +372,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6269FC419F47F1800BE7A30 /* AirportsProvider.swift in Sources */,
-				D690795419F57B150048E035 /* Airport.swift in Sources */,
 				D664C2FB19F6F06D00366892 /* LogsController.swift in Sources */,
 				D690796019F597C50048E035 /* DispatchTimer.swift in Sources */,
 				D690795619F57BB60048E035 /* Utils.swift in Sources */,

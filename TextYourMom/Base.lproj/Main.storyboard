@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bJI-SH-pTH">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Debug Controller-->
@@ -35,20 +36,26 @@
                                 <state key="normal" title="Intro Workflow">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="doIntroWorkflow:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Lg5-GO-0BW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hg4-PI-bFG">
                                 <rect key="frame" x="240.5" y="126" width="118" height="30"/>
                                 <state key="normal" title="Normal Workflow">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="doNormalWorkflow:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ozV-6z-jYK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCl-yW-w9V">
                                 <rect key="frame" x="256" y="202" width="87" height="30"/>
-                                <state key="normal" title="Set Location">
+                                <state key="normal" title="Override Location">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="doSetLocation:" destination="vXZ-lx-hvc" eventType="touchDown" id="5UK-Jd-tY5"/>
+                                    <action selector="doOverrideLocation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="a6o-eL-yFz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGn-8N-Vez">
@@ -57,7 +64,16 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="doShowLogs:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="JHD-Ur-1d3"/>
+                                    <action selector="doShowLogs:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jX7-sN-Q3j"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiH-iQ-pbJ">
+                                <rect key="frame" x="261" y="240" width="77" height="30"/>
+                                <state key="normal" title="Error Workflow">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doErrorWorkflow:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BuR-eK-Hdo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -74,13 +90,20 @@
                             <constraint firstItem="hg4-PI-bFG" firstAttribute="top" secondItem="dgD-wv-iuF" secondAttribute="bottom" constant="8" id="dm0-2U-ohx"/>
                             <constraint firstItem="PGn-8N-Vez" firstAttribute="top" secondItem="LCl-yW-w9V" secondAttribute="bottom" constant="8" id="eiC-X6-GD1"/>
                             <constraint firstAttribute="centerX" secondItem="cVD-Mk-xg3" secondAttribute="centerX" id="gXz-Nq-Z1s"/>
+                            <constraint firstAttribute="centerX" secondItem="FiH-iQ-pbJ" secondAttribute="centerX" id="iW2-fV-eQP"/>
                             <constraint firstAttribute="centerX" secondItem="PGn-8N-Vez" secondAttribute="centerX" id="jOm-co-41Y"/>
                             <constraint firstAttribute="centerX" secondItem="hg4-PI-bFG" secondAttribute="centerX" id="on7-Ny-hlz"/>
+                            <constraint firstItem="FiH-iQ-pbJ" firstAttribute="top" secondItem="PGn-8N-Vez" secondAttribute="bottom" constant="8" id="uBx-un-l6d"/>
                             <constraint firstAttribute="centerX" secondItem="iQw-bY-viw" secondAttribute="centerX" id="uKq-vH-ZAy"/>
                             <constraint firstItem="dgD-wv-iuF" firstAttribute="top" secondItem="iQw-bY-viw" secondAttribute="bottom" constant="7.5" id="wID-yA-RTm"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="FiH-iQ-pbJ"/>
+                            </mask>
                             <mask key="constraints">
+                                <exclude reference="iW2-fV-eQP"/>
+                                <exclude reference="uBx-un-l6d"/>
                                 <exclude reference="XDw-nM-fkY"/>
                                 <exclude reference="jOm-co-41Y"/>
                             </mask>
@@ -89,6 +112,15 @@
                             <mask key="constraints">
                                 <include reference="XDw-nM-fkY"/>
                                 <include reference="jOm-co-41Y"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="FiH-iQ-pbJ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="iW2-fV-eQP"/>
+                                <include reference="uBx-un-l6d"/>
                             </mask>
                         </variation>
                     </view>
@@ -383,25 +415,52 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Error" translatesAutoresizingMaskIntoConstraints="NO" id="Pby-NL-lhB">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some long error message could be potentially presented here..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="360" translatesAutoresizingMaskIntoConstraints="NO" id="Az1-eP-57d">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.010051519906341788" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="qzt-fO-ZTG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="qzt-fO-ZTG"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="qzt-fO-ZTG"/>
+                                    </mask>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="LLs-LT-t2m" firstAttribute="top" secondItem="Az1-eP-57d" secondAttribute="bottom" constant="20" id="7mX-Xh-qTK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Az1-eP-57d" secondAttribute="trailing" id="TYo-dx-UyO"/>
                             <constraint firstItem="Pby-NL-lhB" firstAttribute="top" secondItem="2Iw-wV-PTk" secondAttribute="bottom" id="VcF-zo-KP1">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="Pby-NL-lhB" secondAttribute="trailing" id="ZtN-hB-JfO"/>
+                            <constraint firstItem="Az1-eP-57d" firstAttribute="leading" secondItem="cRx-BI-dW2" secondAttribute="leadingMargin" id="fSt-TP-f2d"/>
                             <constraint firstItem="Pby-NL-lhB" firstAttribute="leading" secondItem="cRx-BI-dW2" secondAttribute="leading" id="lvJ-1i-Bcp"/>
                             <constraint firstItem="LLs-LT-t2m" firstAttribute="top" secondItem="Pby-NL-lhB" secondAttribute="bottom" id="wZF-PP-rtK"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Pby-NL-lhB"/>
+                                <exclude reference="Az1-eP-57d"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="wZF-PP-rtK"/>
-                                <exclude reference="lvJ-1i-Bcp"/>
-                                <exclude reference="ZtN-hB-JfO"/>
                                 <exclude reference="VcF-zo-KP1"/>
+                                <exclude reference="ZtN-hB-JfO"/>
+                                <exclude reference="lvJ-1i-Bcp"/>
+                                <exclude reference="TYo-dx-UyO"/>
+                                <exclude reference="fSt-TP-f2d"/>
+                                <exclude reference="7mX-Xh-qTK"/>
+                                <exclude reference="wZF-PP-rtK"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -410,18 +469,27 @@
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Az1-eP-57d"/>
+                            </mask>
                             <mask key="constraints">
-                                <include reference="wZF-PP-rtK"/>
-                                <include reference="lvJ-1i-Bcp"/>
-                                <include reference="ZtN-hB-JfO"/>
                                 <include reference="VcF-zo-KP1"/>
+                                <include reference="ZtN-hB-JfO"/>
+                                <include reference="lvJ-1i-Bcp"/>
+                                <include reference="TYo-dx-UyO"/>
+                                <include reference="fSt-TP-f2d"/>
+                                <include reference="7mX-Xh-qTK"/>
+                                <include reference="wZF-PP-rtK"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="message" destination="Az1-eP-57d" id="mfE-eP-Abv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spJ-vP-xqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3130.5" y="-55.5"/>
+            <point key="canvasLocation" x="3910.5" y="-55.5"/>
         </scene>
         <!--No Location Controller-->
         <scene sceneID="eL0-RF-kh9">

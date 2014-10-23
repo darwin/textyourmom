@@ -70,30 +70,34 @@ func topController() -> UIViewController? {
 
 var disableScreenSwitching = false
 
-func switchToScreen(name:String, completion: (() -> Void)? = nil) {
+func switchToScreen(name:String, completion: (() -> Void)? = nil) -> UIViewController {
+    let controller = viewController(name)!
     if disableScreenSwitching {
-        log("->| \(name)")
-        return
+        log("-x-> \(name)")
+        return controller
     }
-    let controller = viewController(name)
-    if controller != nil {
-        log("-> \(name)")
-        queuePresentViewController(topController()!, controller!, false)
-    }
+    log("---> \(name)")
+    queuePresentViewController(controller, false)
+    return controller
 }
 
 // switchToScreen could be called in reaction to events, potentially multiple times when animations are in-flight
 // this is simple queue implementation for serialization of presentViewController calls
 // inspiration: https://gist.github.com/kommen/5743831
 var presentViewControllerQueue = dispatch_queue_create("presentViewControllerQueue", DISPATCH_QUEUE_SERIAL)
-func queuePresentViewController(from: UIViewController, to:UIViewController, animated:Bool, completion: (() -> Void)? = nil) {
+func queuePresentViewController(to:UIViewController, animated:Bool, completion: (() -> Void)? = nil) {
     dispatch_async(presentViewControllerQueue, {
         var sema = dispatch_semaphore_create(0)
         dispatch_async(dispatch_get_main_queue(), {
-            from.presentViewController(to, animated:animated, completion:{
+            if let from = topController() {
+                from.presentViewController(to, animated:animated, completion:{
+                    dispatch_semaphore_signal(sema);
+                    completion?()
+                })
+            } else {
+                log("failed to retrieve top controller")
                 dispatch_semaphore_signal(sema);
-                completion?()
-            })
+            }
         });
         dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
     });

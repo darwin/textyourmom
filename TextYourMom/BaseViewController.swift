@@ -5,9 +5,11 @@ protocol BaseViewControllerCanvasDelegate {
 }
 
 class BaseViewController: UIViewController {
+    typealias InitLambda = ((UIViewController) -> Void)
     
     var debugButton : UIButton?
     var canvasView : CanvasView?
+    var initializers : [InitLambda] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +20,12 @@ class BaseViewController: UIViewController {
             canvasView!.delegate = self
         }
         injectDebugControlsIfRequired()
+        
+        // do registered initializers
+        for initializer in initializers {
+           initializer(self)
+        }
+        initializers = []
     }
     
     func debugButton(sender:UIButton!) {

@@ -61,14 +61,16 @@ class MasterController {
         return .Normal
     }
     
-    func refreshApp() {
+    func refreshApp(_ overrideState:AppState? = nil) {
         if !emptyControllerReady {
             return
         }
-
-        let state = detectAppState()
+        var state = overrideState
+        if state == nil {
+            state = detectAppState()
+        }
         log("Refresh app with state \(state)")
-        switch state {
+        switch state! {
         case .Normal:
             executor.setupNotifications()
             airportsWatcher.start() // TODO: check for errors?
@@ -87,6 +89,12 @@ class MasterController {
             switchToScreen("Intro")
         case let .Error(err):
             log("Error: \(err)")
+            let errorController = switchToScreen("Error") as ErrorController
+            errorController.initializers.append({
+                let this = $0 as ErrorController
+                this.message.text = err
+                this.message.setNeedsDisplay()
+            })
         }
     }
     
