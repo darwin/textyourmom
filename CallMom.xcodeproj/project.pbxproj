@@ -13,8 +13,7 @@
 		D6269FA119F465EF00BE7A30 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6269FA019F465EF00BE7A30 /* Images.xcassets */; };
 		D6269FA419F465EF00BE7A30 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6269FA219F465EF00BE7A30 /* LaunchScreen.xib */; };
 		D6269FB019F465EF00BE7A30 /* CallMomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6269FAF19F465EF00BE7A30 /* CallMomTests.swift */; };
-		D6269FBA19F4703000BE7A30 /* TutorialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6269FB919F4703000BE7A30 /* TutorialController.swift */; };
-		D6269FBC19F472A400BE7A30 /* MomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6269FBB19F472A400BE7A30 /* MomController.swift */; };
+		D6269FBC19F472A400BE7A30 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6269FBB19F472A400BE7A30 /* MainController.swift */; };
 		D6269FBF19F475C700BE7A30 /* Brain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6269FBD19F475C700BE7A30 /* Brain.swift */; };
 		D6269FC019F475C700BE7A30 /* AirportsWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6269FBE19F475C700BE7A30 /* AirportsWatcher.swift */; };
 		D6269FC219F4793100BE7A30 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6269FC119F4793100BE7A30 /* MapKit.framework */; };
@@ -23,6 +22,15 @@
 		D664C2FB19F6F06D00366892 /* LogsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C2FA19F6F06C00366892 /* LogsController.swift */; };
 		D664C2FD19F6F2F400366892 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C2FC19F6F2F400366892 /* Globals.swift */; };
 		D664C2FF19F6F32A00366892 /* LogsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C2FE19F6F32A00366892 /* LogsModel.swift */; };
+		D664C30219F82DCF00366892 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C30019F82DCF00366892 /* IntroController.swift */; };
+		D664C30319F82DCF00366892 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C30119F82DCF00366892 /* Persistence.swift */; };
+		D664C30519F82E1400366892 /* MasterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C30419F82E1400366892 /* MasterController.swift */; };
+		D664C30719F8307200366892 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C30619F8307200366892 /* BaseViewController.swift */; };
+		D664C30919F8397900366892 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C30819F8397900366892 /* CanvasView.swift */; };
+		D664C30F19F8686400366892 /* NoLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C30C19F8686400366892 /* NoLocationController.swift */; };
+		D664C31019F8686400366892 /* NoLocationsAndNotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C30D19F8686400366892 /* NoLocationsAndNotificationsController.swift */; };
+		D664C31119F8686400366892 /* NoNotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C30E19F8686400366892 /* NoNotificationsController.swift */; };
+		D664C31319F882AC00366892 /* EmptyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C31219F882AC00366892 /* EmptyController.swift */; };
 		D67416E919F59FF400F05672 /* Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67416E419F59F5900F05672 /* Dollar.framework */; };
 		D67416EC19F5B9AE00F05672 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67416EB19F5B9AE00F05672 /* Executor.swift */; };
 		D690795419F57B150048E035 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795319F57B150048E035 /* Airport.swift */; };
@@ -68,8 +76,7 @@
 		D6269FA919F465EF00BE7A30 /* CallMomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CallMomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6269FAE19F465EF00BE7A30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6269FAF19F465EF00BE7A30 /* CallMomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallMomTests.swift; sourceTree = "<group>"; };
-		D6269FB919F4703000BE7A30 /* TutorialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialController.swift; sourceTree = "<group>"; };
-		D6269FBB19F472A400BE7A30 /* MomController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomController.swift; sourceTree = "<group>"; };
+		D6269FBB19F472A400BE7A30 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		D6269FBD19F475C700BE7A30 /* Brain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Brain.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D6269FBE19F475C700BE7A30 /* AirportsWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AirportsWatcher.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D6269FC119F4793100BE7A30 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -78,10 +85,19 @@
 		D664C2FA19F6F06C00366892 /* LogsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsController.swift; sourceTree = "<group>"; };
 		D664C2FC19F6F2F400366892 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		D664C2FE19F6F32A00366892 /* LogsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsModel.swift; sourceTree = "<group>"; };
+		D664C30019F82DCF00366892 /* IntroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
+		D664C30119F82DCF00366892 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		D664C30419F82E1400366892 /* MasterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterController.swift; sourceTree = "<group>"; };
+		D664C30619F8307200366892 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D664C30819F8397900366892 /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		D664C30C19F8686400366892 /* NoLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoLocationController.swift; sourceTree = "<group>"; };
+		D664C30D19F8686400366892 /* NoLocationsAndNotificationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoLocationsAndNotificationsController.swift; sourceTree = "<group>"; };
+		D664C30E19F8686400366892 /* NoNotificationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoNotificationsController.swift; sourceTree = "<group>"; };
+		D664C31219F882AC00366892 /* EmptyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyController.swift; sourceTree = "<group>"; };
 		D67416DE19F59F5900F05672 /* Dollar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Dollar.xcodeproj; path = CallMom/Dollar.swift/Dollar/Dollar.xcodeproj; sourceTree = "<group>"; };
 		D67416EB19F5B9AE00F05672 /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Executor.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D690795319F57B150048E035 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Airport.swift; path = ../../callmom/CallMom/Airport.swift; sourceTree = "<group>"; };
-		D690795519F57BB60048E035 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = ../../callmom/CallMom/Utils.swift; sourceTree = "<group>"; };
+		D690795519F57BB60048E035 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D690795919F597C50048E035 /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dispatcher.swift; path = ../../callmom/CallMom/dispatcher/Dispatcher.swift; sourceTree = "<group>"; };
 		D690795A19F597C50048E035 /* DispatchGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DispatchGroup.swift; path = ../../callmom/CallMom/dispatcher/DispatchGroup.swift; sourceTree = "<group>"; };
 		D690795B19F597C50048E035 /* DispatchQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DispatchQueue.swift; path = ../../callmom/CallMom/dispatcher/DispatchQueue.swift; sourceTree = "<group>"; };
@@ -131,19 +147,16 @@
 		D6269F9619F465EF00BE7A30 /* CallMom */ = {
 			isa = PBXGroup;
 			children = (
+				D664C30B19F8680E00366892 /* Plumbing */,
+				D664C30A19F867F000366892 /* Views */,
 				D690796119F598190048E035 /* Dispatcher */,
-				D690795519F57BB60048E035 /* Utils.swift */,
-				D664C2FC19F6F2F400366892 /* Globals.swift */,
+				D664C30419F82E1400366892 /* MasterController.swift */,
 				D690795319F57B150048E035 /* Airport.swift */,
 				D6269FC319F47F1800BE7A30 /* AirportsProvider.swift */,
 				D6269FBE19F475C700BE7A30 /* AirportsWatcher.swift */,
 				D6269FBD19F475C700BE7A30 /* Brain.swift */,
 				D67416EB19F5B9AE00F05672 /* Executor.swift */,
 				D6269F9919F465EF00BE7A30 /* AppDelegate.swift */,
-				D6269FBB19F472A400BE7A30 /* MomController.swift */,
-				D6269FB919F4703000BE7A30 /* TutorialController.swift */,
-				D6269F9B19F465EF00BE7A30 /* DebugController.swift */,
-				D664C2FA19F6F06C00366892 /* LogsController.swift */,
 				D664C2FE19F6F32A00366892 /* LogsModel.swift */,
 				D6269F9D19F465EF00BE7A30 /* Main.storyboard */,
 				D6269FA019F465EF00BE7A30 /* Images.xcassets */,
@@ -177,6 +190,33 @@
 				D6269FAE19F465EF00BE7A30 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D664C30A19F867F000366892 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D664C31219F882AC00366892 /* EmptyController.swift */,
+				D664C30019F82DCF00366892 /* IntroController.swift */,
+				D6269FBB19F472A400BE7A30 /* MainController.swift */,
+				D664C30C19F8686400366892 /* NoLocationController.swift */,
+				D664C30D19F8686400366892 /* NoLocationsAndNotificationsController.swift */,
+				D664C30E19F8686400366892 /* NoNotificationsController.swift */,
+				D6269F9B19F465EF00BE7A30 /* DebugController.swift */,
+				D664C2FA19F6F06C00366892 /* LogsController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D664C30B19F8680E00366892 /* Plumbing */ = {
+			isa = PBXGroup;
+			children = (
+				D664C2FC19F6F2F400366892 /* Globals.swift */,
+				D664C30119F82DCF00366892 /* Persistence.swift */,
+				D690795519F57BB60048E035 /* Utils.swift */,
+				D664C30819F8397900366892 /* CanvasView.swift */,
+				D664C30619F8307200366892 /* BaseViewController.swift */,
+			);
+			name = Plumbing;
 			sourceTree = "<group>";
 		};
 		D67416DF19F59F5900F05672 /* Products */ = {
@@ -336,17 +376,25 @@
 				D664C2FB19F6F06D00366892 /* LogsController.swift in Sources */,
 				D690796019F597C50048E035 /* DispatchTimer.swift in Sources */,
 				D690795619F57BB60048E035 /* Utils.swift in Sources */,
+				D664C30F19F8686400366892 /* NoLocationController.swift in Sources */,
+				D664C31319F882AC00366892 /* EmptyController.swift in Sources */,
+				D664C30719F8307200366892 /* BaseViewController.swift in Sources */,
+				D664C30519F82E1400366892 /* MasterController.swift in Sources */,
 				D6269F9C19F465EF00BE7A30 /* DebugController.swift in Sources */,
+				D664C30919F8397900366892 /* CanvasView.swift in Sources */,
 				D690795D19F597C50048E035 /* Dispatcher.swift in Sources */,
 				D67416EC19F5B9AE00F05672 /* Executor.swift in Sources */,
+				D664C30319F82DCF00366892 /* Persistence.swift in Sources */,
+				D664C31119F8686400366892 /* NoNotificationsController.swift in Sources */,
+				D664C31019F8686400366892 /* NoLocationsAndNotificationsController.swift in Sources */,
 				D6269F9A19F465EF00BE7A30 /* AppDelegate.swift in Sources */,
-				D6269FBA19F4703000BE7A30 /* TutorialController.swift in Sources */,
 				D6269FC019F475C700BE7A30 /* AirportsWatcher.swift in Sources */,
 				D6269FBF19F475C700BE7A30 /* Brain.swift in Sources */,
+				D664C30219F82DCF00366892 /* IntroController.swift in Sources */,
 				D664C2FD19F6F2F400366892 /* Globals.swift in Sources */,
 				D664C2FF19F6F32A00366892 /* LogsModel.swift in Sources */,
 				D690795E19F597C50048E035 /* DispatchGroup.swift in Sources */,
-				D6269FBC19F472A400BE7A30 /* MomController.swift in Sources */,
+				D6269FBC19F472A400BE7A30 /* MainController.swift in Sources */,
 				D690795F19F597C50048E035 /* DispatchQueue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -41,3 +41,60 @@ func log(message:String, filePath:String = __FILE__, line: Int = __LINE__, funct
     
     sharedLogsModel.insert(message, filePath, line)
 }
+
+func storyBoard(name:String? = nil) -> UIStoryboard {
+    var effectiveName = name
+    if effectiveName == nil {
+        effectiveName = "Main" // TODO: lookup this in Info.plist
+    }
+    return UIStoryboard(name: effectiveName!, bundle: NSBundle.mainBundle())
+}
+
+func viewController(name:String, storyBoardName:String? = nil) -> UIViewController? {
+    let storyboard = storyBoard(name:storyBoardName)
+    return storyboard.instantiateViewControllerWithIdentifier(name) as? UIViewController
+}
+
+func topController() -> UIViewController? {
+    let rootController = mainWindow?.rootViewController
+    if rootController == nil {
+        return nil
+    }
+    
+    var controller = rootController!
+    while controller.presentedViewController != nil {
+        controller = controller.presentedViewController!
+    }
+    return controller
+}
+
+var disableScreenSwitching = false
+
+func switchToScreen(name:String, completion: (() -> Void)? = nil) {
+    if disableScreenSwitching {
+        log("->| \(name)")
+        return
+    }
+    let controller = viewController(name)
+    if controller != nil {
+        log("-> \(name)")
+        queuePresentViewController(topController()!, controller!, false)
+    }
+}
+
+// switchToScreen could be called in reaction to events, potentially multiple times when animations are in-flight
+// this is simple queue implementation for serialization of presentViewController calls
+// inspiration: https://gist.github.com/kommen/5743831
+var presentViewControllerQueue = dispatch_queue_create("presentViewControllerQueue", DISPATCH_QUEUE_SERIAL)
+func queuePresentViewController(from: UIViewController, to:UIViewController, animated:Bool, completion: (() -> Void)? = nil) {
+    dispatch_async(presentViewControllerQueue, {
+        var sema = dispatch_semaphore_create(0)
+        dispatch_async(dispatch_get_main_queue(), {
+            from.presentViewController(to, animated:animated, completion:{
+                dispatch_semaphore_signal(sema);
+                completion?()
+            })
+        });
+        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+    });
+}

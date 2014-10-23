@@ -4,7 +4,7 @@ class LogItemCell: UITableViewCell {
     @IBOutlet weak var message: UILabel!
 }
 
-class LogsController: UIViewController {
+class LogsController: BaseViewController {
     var model : LogsModel = sharedLogsModel
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,11 +19,6 @@ class LogsController: UIViewController {
         tableView.reloadData()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     func prepareCell() -> LogItemCell {
         return tableView.dequeueReusableCellWithIdentifier("logItem") as LogItemCell
     }

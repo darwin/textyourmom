@@ -3,6 +3,7 @@ import CoreLocation
 protocol AirportsWatcherDelegate {
     func enteredAirport(id:Int)
     func enteredNoMansLand()
+    func authorizationStatusChanged()
 }
 
 class AirportsWatcher: NSObject {
@@ -41,7 +42,9 @@ class AirportsWatcher: NSObject {
     }
     
     func hasRequiredAuthorizations() -> Bool {
-        return CLLocationManager.authorizationStatus()==CLAuthorizationStatus.Authorized
+        let status = CLLocationManager.authorizationStatus()
+        log("CLLocationManager.authorizationStatus() returned \(status.rawValue) (expected 3)")
+        return status.rawValue == 3 // Swift problem: .AuthorizedAlways
     }
     
     func requestRequiredAuthorizations() {
@@ -52,14 +55,7 @@ class AirportsWatcher: NSObject {
     }
     
     func start() -> Bool {
-        if !hasRequiredAuthorizations() {
-            requestRequiredAuthorizations()
-        }
-        if !hasRequiredAuthorizations() {
-            return false
-        }
-        
-        log("start");
+        log("AirportsWatcher start");
 
         if inSimulator() {
             // startMonitoringSignificantLocationChanges does not work in simulator
@@ -73,7 +69,7 @@ class AirportsWatcher: NSObject {
     }
     
     func stop() -> Bool {
-        log("stop");
+        log("AirportsWatcher stop");
         if inSimulator() {
             locationManager.stopUpdatingLocation()
         } else {
@@ -136,6 +132,7 @@ extension AirportsWatcher : CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         log("didChangeAuthorizationStatus \(status.rawValue)")
+        delegate?.authorizationStatusChanged()
     }
 }
 

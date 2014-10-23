@@ -26,5 +26,4 @@ extension Brain {
         lastVisitedAirport = airportName
         delegate?.remindCallMomFromAirport(city, airportName)
     }
-    
 }

@@ -7,8 +7,17 @@ let momCategoryString = "MomCategory"
 class Executor {
     
     init() {
+    }
+    
+    func setupNotifications() {
         registerForNotifications()
-        
+    }
+    
+    func hasRequiredNotificationSettings() -> Bool {
+        let settings = UIApplication.sharedApplication().currentUserNotificationSettings()
+        let hasAlert = (settings.types.rawValue & UIUserNotificationType.Alert.rawValue) != 0
+        let hasSound = (settings.types.rawValue & UIUserNotificationType.Sound.rawValue) != 0
+        return hasAlert
     }
 }
 
