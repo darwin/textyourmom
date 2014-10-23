@@ -3,4 +3,4 @@
 	url = git@github.com:aleclarson/dispatcher.git
 [submodule "TextYourMom/Dollar.swift"]
 	path = TextYourMom/Dollar.swift
-	url = https://github.com/ankurp/Dollar.swift.git
+	url = git@github.com:ankurp/Dollar.swift.git
