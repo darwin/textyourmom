@@ -31,6 +31,7 @@
 		D664C31019F8686400366892 /* NoLocationsAndNotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C30D19F8686400366892 /* NoLocationsAndNotificationsController.swift */; };
 		D664C31119F8686400366892 /* NoNotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C30E19F8686400366892 /* NoNotificationsController.swift */; };
 		D664C31319F882AC00366892 /* EmptyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C31219F882AC00366892 /* EmptyController.swift */; };
+		D664C31719F9AB7E00366892 /* ErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C31619F9AB7E00366892 /* ErrorController.swift */; };
 		D67416E919F59FF400F05672 /* Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67416E419F59F5900F05672 /* Dollar.framework */; };
 		D67416EC19F5B9AE00F05672 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67416EB19F5B9AE00F05672 /* Executor.swift */; };
 		D690795419F57B150048E035 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795319F57B150048E035 /* Airport.swift */; };
@@ -94,6 +95,7 @@
 		D664C30D19F8686400366892 /* NoLocationsAndNotificationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoLocationsAndNotificationsController.swift; sourceTree = "<group>"; };
 		D664C30E19F8686400366892 /* NoNotificationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoNotificationsController.swift; sourceTree = "<group>"; };
 		D664C31219F882AC00366892 /* EmptyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyController.swift; sourceTree = "<group>"; };
+		D664C31619F9AB7E00366892 /* ErrorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorController.swift; sourceTree = "<group>"; };
 		D67416DE19F59F5900F05672 /* Dollar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Dollar.xcodeproj; path = TextYourMom/Dollar.swift/Dollar/Dollar.xcodeproj; sourceTree = "<group>"; };
 		D67416EB19F5B9AE00F05672 /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Executor.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D690795319F57B150048E035 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Airport.swift; path = ../../callmom/TextYourMom/Airport.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		D664C30A19F867F000366892 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D664C31619F9AB7E00366892 /* ErrorController.swift */,
 				D664C31219F882AC00366892 /* EmptyController.swift */,
 				D664C30019F82DCF00366892 /* IntroController.swift */,
 				D6269FBB19F472A400BE7A30 /* MainController.swift */,
@@ -379,6 +382,7 @@
 				D664C30F19F8686400366892 /* NoLocationController.swift in Sources */,
 				D664C31319F882AC00366892 /* EmptyController.swift in Sources */,
 				D664C30719F8307200366892 /* BaseViewController.swift in Sources */,
+				D664C31719F9AB7E00366892 /* ErrorController.swift in Sources */,
 				D664C30519F82E1400366892 /* MasterController.swift in Sources */,
 				D6269F9C19F465EF00BE7A30 /* DebugController.swift in Sources */,
 				D664C30919F8397900366892 /* CanvasView.swift in Sources */,
