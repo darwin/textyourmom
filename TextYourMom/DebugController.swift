@@ -12,7 +12,7 @@ class DebugController: BaseViewController {
     }
 
     @IBAction func doErrorWorkflow(sender: UIButton) {
-        lastError = "This is a sample error message which could span multiple lines\nlet's see\nline1\nline2\nline3\nline4\nline5"
+        lastError = stringSampleError()
         masterController.refreshApp(AppState.Error)
     }
 

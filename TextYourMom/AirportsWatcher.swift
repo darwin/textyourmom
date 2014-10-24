@@ -1,7 +1,12 @@
 import CoreLocation
 
+enum AirportPerimeter : String {
+    case Inner = "inner"
+    case Outer = "outer"
+}
+
 protocol AirportsWatcherDelegate {
-    func enteredAirport(id:Int)
+    func enteredAirport(id:Int, _ perimeter:AirportPerimeter)
     func enteredNoMansLand()
     func authorizationStatusChanged()
 }
@@ -10,7 +15,7 @@ class AirportsWatcher: NSObject {
     var locationManager: CLLocationManager = CLLocationManager()
     var delegate: AirportsWatcherDelegate?
     var regions: [CLCircularRegion] = []
-    var lastAirport : Int = 0 // 0 means no airport
+    var lastAirportSignature : Int = 0 // 0 means no airport, positive are inner perimeters, negative are outer perimeters
     var lastLatitude : Double = 0
     var lastLongitude : Double = 0
  
@@ -22,9 +27,9 @@ class AirportsWatcher: NSObject {
     }
     
     func registerAirports(airportsProvider: AirportsProvider) {
-        func buildRegionFromAirport(airport: Airport) -> CLCircularRegion {
+        func buildOuterRegionFromAirport(airport: Airport) -> CLCircularRegion {
             let center = CLLocationCoordinate2D(latitude:airport.latitude, longitude:airport.longitude)
-            let radius = CLLocationDistance(10*1000) // 10km TODO: read this from settings
+            let radius = CLLocationDistance(outerAirportPerimeterDistance)
             let id = String(airport.id)
             let region = CLCircularRegion(center: center, radius: radius, identifier: id)
             return region;
@@ -32,7 +37,7 @@ class AirportsWatcher: NSObject {
         
         let airports = airportsProvider.airports
         for airport in airports {
-            var region = buildRegionFromAirport(airport)
+            var region = buildOuterRegionFromAirport(airport)
             regions.append(region)
         }
     }
@@ -57,8 +62,7 @@ class AirportsWatcher: NSObject {
     func start() {
         log("AirportsWatcher start");
         if inSimulator() {
-            // startMonitoringSignificantLocationChanges does not work in simulator
-            // see http://stackoverflow.com/a/6213528
+            // startMonitoringSignificantLocationChanges does not work in simulator, see http://stackoverflow.com/a/6213528
             locationManager.startUpdatingLocation()
         } else {
             locationManager.startMonitoringSignificantLocationChanges()
@@ -84,31 +88,66 @@ class AirportsWatcher: NSObject {
         return nil
     }
     
-    func processLocationReport(location: CLLocation) {
-        if location.coordinate.latitude != lastLatitude || location.coordinate.longitude != lastLongitude {
-            let age = location.timestamp.timeIntervalSinceNow
-            log("Location update \(location.coordinate.latitude), \(location.coordinate.longitude) accuracy=\(location.horizontalAccuracy) age=\(age)")
-            
-            lastLatitude = location.coordinate.latitude
-            lastLongitude = location.coordinate.longitude
+    func airportPerimeter(region:CLCircularRegion, _ latitude:Double, _ longitude:Double) -> AirportPerimeter {
+        func buildInnerRegion(region:CLCircularRegion) -> CLCircularRegion {
+            let center = region.center
+            let radius = CLLocationDistance(innerAirportPerimeterDistance)
+            let id = region.identifier
+            let region = CLCircularRegion(center: center, radius: radius, identifier: id)
+            return region;
+        }
+        let coord = CLLocationCoordinate2D(latitude:latitude, longitude:longitude)
+        let innerRegion = buildInnerRegion(region)
+        if innerRegion.containsCoordinate(coord) {
+            return .Inner
+        } else {
+            return .Outer
+        }
+    }
+    
+    func airportSignature(id:Int, _ perimeter:AirportPerimeter) -> Int {
+        switch perimeter {
+        case .Inner:
+            return id
+        case .Outer:
+            return -id
+        }
+    }
+    
+    func processLocationReport(location: CLLocation, native: Bool = true) {
+        if location.coordinate.latitude == lastLatitude && location.coordinate.longitude == lastLongitude {
+            return
+        }
+        
+        let age = location.timestamp.timeIntervalSinceNow
+        log("Location update \(location.coordinate.latitude), \(location.coordinate.longitude) accuracy=\(location.horizontalAccuracy) age=\(age)")
+        
+        lastLatitude = location.coordinate.latitude
+        lastLongitude = location.coordinate.longitude
+
+        if native && overrideLocation>0 {
+            log("overrideLocation is effective => bail out")
+            return
         }
         
         if let region = hitTest(location.coordinate.latitude, location.coordinate.longitude) {
+            let perimeter = airportPerimeter(region, location.coordinate.latitude, location.coordinate.longitude)
             let id = region.identifier.toInt()!
-            if lastAirport != id {
-                lastAirport = id
-                delegate?.enteredAirport(id)
+            let signature = airportSignature(id, perimeter)
+            if lastAirportSignature != signature {
+                lastAirportSignature = signature
+                delegate?.enteredAirport(id, perimeter)
             }
         } else {
-            if  lastAirport != 0 {
-                lastAirport = 0
+            if  lastAirportSignature != 0 {
+                lastAirportSignature = 0
                 delegate?.enteredNoMansLand()
             }
         }
     }
     
     func emitFakeUpdateLocation(latitude: Double, _ longitude:Double) {
-        processLocationReport(CLLocation(latitude:latitude, longitude:longitude))
+        processLocationReport(CLLocation(latitude:latitude, longitude:longitude), native:false)
     }
 }
 
@@ -116,10 +155,6 @@ class AirportsWatcher: NSObject {
 extension AirportsWatcher : CLLocationManagerDelegate {
 
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [CLLocation]!) {
-        if overrideLocation>0 {
-            log("received didUpdateLocations from system but overrideLocation is effective")
-            return
-        }
         for location in locations {
             processLocationReport(location)
         }

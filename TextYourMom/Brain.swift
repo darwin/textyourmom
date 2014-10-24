@@ -17,10 +17,16 @@ class Brain {
 // MARK: events
 extension Brain {
     
-    func enteredAiport(city:String, _ airportName:String) {
+    func enteredAiport(perimeter:AirportPerimeter, _ city:String, _ airportName:String) {
         log("entered airport \(airportName) in \(city)")
+        if perimeter == .Outer {
+            lastVisitedAirport = airportName
+            log("entered outer perimeter => skip airport reporting")
+            return
+        }
+        
         if lastVisitedAirport == airportName {
-            log("Prevent duplicit airport reporting: \(airportName)")
+            log("already reported => prevent duplicit airport reporting")
             return
         }
         lastVisitedAirport = airportName

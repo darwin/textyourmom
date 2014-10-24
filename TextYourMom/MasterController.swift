@@ -116,10 +116,10 @@ class MasterController {
 // MARK: AirportsWatcherDelegate
 extension MasterController : AirportsWatcherDelegate {
     
-    func enteredAirport(airportId:Int) {
-        log("enteredAirport #\(airportId)")
+    func enteredAirport(airportId:Int, _ perimeter:AirportPerimeter) {
+        log("enteredAirport #\(airportId) \(perimeter.rawValue) perimeter")
         if let airport = airportsProvider.lookupAirport(airportId) {
-            brain.enteredAiport(airport.city, airport.name)
+            brain.enteredAiport(perimeter, airport.city, airport.name)
         } else {
             log("unable to lookup airport #\(airportId)")
         }

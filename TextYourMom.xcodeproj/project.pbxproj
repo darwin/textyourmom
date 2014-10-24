@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D607979219F9CA98008B9CA3 /* LocationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D607979119F9CA98008B9CA3 /* LocationsController.swift */; };
 		D607979419FAADE6008B9CA3 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D607979319FAADE6008B9CA3 /* Strings.swift */; };
+		D607979619FAB963008B9CA3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D607979519FAB963008B9CA3 /* Constants.swift */; };
 		D6269F9A19F465EF00BE7A30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6269F9919F465EF00BE7A30 /* AppDelegate.swift */; };
 		D6269F9C19F465EF00BE7A30 /* DebugController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6269F9B19F465EF00BE7A30 /* DebugController.swift */; };
 		D6269F9F19F465EF00BE7A30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6269F9D19F465EF00BE7A30 /* Main.storyboard */; };
@@ -70,6 +71,7 @@
 /* Begin PBXFileReference section */
 		D607979119F9CA98008B9CA3 /* LocationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsController.swift; sourceTree = "<group>"; };
 		D607979319FAADE6008B9CA3 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		D607979519FAB963008B9CA3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D6269F9419F465EF00BE7A30 /* TextYourMom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextYourMom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6269F9819F465EF00BE7A30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6269F9919F465EF00BE7A30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -214,6 +216,7 @@
 		D664C30B19F8680E00366892 /* Plumbing */ = {
 			isa = PBXGroup;
 			children = (
+				D607979519FAB963008B9CA3 /* Constants.swift */,
 				D607979319FAADE6008B9CA3 /* Strings.swift */,
 				D664C2FE19F6F32A00366892 /* Logs.swift */,
 				D664C2FC19F6F2F400366892 /* Globals.swift */,
@@ -388,6 +391,7 @@
 				D664C30519F82E1400366892 /* MasterController.swift in Sources */,
 				D6269F9C19F465EF00BE7A30 /* DebugController.swift in Sources */,
 				D607979419FAADE6008B9CA3 /* Strings.swift in Sources */,
+				D607979619FAB963008B9CA3 /* Constants.swift in Sources */,
 				D664C30919F8397900366892 /* CanvasView.swift in Sources */,
 				D690795D19F597C50048E035 /* Dispatcher.swift in Sources */,
 				D67416EC19F5B9AE00F05672 /* Executor.swift in Sources */,
