@@ -7,7 +7,7 @@ class EmptyController: BaseViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        log("emptyControllerReady")
+        log("EmptyController.viewDidAppear => emptyControllerReady")
         emptyControllerReady = true
         masterController.refreshApp()
     }}

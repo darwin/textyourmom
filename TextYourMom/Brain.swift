@@ -20,7 +20,7 @@ extension Brain {
     func enteredAiport(city:String, _ airportName:String) {
         log("entered airport \(airportName) in \(city)")
         if lastVisitedAirport == airportName {
-            log("Prevented duplicit airport reporting")
+            log("Prevent duplicit airport reporting: \(airportName)")
             return
         }
         lastVisitedAirport = airportName

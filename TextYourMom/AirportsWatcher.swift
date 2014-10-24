@@ -44,19 +44,18 @@ class AirportsWatcher: NSObject {
     func hasRequiredAuthorizations() -> Bool {
         let status = CLLocationManager.authorizationStatus()
         log("CLLocationManager.authorizationStatus() returned \(status.rawValue) (expected 3)")
-        return status.rawValue == 3 // Swift problem: .AuthorizedAlways
+        return status.rawValue == 3 // Swift problem: .AuthorizedAlways is missing
     }
     
     func requestRequiredAuthorizations() {
         if (ios8()) {
-            log("request authorization")
+            log("requestAlwaysAuthorization")
             locationManager.requestAlwaysAuthorization()
         }
     }
     
-    func start() -> Bool {
+    func start() {
         log("AirportsWatcher start");
-
         if inSimulator() {
             // startMonitoringSignificantLocationChanges does not work in simulator
             // see http://stackoverflow.com/a/6213528
@@ -64,18 +63,15 @@ class AirportsWatcher: NSObject {
         } else {
             locationManager.startMonitoringSignificantLocationChanges()
         }
-
-        return true
     }
     
-    func stop() -> Bool {
+    func stop() {
         log("AirportsWatcher stop");
         if inSimulator() {
             locationManager.stopUpdatingLocation()
         } else {
             locationManager.stopMonitoringSignificantLocationChanges()
         }
-        return true
     }
     
     func hitTest(latitude:Double, _ longitude:Double) -> CLCircularRegion? {
@@ -130,7 +126,8 @@ extension AirportsWatcher : CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        log("\(error.localizedDescription)")
+        lastError = "iOS LocationManager:\n\(error.localizedDescription)"
+        masterController.refreshApp(AppState.Error)
     }
     
     func locationManagerDidPauseLocationUpdates(manager: CLLocationManager!) {

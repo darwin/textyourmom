@@ -12,8 +12,8 @@ class DebugController: BaseViewController {
     }
 
     @IBAction func doErrorWorkflow(sender: UIButton) {
-        let message = "This is a sample error message which could span multiple lines\nlet's see\nline1\nline2\nline3\nline4\nline5"
-        masterController.refreshApp(AppState.Error(message))
+        lastError = "This is a sample error message which could span multiple lines\nlet's see\nline1\nline2\nline3\nline4\nline5"
+        masterController.refreshApp(AppState.Error)
     }
 
     @IBAction func doResetState(AnyObject) {

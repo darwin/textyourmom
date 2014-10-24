@@ -1,12 +1,12 @@
 import UIKit
 
-enum AppState {
-    case NoLocation
-    case NoNotifications
-    case NoLocationAndNotifications
-    case Normal
-    case Intro
-    case Error(String)
+enum AppState : String {
+    case NoLocation = "NoLocation"
+    case NoNotifications = "NoNotifications"
+    case NoLocationAndNotifications = "NoLocationAndNotifications"
+    case Normal = "Normal"
+    case Intro = "Intro"
+    case Error = "Error"
 }
 
 class MasterController {
@@ -42,7 +42,8 @@ class MasterController {
         }
         
         if !airportsWatcher.isLocationMonitoringAvailable() {
-            return .Error(stringLocationMonitoringIsNotAvailableError())
+            lastError = stringLocationMonitoringIsNotAvailableError()
+            return .Error
         }
         
         let locationsApproved = airportsWatcher.hasRequiredAuthorizations()
@@ -69,11 +70,11 @@ class MasterController {
         if state == nil {
             state = detectAppState()
         }
-        log("Refresh app with state \(state)")
+        log("Refresh app to state '\(state!.rawValue)'")
         switch state! {
         case .Normal:
             executor.setupNotifications()
-            airportsWatcher.start() // TODO: check for errors?
+            airportsWatcher.start()
             switchToScreen("Main")
         case .NoLocation:
             airportsWatcher.stop()
@@ -87,12 +88,12 @@ class MasterController {
         case .Intro:
             airportsWatcher.stop()
             switchToScreen("Intro")
-        case let .Error(err):
-            log("Error: \(err)")
+        case .Error:
+            log("Error: \(lastError)")
             let errorController = switchToScreen("Error") as ErrorController
             errorController.initializers.append({
                 let this = $0 as ErrorController
-                this.message.text = err
+                this.message.text = lastError
                 this.message.setNeedsDisplay()
             })
         }
@@ -120,7 +121,7 @@ extension MasterController : AirportsWatcherDelegate {
         if let airport = airportsProvider.lookupAirport(airportId) {
             brain.enteredAiport(airport.city, airport.name)
         } else {
-            // TODO: DCHECK
+            log("unable to lookup airport #\(airportId)")
         }
     }
     
