@@ -129,12 +129,12 @@ class AirportsWatcher: NSObject {
         lastLatitude = location.coordinate.latitude
         lastLongitude = location.coordinate.longitude
         
-        mapController?.updateLocation(lastLatitude, lastLongitude)
-
         if native && overrideLocation>0 {
             log("overrideLocation is effective => bail out")
             return
         }
+
+        mapController?.updateLocation(lastLatitude, lastLongitude)
         
         var regions = hitTest(lastLatitude, lastLongitude)
         

@@ -1,31 +1,5 @@
 import UIKit
 
-struct DebugLocation {
-    var description : String = ""
-    var latitude: Double = 0.0
-    var longitude: Double = 0.0
-    
-    init(_ description: String, _ latitude: Double, _ longitude: Double) {
-        self.description = description
-        self.latitude = latitude
-        self.longitude = longitude
-    }
-}
-
-
-let debugLocations = [
-    DebugLocation("DONT OVERRIDE", 0.0, 0.0), // #0
-    DebugLocation("no-mans-land",100000, 0),
-    DebugLocation("Ceske Budejovice",48.946381,14.427464),
-    DebugLocation("Caslav",49.939653,15.381808),
-    DebugLocation("Hradec Kralove",50.2532,15.845228),
-    DebugLocation("Horovice",49.848111,13.893506),
-    DebugLocation("Kbely",50.121367,14.543642),
-    DebugLocation("Kunovice",49.029444,17.439722),
-    DebugLocation("Karlovy Vary",50.202978,12.914983),
-    DebugLocation("Plzen Line",49.675172,13.274617)
-]
-
 class LocationsController : BaseViewController {
     @IBOutlet weak var locationPicker: UIPickerView!
     

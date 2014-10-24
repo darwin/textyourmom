@@ -315,6 +315,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbq-fA-j5o">
+                                <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ACs-VQ-TN9" id="JYE-pA-6uh"/>
+                                    <outlet property="delegate" destination="ACs-VQ-TN9" id="DXx-9S-fpA"/>
+                                </connections>
+                            </pickerView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAh-OU-Idj">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <connections>
@@ -324,35 +331,47 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="H8k-mL-Erk" firstAttribute="top" secondItem="nAh-OU-Idj" secondAttribute="bottom" id="56e-xk-aic"/>
+                            <constraint firstAttribute="trailing" secondItem="sbq-fA-j5o" secondAttribute="trailing" id="0Fb-rw-kri"/>
+                            <constraint firstItem="H8k-mL-Erk" firstAttribute="top" secondItem="sbq-fA-j5o" secondAttribute="bottom" id="1N7-LT-phU"/>
+                            <constraint firstItem="sbq-fA-j5o" firstAttribute="leading" secondItem="dVU-T3-ePh" secondAttribute="leading" id="1mg-yf-aem"/>
                             <constraint firstItem="nAh-OU-Idj" firstAttribute="leading" secondItem="dVU-T3-ePh" secondAttribute="leading" id="CQ0-xX-ROq"/>
                             <constraint firstAttribute="trailing" secondItem="nAh-OU-Idj" secondAttribute="trailing" id="OiQ-RZ-k9d"/>
+                            <constraint firstItem="sbq-fA-j5o" firstAttribute="top" secondItem="nAh-OU-Idj" secondAttribute="bottom" id="Rvo-KT-JPj"/>
                             <constraint firstItem="nAh-OU-Idj" firstAttribute="top" secondItem="dVU-T3-ePh" secondAttribute="top" id="y8E-OI-zeU"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="sbq-fA-j5o"/>
                                 <exclude reference="nAh-OU-Idj"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="56e-xk-aic"/>
                                 <exclude reference="CQ0-xX-ROq"/>
                                 <exclude reference="OiQ-RZ-k9d"/>
                                 <exclude reference="y8E-OI-zeU"/>
+                                <exclude reference="0Fb-rw-kri"/>
+                                <exclude reference="1mg-yf-aem"/>
+                                <exclude reference="Rvo-KT-JPj"/>
+                                <exclude reference="1N7-LT-phU"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
+                                <include reference="sbq-fA-j5o"/>
                                 <include reference="nAh-OU-Idj"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="56e-xk-aic"/>
                                 <include reference="CQ0-xX-ROq"/>
                                 <include reference="OiQ-RZ-k9d"/>
                                 <include reference="y8E-OI-zeU"/>
+                                <include reference="0Fb-rw-kri"/>
+                                <include reference="1mg-yf-aem"/>
+                                <include reference="Rvo-KT-JPj"/>
+                                <include reference="1N7-LT-phU"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="locationPicker" destination="sbq-fA-j5o" id="7M4-RX-ovf"/>
                         <outlet property="mapView" destination="nAh-OU-Idj" id="hrG-cS-ozs"/>
                     </connections>
                 </viewController>

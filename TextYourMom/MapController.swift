@@ -1,6 +1,32 @@
 import UIKit
 import MapKit
 
+struct DebugLocation {
+    var description : String = ""
+    var latitude: Double = 0.0
+    var longitude: Double = 0.0
+    
+    init(_ description: String, _ latitude: Double, _ longitude: Double) {
+        self.description = description
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+}
+
+
+let debugLocations = [
+    DebugLocation("DONT OVERRIDE", 0.0, 0.0), // #0
+    DebugLocation("no-mans-land",48, 14),
+    DebugLocation("Ceske Budejovice",48.946381,14.427464),
+    DebugLocation("Caslav",49.939653,15.381808),
+    DebugLocation("Hradec Kralove",50.2532,15.845228),
+    DebugLocation("Horovice",49.848111,13.893506),
+    DebugLocation("Kbely",50.121367,14.543642),
+    DebugLocation("Kunovice",49.029444,17.439722),
+    DebugLocation("Karlovy Vary",50.202978,12.914983),
+    DebugLocation("Plzen Line",49.675172,13.274617)
+]
+
 class AirportOverlay: MKCircle {
     var type : AirportPerimeter = .Inner
     
@@ -17,24 +43,29 @@ class AirportOverlay: MKCircle {
     }
 }
 
-class MapController: BaseViewController {
+class FakeLocationAnnotation : MKPointAnnotation {
     
+}
+
+class MapController: BaseViewController {
+    @IBOutlet weak var locationPicker: UIPickerView!
     @IBOutlet weak var mapView: MKMapView!
     var overlaysDefined = false
     var manualDragging = false
+    var fakeLocationAnnotation = FakeLocationAnnotation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // London
-        let location = CLLocationCoordinate2D(
+        locationPicker.selectRow(overrideLocation, inComponent:0, animated:false)
+
+        // this is here just to prevent slow map loading because of extreme zoom-out
+        let londonLocation = CLLocationCoordinate2D(
             latitude: 51.50007773,
             longitude: -0.1246402
         )
-        
         let span = MKCoordinateSpanMake(0.05, 0.05)
-        let region = MKCoordinateRegion(center: location, span: span)
-        
+        let region = MKCoordinateRegion(center: londonLocation, span: span)
         mapView.setRegion(region, animated: true)
     }
 
@@ -88,6 +119,20 @@ class MapController: BaseViewController {
         mapView.setCenterCoordinate(location, animated: true)
     }
 
+    @IBAction func doApplyLocationOverride() {
+        manualDragging = false
+        overrideLocation = locationPicker.selectedRowInComponent(0)
+        let newDebugLocation = debugLocations[overrideLocation]
+        if overrideLocation > 0 {
+            log("manual override of location to \(newDebugLocation.description)")
+            masterController.airportsWatcher.emitFakeUpdateLocation(newDebugLocation.latitude, newDebugLocation.longitude)
+            fakeLocationAnnotation.setCoordinate(CLLocationCoordinate2D(latitude:newDebugLocation.latitude, longitude:newDebugLocation.longitude))
+            mapView.addAnnotation(fakeLocationAnnotation)
+        } else {
+            log("stopped overriding location")
+            mapView.removeAnnotation(fakeLocationAnnotation)
+        }
+    }
 }
 
 // MARK: MKMapViewDelegate
@@ -126,6 +171,20 @@ extension MapController : MKMapViewDelegate{
             return nil // map view should draw "blue dot" for user location
         }
         
+        if annotation is FakeLocationAnnotation {
+            let reuseId = "fake-location"
+            var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+            if annotationView == nil {
+                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                annotationView.canShowCallout = true
+                annotationView.image = UIImage(named: "Crosshairs")
+                annotationView.centerOffset = CGPointMake(0, 0)
+                annotationView.calloutOffset = CGPointMake(0, 0)
+            }
+            annotationView.annotation = annotation
+            return annotationView
+        }
+        
         let reuseId = "airport"
         var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
         if annotationView == nil {
@@ -139,4 +198,39 @@ extension MapController : MKMapViewDelegate{
         return annotationView
     }
 }
+
+extension MapController : UIPickerViewDataSource {
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return debugLocations.count
+    }
+}
+
+extension MapController : UIPickerViewDelegate {
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return debugLocations[row].description
+    }
+    
+    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let text = debugLocations[row].description
+        
+        var attrString = NSMutableAttributedString(string: text)
+        var range = NSMakeRange(0, attrString.length)
+        
+        attrString.beginEditing()
+        attrString.addAttribute(NSForegroundColorAttributeName, value:UIColor.blueColor(), range:range)
+        //attrString.addAttribute(NSFontAttributeName, value:UIFont(name: "System", size: 15.0)!, range:range)
+        attrString.endEditing()
+        
+        return attrString
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        doApplyLocationOverride()
+    }
+}
+
 
