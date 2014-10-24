@@ -38,7 +38,7 @@ extension Executor {
         let action = UIMutableUserNotificationAction()
         action.identifier = callMomActionString
         action.destructive = false
-        action.title = "Call Mom"
+        action.title = stringCallMomActionButtonTitle()
         action.activationMode = .Background
         action.authenticationRequired = true
         return action
@@ -48,7 +48,7 @@ extension Executor {
         let action = UIMutableUserNotificationAction()
         action.identifier = textMomActionString
         action.destructive = false
-        action.title = "Text Mom"
+        action.title = stringTextMomActionButtonTitle()
         action.activationMode = .Background
         action.authenticationRequired = true
         return action
@@ -79,7 +79,7 @@ extension Executor {
         }
         let notification = UILocalNotification()
         notification.category = momCategoryString
-        notification.alertBody = "Welcome to \(city). How was your flight? You should let your mom know."
+        notification.alertBody = stringWelcomeMessage(city)
         notification.fireDate = NSDate(timeIntervalSinceNow: NSTimeInterval(fireOffset))
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
         return true

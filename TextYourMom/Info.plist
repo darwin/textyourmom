@@ -35,7 +35,7 @@
 		<string>armv7</string>
 	</array>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>TextYourMom needs to know your location when you travel</string>
+	<string>TextYourMom app needs to know your location when you travel</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

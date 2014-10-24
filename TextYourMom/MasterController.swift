@@ -42,7 +42,7 @@ class MasterController {
         }
         
         if !airportsWatcher.isLocationMonitoringAvailable() {
-            return .Error("Location monitoring is not available on this device")
+            return .Error(stringLocationMonitoringIsNotAvailableError())
         }
         
         let locationsApproved = airportsWatcher.hasRequiredAuthorizations()
