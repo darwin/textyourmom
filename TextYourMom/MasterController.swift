@@ -15,9 +15,9 @@ class MasterController {
     var airportsWatcher = AirportsWatcher()
     var brain = Brain()
     var executor = Executor()
-    var introPlayed = false
     
     func boot() -> Bool {
+        model.load()
         brain.delegate = executor // executor will resond to brain decisions
         log("Parsing airports...")
         airportsProvider.parseFromResource("airports")
@@ -32,8 +32,14 @@ class MasterController {
         return true
     }
     
+    func tearDown() {
+        log("tear down")
+        model.save()
+        airportsWatcher.stop()
+    }
+    
     func playIntro() -> Bool {
-        return !introPlayed
+        return !model.introPlayed
     }
     
     func detectAppState() -> AppState {
@@ -100,7 +106,7 @@ class MasterController {
     }
     
     func confirmIntro() {
-        introPlayed = true
+        model.introPlayed = true
         airportsWatcher.requestRequiredAuthorizations()
         executor.setupNotifications()
         
@@ -117,7 +123,7 @@ class MasterController {
 extension MasterController : AirportsWatcherDelegate {
     
     func enteredAirport(airportId:Int, _ perimeter:AirportPerimeter) {
-        log("enteredAirport #\(airportId) \(perimeter.rawValue) perimeter")
+        log(">>> enteredAirport #\(airportId) \(perimeter.rawValue) perimeter")
         if let airport = airportsProvider.lookupAirport(airportId) {
             brain.enteredAiport(perimeter, airport.city, airport.name)
         } else {
@@ -126,7 +132,8 @@ extension MasterController : AirportsWatcherDelegate {
     }
     
     func enteredNoMansLand() {
-        log("enteredNoMansLand")
+        log(">>> enteredNoMansLand")
+        brain.enteredNoMansLand()
     }
     
     func authorizationStatusChanged() {

@@ -39,6 +39,7 @@ extension AppDelegate : UIApplicationDelegate {
     
     func applicationWillTerminate(application: UIApplication) {
         log("applicationWillTerminate")
+        masterController.tearDown()
     }
     
 }

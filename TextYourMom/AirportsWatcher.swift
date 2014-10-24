@@ -32,7 +32,7 @@ class AirportsWatcher: NSObject {
             let radius = CLLocationDistance(outerAirportPerimeterDistance)
             let id = String(airport.id)
             let region = CLCircularRegion(center: center, radius: radius, identifier: id)
-            return region;
+            return region
         }
         
         let airports = airportsProvider.airports
@@ -94,10 +94,14 @@ class AirportsWatcher: NSObject {
             let radius = CLLocationDistance(innerAirportPerimeterDistance)
             let id = region.identifier
             let region = CLCircularRegion(center: center, radius: radius, identifier: id)
-            return region;
+            return region
         }
         let coord = CLLocationCoordinate2D(latitude:latitude, longitude:longitude)
         let innerRegion = buildInnerRegion(region)
+//        log("airport perimeter test: \(region.center.latitude),\(region.center.longitude) \(region.radius) vs \(coord.latitude),\(coord.longitude)")
+//        let res1 = region.containsCoordinate(coord)
+//        let res = innerRegion.containsCoordinate(coord)
+//        log("airport perimeter test: \(innerRegion.center.latitude),\(innerRegion.center.longitude) \(innerRegion.radius) => \(res), \(res1)")
         if innerRegion.containsCoordinate(coord) {
             return .Inner
         } else {
@@ -120,10 +124,12 @@ class AirportsWatcher: NSObject {
         }
         
         let age = location.timestamp.timeIntervalSinceNow
-        log("Location update \(location.coordinate.latitude), \(location.coordinate.longitude) accuracy=\(location.horizontalAccuracy) age=\(age)")
+        log("location update: \(location.coordinate.latitude), \(location.coordinate.longitude) accuracy=\(location.horizontalAccuracy) age=\(age)")
         
         lastLatitude = location.coordinate.latitude
         lastLongitude = location.coordinate.longitude
+        
+        mapController?.updateLocation(lastLatitude, lastLongitude)
 
         if native && overrideLocation>0 {
             log("overrideLocation is effective => bail out")
@@ -131,8 +137,8 @@ class AirportsWatcher: NSObject {
         }
         
         if let region = hitTest(location.coordinate.latitude, location.coordinate.longitude) {
-            let perimeter = airportPerimeter(region, location.coordinate.latitude, location.coordinate.longitude)
             let id = region.identifier.toInt()!
+            let perimeter = airportPerimeter(region, location.coordinate.latitude, location.coordinate.longitude)
             let signature = airportSignature(id, perimeter)
             if lastAirportSignature != signature {
                 lastAirportSignature = signature
@@ -166,11 +172,14 @@ extension AirportsWatcher : CLLocationManagerDelegate {
     }
     
     func locationManagerDidPauseLocationUpdates(manager: CLLocationManager!) {
-        log("Location updating was paused")
+        log("location updating was paused")
+        lastError = "iOS LocationManager:\nLocation updating was paused"
+        masterController.refreshApp(AppState.Error)
     }
     
     func locationManagerDidResumeLocationUpdates(manager: CLLocationManager!) {
-        log("Location updating was resumed")
+        log("location updating was resumed")
+        masterController.refreshApp()
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {

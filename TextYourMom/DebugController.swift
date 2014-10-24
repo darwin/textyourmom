@@ -3,7 +3,7 @@ import UIKit
 class DebugController: BaseViewController {
     
     @IBAction func doIntroWorkflow(sender: UIButton) {
-        masterController.introPlayed = false
+        model.introPlayed = false
         masterController.refreshApp(AppState.Intro)
     }
 
@@ -16,16 +16,26 @@ class DebugController: BaseViewController {
         masterController.refreshApp(AppState.Error)
     }
 
-    @IBAction func doResetState(AnyObject) {
-        // TODO: reset state
-        log("doResetState");
+    @IBAction func doResetState(sender: UIButton) {
+        masterController.tearDown()
+        model.reset()
+        masterController.boot()
+        masterController.refreshApp()
     }
     
-    @IBAction func doOverrideLocation(AnyObject) {
+    @IBAction func doOverrideLocation(sender: UIButton) {
         switchToScreen("Locations")
     }
     
     @IBAction func doShowLogs(sender: UIButton) {
         switchToScreen("Logs")
+    }
+    
+    @IBAction func doPrintMode(sender: UIButton) {
+        model.debugPrint()
+    }
+
+    @IBAction func doShowMap(sender: UIButton) {
+        switchToScreen("Map")
     }
 }
