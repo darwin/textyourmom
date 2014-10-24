@@ -1,13 +1,9 @@
 import UIKit
 
-var masterController = MasterController()
-var mainWindow : UIWindow?
-
 @UIApplicationMain
 class AppDelegate: UIResponder {
 
     var window: UIWindow?
-    var controller = masterController
 }
 
 // MARK: UIApplicationDelegate / Life Cycle
@@ -16,7 +12,7 @@ extension AppDelegate : UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         mainWindow = window
         mainWindow?.makeKeyAndVisible()
-        return controller.boot()
+        return masterController.boot()
     }
     
     func applicationWillResignActive(application: UIApplication) {
@@ -58,7 +54,7 @@ extension AppDelegate : UIApplicationDelegate {
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification,
 completionHandler: () -> Void) {
         log("handleActionWithIdentifier #\(identifier)")
-        controller.executor.handleActionWithIdentifier(identifier, completionHandler)
+        masterController.executor.handleActionWithIdentifier(identifier, completionHandler)
     }
     
 }

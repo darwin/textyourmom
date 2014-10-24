@@ -68,8 +68,6 @@ func topController() -> UIViewController? {
     return controller
 }
 
-var disableScreenSwitching = false
-
 func switchToScreen(name:String, completion: (() -> Void)? = nil) -> UIViewController {
     let controller = viewController(name)!
     if disableScreenSwitching {
@@ -84,7 +82,6 @@ func switchToScreen(name:String, completion: (() -> Void)? = nil) -> UIViewContr
 // switchToScreen could be called in reaction to events, potentially multiple times when animations are in-flight
 // this is simple queue implementation for serialization of presentViewController calls
 // inspiration: https://gist.github.com/kommen/5743831
-var presentViewControllerQueue = dispatch_queue_create("presentViewControllerQueue", DISPATCH_QUEUE_SERIAL)
 func queuePresentViewController(to:UIViewController, animated:Bool, completion: (() -> Void)? = nil) {
     dispatch_async(presentViewControllerQueue, {
         var sema = dispatch_semaphore_create(0)

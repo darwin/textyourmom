@@ -21,7 +21,7 @@ class BaseViewController: UIViewController {
         }
         injectDebugControlsIfRequired()
         
-        // do registered initializers
+        // execute registered initializers
         for initializer in initializers {
            initializer(self)
         }
@@ -52,4 +52,3 @@ extension BaseViewController : BaseViewControllerCanvasDelegate {
         canvasView!.bringSubviewToFront(debugButton!)
     }
 }
-

@@ -87,34 +87,45 @@ class AirportsWatcher: NSObject {
         }
         return nil
     }
+    
+    func processLocationReport(location: CLLocation) {
+        if location.coordinate.latitude != lastLatitude || location.coordinate.longitude != lastLongitude {
+            let age = location.timestamp.timeIntervalSinceNow
+            log("Location update \(location.coordinate.latitude), \(location.coordinate.longitude) accuracy=\(location.horizontalAccuracy) age=\(age)")
+            
+            lastLatitude = location.coordinate.latitude
+            lastLongitude = location.coordinate.longitude
+        }
+        
+        if let region = hitTest(location.coordinate.latitude, location.coordinate.longitude) {
+            let id = region.identifier.toInt()!
+            if lastAirport != id {
+                lastAirport = id
+                delegate?.enteredAirport(id)
+            }
+        } else {
+            if  lastAirport != 0 {
+                lastAirport = 0
+                delegate?.enteredNoMansLand()
+            }
+        }
+    }
+    
+    func emitFakeUpdateLocation(latitude: Double, _ longitude:Double) {
+        processLocationReport(CLLocation(latitude:latitude, longitude:longitude))
+    }
 }
 
 // MARK: CLLocationManagerDelegate
 extension AirportsWatcher : CLLocationManagerDelegate {
 
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [CLLocation]!) {
+        if overrideLocation>0 {
+            log("received didUpdateLocations from system but overrideLocation is effective")
+            return
+        }
         for location in locations {
-            
-            if location.coordinate.latitude != lastLatitude || location.coordinate.longitude != lastLongitude {
-                let age = location.timestamp.timeIntervalSinceNow
-                log("Location update \(location.coordinate.latitude), \(location.coordinate.longitude) accuracy=\(location.horizontalAccuracy) age=\(age)")
-                
-                lastLatitude = location.coordinate.latitude
-                lastLongitude = location.coordinate.longitude
-            }
-            
-            if let region = hitTest(location.coordinate.latitude, location.coordinate.longitude) {
-                let id = region.identifier.toInt()!
-                if lastAirport != id {
-                    lastAirport = id
-                    delegate?.enteredAirport(id)
-                }
-            } else {
-                if  lastAirport != 0 {
-                    lastAirport = 0
-                    delegate?.enteredNoMansLand()
-                }
-            }
+            processLocationReport(location)
         }
     }
     

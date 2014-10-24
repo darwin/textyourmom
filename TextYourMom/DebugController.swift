@@ -22,8 +22,7 @@ class DebugController: BaseViewController {
     }
     
     @IBAction func doOverrideLocation(AnyObject) {
-        // TODO: set location
-        log("doOverrideLocation");
+        switchToScreen("Locations")
     }
     
     @IBAction func doShowLogs(sender: UIButton) {
