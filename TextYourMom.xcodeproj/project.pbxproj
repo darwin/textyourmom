@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D607979219F9CA98008B9CA3 /* LocationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D607979119F9CA98008B9CA3 /* LocationsController.swift */; };
 		D607979419FAADE6008B9CA3 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D607979319FAADE6008B9CA3 /* Strings.swift */; };
 		D607979619FAB963008B9CA3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D607979519FAB963008B9CA3 /* Constants.swift */; };
 		D607979819FAD2FE008B9CA3 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D607979719FAD2FE008B9CA3 /* MapController.swift */; };
@@ -70,7 +69,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D607979119F9CA98008B9CA3 /* LocationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsController.swift; sourceTree = "<group>"; };
 		D607979319FAADE6008B9CA3 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		D607979519FAB963008B9CA3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D607979719FAD2FE008B9CA3 /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
@@ -202,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				D607979719FAD2FE008B9CA3 /* MapController.swift */,
-				D607979119F9CA98008B9CA3 /* LocationsController.swift */,
 				D664C31619F9AB7E00366892 /* ErrorController.swift */,
 				D664C31219F882AC00366892 /* EmptyController.swift */,
 				D664C30019F82DCF00366892 /* IntroController.swift */,
@@ -408,7 +405,6 @@
 				D664C30219F82DCF00366892 /* IntroController.swift in Sources */,
 				D664C2FD19F6F2F400366892 /* Globals.swift in Sources */,
 				D664C2FF19F6F32A00366892 /* Logs.swift in Sources */,
-				D607979219F9CA98008B9CA3 /* LocationsController.swift in Sources */,
 				D690795E19F597C50048E035 /* DispatchGroup.swift in Sources */,
 				D6269FBC19F472A400BE7A30 /* MainController.swift in Sources */,
 				D690795F19F597C50048E035 /* DispatchQueue.swift in Sources */,
