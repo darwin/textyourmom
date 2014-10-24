@@ -28,7 +28,7 @@ extension Brain {
             return
         } else { // .Inner perimeter
             if model.lastVisitedPlace == airportName {
-                log("already reported => prevent duplicit airport reporting")
+                log("already visited => prevent airport reporting")
                 return
             }
             model.lastVisitedPlace = airportName

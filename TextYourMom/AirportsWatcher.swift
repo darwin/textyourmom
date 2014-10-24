@@ -1,4 +1,5 @@
 import CoreLocation
+import Dollar
 
 enum AirportPerimeter : String {
     case Inner = "inner"
@@ -15,7 +16,7 @@ class AirportsWatcher: NSObject {
     var locationManager: CLLocationManager = CLLocationManager()
     var delegate: AirportsWatcherDelegate?
     var regions: [CLCircularRegion] = []
-    var lastAirportSignature : Int = 0 // 0 means no airport, positive are inner perimeters, negative are outer perimeters
+    var activeAirportSignatures : [Int] = [] // empty array means no airport, positive are inner perimeters, negative are outer perimeters
     var lastLatitude : Double = 0
     var lastLongitude : Double = 0
  
@@ -78,14 +79,15 @@ class AirportsWatcher: NSObject {
         }
     }
     
-    func hitTest(latitude:Double, _ longitude:Double) -> CLCircularRegion? {
+    func hitTest(latitude:Double, _ longitude:Double) -> [CLCircularRegion] {
         let coord = CLLocationCoordinate2D(latitude:latitude, longitude:longitude)
+        var hits : [CLCircularRegion] = []
         for region in regions {
             if region.containsCoordinate(coord) {
-                return region
+                hits.append(region)
             }
         }
-        return nil
+        return hits
     }
     
     func airportPerimeter(region:CLCircularRegion, _ latitude:Double, _ longitude:Double) -> AirportPerimeter {
@@ -98,10 +100,6 @@ class AirportsWatcher: NSObject {
         }
         let coord = CLLocationCoordinate2D(latitude:latitude, longitude:longitude)
         let innerRegion = buildInnerRegion(region)
-//        log("airport perimeter test: \(region.center.latitude),\(region.center.longitude) \(region.radius) vs \(coord.latitude),\(coord.longitude)")
-//        let res1 = region.containsCoordinate(coord)
-//        let res = innerRegion.containsCoordinate(coord)
-//        log("airport perimeter test: \(innerRegion.center.latitude),\(innerRegion.center.longitude) \(innerRegion.radius) => \(res), \(res1)")
         if innerRegion.containsCoordinate(coord) {
             return .Inner
         } else {
@@ -123,8 +121,10 @@ class AirportsWatcher: NSObject {
             return
         }
         
-        let age = location.timestamp.timeIntervalSinceNow
-        log("location update: \(location.coordinate.latitude), \(location.coordinate.longitude) accuracy=\(location.horizontalAccuracy) age=\(age)")
+        if verboseLocationLogging {
+            let age = location.timestamp.timeIntervalSinceNow
+            log("location update: \(location.coordinate.latitude), \(location.coordinate.longitude) accuracy=\(location.horizontalAccuracy) age=\(age)")
+        }
         
         lastLatitude = location.coordinate.latitude
         lastLongitude = location.coordinate.longitude
@@ -136,17 +136,24 @@ class AirportsWatcher: NSObject {
             return
         }
         
-        if let region = hitTest(location.coordinate.latitude, location.coordinate.longitude) {
-            let id = region.identifier.toInt()!
-            let perimeter = airportPerimeter(region, location.coordinate.latitude, location.coordinate.longitude)
-            let signature = airportSignature(id, perimeter)
-            if lastAirportSignature != signature {
-                lastAirportSignature = signature
-                delegate?.enteredAirport(id, perimeter)
+        var regions = hitTest(lastLatitude, lastLongitude)
+        
+        if regions.count > 0 {
+            var newAirportSignatures : [Int] = []
+            for region in regions {
+                let id = region.identifier.toInt()!
+                let perimeter = airportPerimeter(region, lastLatitude, lastLongitude)
+                let signature = airportSignature(id, perimeter)
+                
+                newAirportSignatures.append(signature)
+                if !$.contains(activeAirportSignatures, value:signature) {
+                    delegate?.enteredAirport(id, perimeter)
+                }
             }
+            activeAirportSignatures = newAirportSignatures
         } else {
-            if  lastAirportSignature != 0 {
-                lastAirportSignature = 0
+            if  activeAirportSignatures.count > 0 {
+                activeAirportSignatures = []
                 delegate?.enteredNoMansLand()
             }
         }
