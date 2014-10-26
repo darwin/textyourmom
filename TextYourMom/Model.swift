@@ -13,9 +13,6 @@ class Model {
     let lastReportedAirportKey = "LastReportedAiport"
     var lastReportedAirport = ""
 
-    let lastVisitedPlaceKey = "LastVisitedPlace"
-    var lastVisitedPlace = ""
-
     func load() {
         log("model: load")
 
@@ -24,9 +21,6 @@ class Model {
         }
         if let val = db.objectForKey(lastReportedAirportKey) as? String {
             lastReportedAirport = val
-        }
-        if let val = db.objectForKey(lastVisitedPlaceKey) as? String {
-            lastVisitedPlace = val
         }
         
         debugPrint()
@@ -37,7 +31,6 @@ class Model {
 
         db.setBool(introPlayed, forKey: introPlayedKey)
         db.setObject(lastReportedAirport, forKey: lastReportedAirportKey)
-        db.setObject(lastVisitedPlace, forKey: lastVisitedPlaceKey)
 
         db.synchronize()
     }
@@ -48,7 +41,6 @@ class Model {
         
         introPlayed = defaults.introPlayed
         lastReportedAirport = defaults.lastReportedAirport
-        lastVisitedPlace = defaults.lastVisitedPlace
         
         save()
     }
