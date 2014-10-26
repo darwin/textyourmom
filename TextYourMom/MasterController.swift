@@ -23,7 +23,7 @@ class MasterController {
         airportsProvider.parseFromResource("airports")
         log("  ... resolved \(airportsProvider.airports.count) airports")
         log("Registering airports with airports watcher...")
-        airportsWatcher.delegate = self
+        airportsWatcher.delegate = brain
         airportsWatcher.registerAirports(airportsProvider)
 
         // do not call refreshApp() here, EmptyController's animation might be in-flight
@@ -116,27 +116,5 @@ class MasterController {
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue(), { self.refreshApp() })
         
-    }
-}
-
-// MARK: AirportsWatcherDelegate
-extension MasterController : AirportsWatcherDelegate {
-    
-    func enteredAirport(airportId:Int, _ perimeter:AirportPerimeter) {
-        log(">>> enteredAirport #\(airportId) \(perimeter.rawValue) perimeter")
-        if let airport = airportsProvider.lookupAirport(airportId) {
-            brain.enteredAiport(perimeter, airport.city, airport.name)
-        } else {
-            log("unable to lookup airport #\(airportId)")
-        }
-    }
-    
-    func enteredNoMansLand() {
-        log(">>> enteredNoMansLand")
-        brain.enteredNoMansLand()
-    }
-    
-    func authorizationStatusChanged() {
-        refreshApp()
     }
 }

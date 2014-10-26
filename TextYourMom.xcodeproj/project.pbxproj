@@ -37,6 +37,7 @@
 		D664C31719F9AB7E00366892 /* ErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C31619F9AB7E00366892 /* ErrorController.swift */; };
 		D67416E919F59FF400F05672 /* Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67416E419F59F5900F05672 /* Dollar.framework */; };
 		D67416EC19F5B9AE00F05672 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67416EB19F5B9AE00F05672 /* Executor.swift */; };
+		D688BD5A19FD6794001CCC95 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D688BD5919FD6794001CCC95 /* Airport.swift */; };
 		D690795619F57BB60048E035 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795519F57BB60048E035 /* Utils.swift */; };
 		D690795D19F597C50048E035 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795919F597C50048E035 /* Dispatcher.swift */; };
 		D690795E19F597C50048E035 /* DispatchGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795A19F597C50048E035 /* DispatchGroup.swift */; };
@@ -103,6 +104,7 @@
 		D664C31619F9AB7E00366892 /* ErrorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorController.swift; sourceTree = "<group>"; };
 		D67416DE19F59F5900F05672 /* Dollar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Dollar.xcodeproj; path = TextYourMom/Dollar.swift/Dollar/Dollar.xcodeproj; sourceTree = "<group>"; };
 		D67416EB19F5B9AE00F05672 /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Executor.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D688BD5919FD6794001CCC95 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
 		D690795519F57BB60048E035 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D690795919F597C50048E035 /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dispatcher.swift; path = ../../callmom/TextYourMom/dispatcher/Dispatcher.swift; sourceTree = "<group>"; };
 		D690795A19F597C50048E035 /* DispatchGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DispatchGroup.swift; path = ../../callmom/TextYourMom/dispatcher/DispatchGroup.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				D690796119F598190048E035 /* Dispatcher */,
 				D6269F9919F465EF00BE7A30 /* AppDelegate.swift */,
 				D664C30419F82E1400366892 /* MasterController.swift */,
+				D688BD5919FD6794001CCC95 /* Airport.swift */,
 				D6269FC319F47F1800BE7A30 /* AirportsProvider.swift */,
 				D6269FBE19F475C700BE7A30 /* AirportsWatcher.swift */,
 				D6269FBD19F475C700BE7A30 /* Brain.swift */,
@@ -395,6 +398,7 @@
 				D664C30919F8397900366892 /* CanvasView.swift in Sources */,
 				D690795D19F597C50048E035 /* Dispatcher.swift in Sources */,
 				D67416EC19F5B9AE00F05672 /* Executor.swift in Sources */,
+				D688BD5A19FD6794001CCC95 /* Airport.swift in Sources */,
 				D664C30319F82DCF00366892 /* Model.swift in Sources */,
 				D664C31119F8686400366892 /* NoNotificationsController.swift in Sources */,
 				D664C31019F8686400366892 /* NoLocationsAndNotificationsController.swift in Sources */,

@@ -1,24 +1,17 @@
 import CoreLocation
 import Dollar
 
-enum AirportPerimeter : String {
-    case Inner = "inner"
-    case Outer = "outer"
-}
-
 protocol AirportsWatcherDelegate {
-    func enteredAirport(id:Int, _ perimeter:AirportPerimeter)
-    func enteredNoMansLand()
-    func authorizationStatusChanged()
+    func visitorChangedState(newState: AirportsVisitorState)
 }
 
 class AirportsWatcher: NSObject {
     var locationManager: CLLocationManager = CLLocationManager()
     var delegate: AirportsWatcherDelegate?
     var regions: [CLCircularRegion] = []
-    var activeAirportSignatures : [Int] = [] // empty array means no airport, positive are inner perimeters, negative are outer perimeters
     var lastLatitude : Double = 0
     var lastLongitude : Double = 0
+    var lastAirportsVisitorState = AirportsVisitorState()
  
     override init() {
         super.init()
@@ -106,16 +99,7 @@ class AirportsWatcher: NSObject {
             return .Outer
         }
     }
-    
-    func airportSignature(id:Int, _ perimeter:AirportPerimeter) -> Int {
-        switch perimeter {
-        case .Inner:
-            return id
-        case .Outer:
-            return -id
-        }
-    }
-    
+        
     func processLocationReport(location: CLLocation, native: Bool = true) {
         if location.coordinate.latitude == lastLatitude && location.coordinate.longitude == lastLongitude {
             return
@@ -138,24 +122,18 @@ class AirportsWatcher: NSObject {
         
         var regions = hitTest(lastLatitude, lastLongitude)
         
-        if regions.count > 0 {
-            var newAirportSignatures : [Int] = []
-            for region in regions {
-                let id = region.identifier.toInt()!
-                let perimeter = airportPerimeter(region, lastLatitude, lastLongitude)
-                let signature = airportSignature(id, perimeter)
-                
-                newAirportSignatures.append(signature)
-                if !$.contains(activeAirportSignatures, value:signature) {
-                    delegate?.enteredAirport(id, perimeter)
-                }
-            }
-            activeAirportSignatures = newAirportSignatures
-        } else {
-            if  activeAirportSignatures.count > 0 {
-                activeAirportSignatures = []
-                delegate?.enteredNoMansLand()
-            }
+        var newAirportsVisitorState = AirportsVisitorState()
+        for region in regions {
+            let id = region.identifier.toInt()!
+            let perimeter = airportPerimeter(region, lastLatitude, lastLongitude)
+            
+            newAirportsVisitorState.update(id, perimeter)
+        }
+        
+        // report only if there was change in state
+        if lastAirportsVisitorState != newAirportsVisitorState {
+            lastAirportsVisitorState = newAirportsVisitorState
+            delegate?.visitorChangedState(newAirportsVisitorState)
         }
     }
     
@@ -191,7 +169,7 @@ extension AirportsWatcher : CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         log("didChangeAuthorizationStatus \(status.rawValue)")
-        delegate?.authorizationStatusChanged()
+        masterController.refreshApp()
     }
 }
 
