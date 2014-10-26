@@ -54,6 +54,7 @@ class Model {
     }
     
     func debugPrint() {
+        save()
         let content = db.dictionaryRepresentation()
         log("DB: \(content)")
     }

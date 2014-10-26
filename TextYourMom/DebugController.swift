@@ -19,6 +19,7 @@ class DebugController: BaseViewController {
     @IBAction func doResetState(sender: UIButton) {
         masterController.tearDown()
         model.reset()
+        masterController = MasterController() // build fresh instance
         masterController.boot()
         masterController.refreshApp()
     }
