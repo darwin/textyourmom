@@ -32,6 +32,8 @@ extension Brain : AirportsWatcherDelegate {
         let diff = AirportsVisitorStateDiff(oldState:state, newState:newState)
         log("  the difference is \(diff)")
         
+        state = newState
+        
         // we are only interested in airports where user was suddenly teleported in
         // in other words, airport state changed from .None to .Inner
         var candidates = [AirportId]()

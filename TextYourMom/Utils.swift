@@ -1,6 +1,18 @@
 import UIKit
 import Foundation
 
+extension Int {
+    func format(f: String) -> String {
+        return NSString(format: "%\(f)d", self)
+    }
+}
+
+extension Double {
+    func format(f: String) -> String {
+        return NSString(format: "%\(f)f", self)
+    }
+}
+
 func ios7() -> Bool {
     return NSProcessInfo().isOperatingSystemAtLeastVersion(NSOperatingSystemVersion(majorVersion: 7, minorVersion: 0, patchVersion: 0))
 }

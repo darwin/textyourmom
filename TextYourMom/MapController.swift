@@ -16,7 +16,15 @@ struct DebugLocation {
 
 let debugLocations = [
     DebugLocation("DONT OVERRIDE", 0.0, 0.0), // #0
-    DebugLocation("no-mans-land",48, 14),
+    DebugLocation("x no-mans-land", 48, 14),
+    DebugLocation("x surf office Las Palmas",28.1286,-15.4452),
+    DebugLocation("x surf office Santa Cruz",36.9624,-122.0310),
+    DebugLocation("SFO-inner-Milbrae-inner",37.6145,-122.3776),
+    DebugLocation("SFO-outer-Milbrae-outer",37.6231,-122.4166),
+    DebugLocation("SFO-outer-Milbrae-inner",37.6008,-122.4067),
+    DebugLocation("SFO-inner-Milbrae-outer",37.6356,-122.3677),
+    DebugLocation("SFO-outer",37.6547,-122.3687),
+    DebugLocation("Milbrae-outer",37.5679,-122.3944),
     DebugLocation("Ceske Budejovice",48.946381,14.427464),
     DebugLocation("Caslav",49.939653,15.381808),
     DebugLocation("Hradec Kralove",50.2532,15.845228),
@@ -47,12 +55,18 @@ class FakeLocationAnnotation : MKPointAnnotation {
     
 }
 
+class CenterLocationAnnotation : MKPointAnnotation {
+    
+}
+
 class MapController: BaseViewController {
     @IBOutlet weak var locationPicker: UIPickerView!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var centerLabel: UILabel!
     var overlaysDefined = false
     var manualDragging = false
     var fakeLocationAnnotation = FakeLocationAnnotation()
+    var centerLocationAnnotation = CenterLocationAnnotation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +87,7 @@ class MapController: BaseViewController {
         super.viewDidAppear(animated)
         mapController = self
         manualDragging = false
+        mapView.removeAnnotation(centerLocationAnnotation)
         defineAirportOverlays(masterController.airportsProvider)
     }
 
@@ -121,6 +136,7 @@ class MapController: BaseViewController {
 
     @IBAction func doApplyLocationOverride() {
         manualDragging = false
+        mapView.removeAnnotation(centerLocationAnnotation)
         overrideLocation = locationPicker.selectedRowInComponent(0)
         let newDebugLocation = debugLocations[overrideLocation]
         if overrideLocation > 0 {
@@ -153,8 +169,16 @@ extension MapController : MKMapViewDelegate{
     func mapView(mapView: MKMapView!, regionWillChangeAnimated animated: Bool) {
         if mapViewRegionDidChangeFromUserInteraction() {
             manualDragging = true
+            mapView.addAnnotation(centerLocationAnnotation)
             log("started manual dragging")
         }
+    }
+
+    func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
+        var center = mapView.centerCoordinate
+        centerLocationAnnotation.setCoordinate(center)
+        let fmt = ".4"
+        centerLabel.text = "\(center.latitude.format(fmt)), \(center.longitude.format(fmt))"
     }
     
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
@@ -184,7 +208,21 @@ extension MapController : MKMapViewDelegate{
             annotationView.annotation = annotation
             return annotationView
         }
-        
+
+        if annotation is CenterLocationAnnotation {
+            let reuseId = "center-location"
+            var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+            if annotationView == nil {
+                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                annotationView.canShowCallout = false
+                annotationView.image = UIImage(named: "MagentaDot")
+                annotationView.centerOffset = CGPointMake(0, 0)
+                annotationView.calloutOffset = CGPointMake(0, 0)
+            }
+            annotationView.annotation = annotation
+            return annotationView
+        }
+
         let reuseId = "airport"
         var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
         if annotationView == nil {
@@ -222,7 +260,6 @@ extension MapController : UIPickerViewDelegate {
         
         attrString.beginEditing()
         attrString.addAttribute(NSForegroundColorAttributeName, value:UIColor.blueColor(), range:range)
-        //attrString.addAttribute(NSFontAttributeName, value:UIFont(name: "System", size: 15.0)!, range:range)
         attrString.endEditing()
         
         return attrString
