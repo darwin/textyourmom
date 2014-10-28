@@ -11,7 +11,8 @@ extension AppDelegate : UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let device = UIDevice.currentDevice()
-        log("Device: \(device.systemName) \(device.systemVersion) [\(device.model)]")
+        log("launch options: \(launchOptions)")
+        log("device: \(device.systemName) \(device.systemVersion) [\(device.model)]")
         mainWindow = window
         mainWindow?.makeKeyAndVisible()
         return masterController.boot()

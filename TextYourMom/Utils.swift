@@ -29,6 +29,21 @@ func inSimulator() -> Bool {
     return UIDevice.currentDevice().model == "iPhone Simulator"
 }
 
+func isAdHocDistribution() -> Bool {
+    // http://stackoverflow.com/a/13995403/84283
+    if let path = NSBundle.mainBundle().pathForResource("embedded", ofType:"mobileprovision") {
+        // not from app store
+        return true
+    } else {
+        // from app store
+        return false
+    }
+}
+
+func wantDebugTooling() -> Bool {
+    return inSimulator() || isAdHocDistribution()
+}
+
 func leftPadding(message:String, len: Int, char: String = " ") -> String {
     var result = message
     while countElements(result) < len {

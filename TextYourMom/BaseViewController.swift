@@ -33,6 +33,9 @@ class BaseViewController: UIViewController {
     }
     
     func injectDebugControlsIfRequired() {
+        if !wantDebugTooling() {
+            return
+        }
         if debugButton != nil {
             return
         }
@@ -49,6 +52,8 @@ class BaseViewController: UIViewController {
 extension BaseViewController : BaseViewControllerCanvasDelegate {
 
     func subviewAdded(subview: UIView) {
-        canvasView!.bringSubviewToFront(debugButton!)
+        if debugButton != nil {
+            canvasView!.bringSubviewToFront(debugButton!)
+        }
     }
 }
