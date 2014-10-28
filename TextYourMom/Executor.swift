@@ -1,9 +1,5 @@
 import UIKit
 
-let textMomActionString = "TextMom"
-let callMomActionString = "CallMom"
-let momCategoryString = "MomCategory"
-
 class Executor {
     
     init() {
@@ -34,34 +30,9 @@ extension Executor {
 // MARK: Notifications / Actions
 extension Executor {
     
-    private func buildCallMomAction() -> UIMutableUserNotificationAction {
-        let action = UIMutableUserNotificationAction()
-        action.identifier = callMomActionString
-        action.destructive = false
-        action.title = stringCallMomActionButtonTitle()
-        action.activationMode = .Background
-        action.authenticationRequired = true
-        return action
-    }
-
-    private func buildTextMomAction() -> UIMutableUserNotificationAction {
-        let action = UIMutableUserNotificationAction()
-        action.identifier = textMomActionString
-        action.destructive = false
-        action.title = stringTextMomActionButtonTitle()
-        action.activationMode = .Background
-        action.authenticationRequired = true
-        return action
-    }
-
     private func buildMomNotificationCategory() -> UIUserNotificationCategory {
-        let callMomAction = buildCallMomAction()
-        let textMomAction = buildTextMomAction()
-        
         let category = UIMutableUserNotificationCategory()
         category.identifier = momCategoryString
-        category.setActions([callMomAction, textMomAction], forContext: .Minimal)
-        category.setActions([callMomAction, textMomAction], forContext: .Default)
         return category
     }
 
