@@ -855,16 +855,13 @@
                                                     <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="10"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="19.5"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Mtk-dc-SBw" firstAttribute="top" secondItem="pId-r8-Wrn" secondAttribute="top" id="0G3-Gz-gA8"/>
                                                 <constraint firstItem="Mtk-dc-SBw" firstAttribute="leading" secondItem="pId-r8-Wrn" secondAttribute="leading" id="Qch-Rz-PCv"/>
+                                                <constraint firstAttribute="trailing" secondItem="Mtk-dc-SBw" secondAttribute="trailing" id="jXr-wD-s8H"/>
                                                 <constraint firstAttribute="bottom" secondItem="Mtk-dc-SBw" secondAttribute="bottom" id="txl-KQ-Xjs"/>
-                                                <constraint firstAttribute="trailing" secondItem="Mtk-dc-SBw" secondAttribute="trailing" id="vTh-ef-IeR"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
@@ -873,8 +870,8 @@
                                                 <mask key="constraints">
                                                     <exclude reference="0G3-Gz-gA8"/>
                                                     <exclude reference="Qch-Rz-PCv"/>
+                                                    <exclude reference="jXr-wD-s8H"/>
                                                     <exclude reference="txl-KQ-Xjs"/>
-                                                    <exclude reference="vTh-ef-IeR"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -885,7 +882,11 @@
                                                     <include reference="0G3-Gz-gA8"/>
                                                     <include reference="Qch-Rz-PCv"/>
                                                     <include reference="txl-KQ-Xjs"/>
-                                                    <include reference="vTh-ef-IeR"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="jXr-wD-s8H"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
