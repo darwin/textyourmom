@@ -117,4 +117,15 @@ class MasterController {
         dispatch_after(time, dispatch_get_main_queue(), { self.refreshApp() })
         
     }
+    
+    func navigateToPreferences() {
+        // http://stackoverflow.com/questions/24229422/accessing-the-settings-app-from-your-app-in-ios-8
+        if UIApplicationOpenSettingsURLString == nil {
+            // not supported under ios7
+            return
+        }
+        if let settingsUrl = NSURL(string:UIApplicationOpenSettingsURLString) {
+            UIApplication.sharedApplication().openURL(settingsUrl)
+        }
+    }
 }
