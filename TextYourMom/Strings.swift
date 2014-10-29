@@ -1,5 +1,5 @@
 func stringWelcomeMessage(city:String) -> String {
-    return "Welcome to \(city). How was your flight? You should let your mom know."
+    return "Let your mom know you’re safe in \(city)!"
 }
 
 func stringLocationMonitoringIsNotAvailableError() -> String {
