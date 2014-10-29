@@ -1,5 +1,4 @@
 import UIKit
-import Dollar
 
 class AirportsProvider {
     var airports : [Airport]

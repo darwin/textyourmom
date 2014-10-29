@@ -1,5 +1,4 @@
 import CoreLocation
-import Dollar
 
 protocol AirportsWatcherDelegate {
     func visitorChangedState(newState: AirportsVisitorState)

@@ -1,5 +1,3 @@
-import Dollar
-
 typealias AirportId = Int
 
 enum AirportPerimeter : String {

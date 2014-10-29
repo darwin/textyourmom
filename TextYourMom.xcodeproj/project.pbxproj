@@ -35,10 +35,10 @@
 		D664C31119F8686400366892 /* NoNotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C30E19F8686400366892 /* NoNotificationsController.swift */; };
 		D664C31319F882AC00366892 /* EmptyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C31219F882AC00366892 /* EmptyController.swift */; };
 		D664C31719F9AB7E00366892 /* ErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C31619F9AB7E00366892 /* ErrorController.swift */; };
-		D67416E919F59FF400F05672 /* Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67416E419F59F5900F05672 /* Dollar.framework */; };
 		D67416EC19F5B9AE00F05672 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67416EB19F5B9AE00F05672 /* Executor.swift */; };
 		D688BD5A19FD6794001CCC95 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D688BD5919FD6794001CCC95 /* Airport.swift */; };
 		D688BD5C19FFFE0E001CCC95 /* OverlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D688BD5B19FFFE0E001CCC95 /* OverlayButton.swift */; };
+		D688BD651A002764001CCC95 /* Dollar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D688BD641A002764001CCC95 /* Dollar.swift */; };
 		D690795619F57BB60048E035 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795519F57BB60048E035 /* Utils.swift */; };
 		D690795D19F597C50048E035 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795919F597C50048E035 /* Dispatcher.swift */; };
 		D690795E19F597C50048E035 /* DispatchGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690795A19F597C50048E035 /* DispatchGroup.swift */; };
@@ -53,20 +53,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = D6269F9319F465EF00BE7A30;
 			remoteInfo = TextYourMom;
-		};
-		D67416E319F59F5900F05672 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D67416DE19F59F5900F05672 /* Dollar.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 92E0D03C19467C67002ACC3D;
-			remoteInfo = Dollar;
-		};
-		D67416E519F59F5900F05672 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D67416DE19F59F5900F05672 /* Dollar.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 92E6686F19F09C6400BB4FB8;
-			remoteInfo = DollarTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -103,10 +89,10 @@
 		D664C30E19F8686400366892 /* NoNotificationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoNotificationsController.swift; sourceTree = "<group>"; };
 		D664C31219F882AC00366892 /* EmptyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyController.swift; sourceTree = "<group>"; };
 		D664C31619F9AB7E00366892 /* ErrorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorController.swift; sourceTree = "<group>"; };
-		D67416DE19F59F5900F05672 /* Dollar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Dollar.xcodeproj; path = TextYourMom/Dollar.swift/Dollar/Dollar.xcodeproj; sourceTree = "<group>"; };
 		D67416EB19F5B9AE00F05672 /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Executor.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D688BD5919FD6794001CCC95 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
 		D688BD5B19FFFE0E001CCC95 /* OverlayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayButton.swift; sourceTree = "<group>"; };
+		D688BD641A002764001CCC95 /* Dollar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dollar.swift; path = Dollar.swift/Dollar/Dollar/Dollar.swift; sourceTree = "<group>"; };
 		D690795519F57BB60048E035 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D690795919F597C50048E035 /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dispatcher.swift; path = ../../callmom/TextYourMom/dispatcher/Dispatcher.swift; sourceTree = "<group>"; };
 		D690795A19F597C50048E035 /* DispatchGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DispatchGroup.swift; path = ../../callmom/TextYourMom/dispatcher/DispatchGroup.swift; sourceTree = "<group>"; };
@@ -119,7 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D67416E919F59FF400F05672 /* Dollar.framework in Frameworks */,
 				D6269FC219F4793100BE7A30 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +122,6 @@
 		D6269F8B19F465EF00BE7A30 = {
 			isa = PBXGroup;
 			children = (
-				D67416DE19F59F5900F05672 /* Dollar.xcodeproj */,
 				D6269FC119F4793100BE7A30 /* MapKit.framework */,
 				D6269F9619F465EF00BE7A30 /* TextYourMom */,
 				D6269FAC19F465EF00BE7A30 /* TextYourMomTests */,
@@ -157,6 +141,7 @@
 		D6269F9619F465EF00BE7A30 /* TextYourMom */ = {
 			isa = PBXGroup;
 			children = (
+				D688BD631A00274E001CCC95 /* Dollar */,
 				D664C30B19F8680E00366892 /* Plumbing */,
 				D664C30A19F867F000366892 /* Views */,
 				D690796119F598190048E035 /* Dispatcher */,
@@ -234,13 +219,12 @@
 			name = Plumbing;
 			sourceTree = "<group>";
 		};
-		D67416DF19F59F5900F05672 /* Products */ = {
+		D688BD631A00274E001CCC95 /* Dollar */ = {
 			isa = PBXGroup;
 			children = (
-				D67416E419F59F5900F05672 /* Dollar.framework */,
-				D67416E619F59F5900F05672 /* DollarTests.xctest */,
+				D688BD641A002764001CCC95 /* Dollar.swift */,
 			);
-			name = Products;
+			name = Dollar;
 			sourceTree = "<group>";
 		};
 		D690796119F598190048E035 /* Dispatcher */ = {
@@ -330,12 +314,6 @@
 			mainGroup = D6269F8B19F465EF00BE7A30;
 			productRefGroup = D6269F9519F465EF00BE7A30 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = D67416DF19F59F5900F05672 /* Products */;
-					ProjectRef = D67416DE19F59F5900F05672 /* Dollar.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				D6269F9319F465EF00BE7A30 /* TextYourMom */,
@@ -343,23 +321,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		D67416E419F59F5900F05672 /* Dollar.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Dollar.framework;
-			remoteRef = D67416E319F59F5900F05672 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D67416E619F59F5900F05672 /* DollarTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = DollarTests.xctest;
-			remoteRef = D67416E519F59F5900F05672 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D6269F9219F465EF00BE7A30 /* Resources */ = {
@@ -402,6 +363,7 @@
 				D688BD5C19FFFE0E001CCC95 /* OverlayButton.swift in Sources */,
 				D664C30919F8397900366892 /* CanvasView.swift in Sources */,
 				D690795D19F597C50048E035 /* Dispatcher.swift in Sources */,
+				D688BD651A002764001CCC95 /* Dollar.swift in Sources */,
 				D67416EC19F5B9AE00F05672 /* Executor.swift in Sources */,
 				D688BD5A19FD6794001CCC95 /* Airport.swift in Sources */,
 				D664C30319F82DCF00366892 /* Model.swift in Sources */,
@@ -542,9 +504,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TextYourMom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4d241f47-580b-46f7-b7a7-3d254660f99e";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -556,9 +519,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TextYourMom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4d241f47-580b-46f7-b7a7-3d254660f99e";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
