@@ -47,7 +47,7 @@ class AirportsWatcher: NSObject {
     }
     
     func requestRequiredAuthorizations() {
-        if (SINCE_IOS8) {
+        if SINCE_IOS8 {
             log("requestAlwaysAuthorization")
             locationManager.requestAlwaysAuthorization()
         }
@@ -59,7 +59,7 @@ class AirportsWatcher: NSObject {
             // startMonitoringSignificantLocationChanges does not work in simulator, see http://stackoverflow.com/a/6213528
             locationManager.startUpdatingLocation()
         } else {
-            if (SINCE_IOS8) {
+            if SINCE_IOS8 {
                 locationManager.startMonitoringSignificantLocationChanges()
             } else {
                 locationManager.startUpdatingLocation()
@@ -72,7 +72,7 @@ class AirportsWatcher: NSObject {
         if inSimulator() {
             locationManager.stopUpdatingLocation()
         } else {
-            if (SINCE_IOS8) {
+            if SINCE_IOS8 {
                 locationManager.stopMonitoringSignificantLocationChanges()
             } else {
                 locationManager.startUpdatingLocation()

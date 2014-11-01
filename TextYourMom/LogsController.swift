@@ -44,6 +44,11 @@ extension LogsController : UITableViewDataSource {
         configureCell(cell, row: indexPath.row)
         return cell
     }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 16
+    }
+    
 }
 
 extension LogsController : UITableViewDelegate {

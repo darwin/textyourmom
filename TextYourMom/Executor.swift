@@ -10,10 +10,14 @@ class Executor {
     }
     
     func hasRequiredNotificationSettings() -> Bool {
-        let settings = UIApplication.sharedApplication().currentUserNotificationSettings()
-        let hasAlert = (settings.types.rawValue & UIUserNotificationType.Alert.rawValue) != 0
-        let hasSound = (settings.types.rawValue & UIUserNotificationType.Sound.rawValue) != 0
-        return hasAlert
+        if SINCE_IOS8 {
+            let settings = UIApplication.sharedApplication().currentUserNotificationSettings()
+            let hasAlert = (settings.types.rawValue & UIUserNotificationType.Alert.rawValue) != 0
+            let hasSound = (settings.types.rawValue & UIUserNotificationType.Sound.rawValue) != 0
+            return hasAlert
+        } else {
+            return true
+        }
     }
 }
 
@@ -37,7 +41,7 @@ extension Executor {
     }
 
     private func registerForNotifications() {
-        if (SINCE_IOS8) {
+        if SINCE_IOS8 {
             let requestedTypes = UIUserNotificationType.Alert | .Sound
             let categories = NSSet(object: buildMomNotificationCategory())
             let settingsRequest = UIUserNotificationSettings(forTypes: requestedTypes, categories: categories)
@@ -53,7 +57,9 @@ extension Executor {
             return false
         }
         let notification = UILocalNotification()
-        notification.category = momCategoryString
+        if SINCE_IOS8 {
+            notification.category = momCategoryString
+        }
         notification.alertBody = stringWelcomeMessage(city)
         notification.fireDate = NSDate(timeIntervalSinceNow: NSTimeInterval(fireOffset))
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
