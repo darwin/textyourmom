@@ -37,10 +37,14 @@ extension Executor {
     }
 
     private func registerForNotifications() {
-        let requestedTypes = UIUserNotificationType.Alert | .Sound
-        let categories = NSSet(object: buildMomNotificationCategory())
-        let settingsRequest = UIUserNotificationSettings(forTypes: requestedTypes, categories: categories)
-        UIApplication.sharedApplication().registerUserNotificationSettings(settingsRequest)
+        if (SINCE_IOS8) {
+            let requestedTypes = UIUserNotificationType.Alert | .Sound
+            let categories = NSSet(object: buildMomNotificationCategory())
+            let settingsRequest = UIUserNotificationSettings(forTypes: requestedTypes, categories: categories)
+            UIApplication.sharedApplication().registerUserNotificationSettings(settingsRequest)
+        } else {
+            // ios7 does not need registration for local notifications
+        }
     }
     
     func scheduleMomNotification(city:String, _ fireOffset: Float = 5) -> Bool {

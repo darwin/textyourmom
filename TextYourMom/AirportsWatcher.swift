@@ -13,8 +13,11 @@ class AirportsWatcher: NSObject {
     override init() {
         super.init()
         locationManager.delegate = self
-        // TODO: investigate locationManager.allowDeferredLocationUpdatesUntilTraveled
-        //locationManager.allowDeferredLocationUpdatesUntilTraveled(2000*1000, timeout: CLTimeIntervalMax) // 2000 km
+        if (PRIOR_IOS8) {
+            locationManager.allowDeferredLocationUpdatesUntilTraveled(allowDeferredLocationUpdatesUntilTraveledDistance, timeout: CLTimeIntervalMax) // 2000 km
+            locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
+            locationManager.distanceFilter = kCLDistanceFilterNone;
+        }
     }
     
     func registerAirports(airportsProvider: AirportsProvider) {
@@ -44,7 +47,7 @@ class AirportsWatcher: NSObject {
     }
     
     func requestRequiredAuthorizations() {
-        if (ios8()) {
+        if (SINCE_IOS8) {
             log("requestAlwaysAuthorization")
             locationManager.requestAlwaysAuthorization()
         }
@@ -56,7 +59,11 @@ class AirportsWatcher: NSObject {
             // startMonitoringSignificantLocationChanges does not work in simulator, see http://stackoverflow.com/a/6213528
             locationManager.startUpdatingLocation()
         } else {
-            locationManager.startMonitoringSignificantLocationChanges()
+            if (SINCE_IOS8) {
+                locationManager.startMonitoringSignificantLocationChanges()
+            } else {
+                locationManager.startUpdatingLocation()
+            }
         }
     }
     
@@ -65,7 +72,11 @@ class AirportsWatcher: NSObject {
         if inSimulator() {
             locationManager.stopUpdatingLocation()
         } else {
-            locationManager.stopMonitoringSignificantLocationChanges()
+            if (SINCE_IOS8) {
+                locationManager.stopMonitoringSignificantLocationChanges()
+            } else {
+                locationManager.startUpdatingLocation()
+            }
         }
     }
     
