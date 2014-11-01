@@ -14,7 +14,8 @@ extension Double {
 }
 
 func isAtLeastIOS8() -> Bool {
-    return NSProcessInfo().isOperatingSystemAtLeastVersion(NSOperatingSystemVersion(majorVersion: 8, minorVersion: 0, patchVersion: 0))
+    // http://stackoverflow.com/a/18076628
+    return floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1
 }
 
 func inSimulator() -> Bool {

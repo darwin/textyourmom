@@ -22,8 +22,6 @@ class Model {
         if let val = db.objectForKey(lastReportedAirportKey) as? String {
             lastReportedAirport = val
         }
-        
-        debugPrint()
     }
 
     func save() {
