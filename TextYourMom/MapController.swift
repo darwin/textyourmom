@@ -73,11 +73,9 @@ class MapController: BaseViewController {
 
         locationPicker.selectRow(overrideLocation, inComponent:0, animated:false)
 
+        // last known location
+        let londonLocation = CLLocationCoordinate2D(latitude: lastLatitude, longitude: lastLongitude)
         // this is here just to prevent slow map loading because of extreme zoom-out
-        let londonLocation = CLLocationCoordinate2D(
-            latitude: 51.50007773,
-            longitude: -0.1246402
-        )
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegion(center: londonLocation, span: span)
         mapView.setRegion(region, animated: true)

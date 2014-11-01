@@ -8,8 +8,6 @@ class AirportsWatcher: NSObject {
     var locationManager: CLLocationManager = CLLocationManager()
     var delegate: AirportsWatcherDelegate?
     var regions: [CLCircularRegion] = []
-    var lastLatitude : Double = 0
-    var lastLongitude : Double = 0
     var lastAirportsVisitorState = AirportsVisitorState()
  
     override init() {
@@ -104,10 +102,8 @@ class AirportsWatcher: NSObject {
             return
         }
         
-        if verboseLocationLogging {
-            let age = location.timestamp.timeIntervalSinceNow
-            log("location update: \(location.coordinate.latitude), \(location.coordinate.longitude) accuracy=\(location.horizontalAccuracy) age=\(age)")
-        }
+        let age = location.timestamp.timeIntervalSinceNow
+        log("location update: \(location.coordinate.latitude), \(location.coordinate.longitude) accuracy=\(location.horizontalAccuracy) age=\(age)")
         
         lastLatitude = location.coordinate.latitude
         lastLongitude = location.coordinate.longitude
