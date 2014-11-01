@@ -59,7 +59,7 @@ class AirportsWatcher: NSObject {
             // startMonitoringSignificantLocationChanges does not work in simulator, see http://stackoverflow.com/a/6213528
             locationManager.startUpdatingLocation()
         } else {
-            if SINCE_IOS8 {
+            if useSignificantLocationChanges {
                 locationManager.startMonitoringSignificantLocationChanges()
             } else {
                 locationManager.startUpdatingLocation()
@@ -72,11 +72,8 @@ class AirportsWatcher: NSObject {
         if inSimulator() {
             locationManager.stopUpdatingLocation()
         } else {
-            if SINCE_IOS8 {
-                locationManager.stopMonitoringSignificantLocationChanges()
-            } else {
-                locationManager.startUpdatingLocation()
-            }
+            locationManager.stopMonitoringSignificantLocationChanges()
+            locationManager.stopUpdatingLocation()
         }
     }
     
