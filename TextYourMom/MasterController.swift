@@ -119,6 +119,9 @@ class MasterController {
     }
     
     func navigateToPreferences() {
+        if PRIOR_IOS8 {
+            return
+        }
         // http://stackoverflow.com/questions/24229422/accessing-the-settings-app-from-your-app-in-ios-8
         if UIApplicationOpenSettingsURLString == nil {
             // not supported under ios7
