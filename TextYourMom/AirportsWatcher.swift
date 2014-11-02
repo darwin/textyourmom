@@ -50,6 +50,18 @@ class AirportsWatcher: NSObject {
         if SINCE_IOS8 {
             log("requestAlwaysAuthorization")
             locationManager.requestAlwaysAuthorization()
+        } else {
+            if !hasRequiredAuthorizations() {
+                // this is the way how to trigger system popup for allowing locations under iOS7
+                log("enable/disable location manager to trigger system popup under iOS7")
+                if useSignificantLocationChanges {
+                    locationManager.startMonitoringSignificantLocationChanges()
+                    locationManager.stopMonitoringSignificantLocationChanges()
+                } else {
+                    locationManager.startUpdatingLocation()
+                    locationManager.stopUpdatingLocation()
+                }
+            }
         }
     }
     
