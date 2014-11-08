@@ -1,6 +1,6 @@
 import UIKit
 
-class Executor {
+class Notifier {
     
     init() {
     }
@@ -11,7 +11,7 @@ class Executor {
 }
 
 // MARK: Notifications / Actions
-extension Executor {
+extension Notifier {
     
     func handleActionWithIdentifier(identifier: String?, _ completionHandler: () -> Void) {
         log("handleActionWithIdentifier \(identifier)")
@@ -21,7 +21,7 @@ extension Executor {
 }
 
 // MARK: Notifications / Actions
-extension Executor {
+extension Notifier {
     
     private func buildMomNotificationCategory() -> UIUserNotificationCategory {
         let category = UIMutableUserNotificationCategory()
@@ -58,7 +58,7 @@ extension Executor {
 }
 
 // MARK: BrainDelegate
-extension Executor : BrainDelegate {
+extension Notifier : BrainDelegate {
     
     func remindCallMomFromAirport(city:String, _ airportName:String) {
         log("remindCallMomFromAirport \(airportName) in \(city)")

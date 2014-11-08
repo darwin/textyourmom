@@ -65,7 +65,7 @@ extension AppDelegate : UIApplicationDelegate {
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification,
 completionHandler: () -> Void) {
         log("handleActionWithIdentifier #\(identifier)")
-        masterController.executor.handleActionWithIdentifier(identifier, completionHandler)
+        masterController.notifier.handleActionWithIdentifier(identifier, completionHandler)
     }
     
 }

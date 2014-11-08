@@ -35,7 +35,7 @@
 		D664C31119F8686400366892 /* NoNotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C30E19F8686400366892 /* NoNotificationsController.swift */; };
 		D664C31319F882AC00366892 /* EmptyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C31219F882AC00366892 /* EmptyController.swift */; };
 		D664C31719F9AB7E00366892 /* ErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C31619F9AB7E00366892 /* ErrorController.swift */; };
-		D67416EC19F5B9AE00F05672 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67416EB19F5B9AE00F05672 /* Executor.swift */; };
+		D67416EC19F5B9AE00F05672 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67416EB19F5B9AE00F05672 /* Notifier.swift */; };
 		D67AFEC91A0E7C6F00B31732 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67AFEC81A0E7C6F00B31732 /* Assets.swift */; };
 		D683438A1A0EB39500882174 /* ServiceAvailabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68343891A0EB39500882174 /* ServiceAvailabilityMonitor.swift */; };
 		D688BD5A19FD6794001CCC95 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D688BD5919FD6794001CCC95 /* Airport.swift */; };
@@ -91,7 +91,7 @@
 		D664C30E19F8686400366892 /* NoNotificationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoNotificationsController.swift; sourceTree = "<group>"; };
 		D664C31219F882AC00366892 /* EmptyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyController.swift; sourceTree = "<group>"; };
 		D664C31619F9AB7E00366892 /* ErrorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorController.swift; sourceTree = "<group>"; };
-		D67416EB19F5B9AE00F05672 /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Executor.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D67416EB19F5B9AE00F05672 /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Notifier.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D67AFEC81A0E7C6F00B31732 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		D68343891A0EB39500882174 /* ServiceAvailabilityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceAvailabilityMonitor.swift; sourceTree = "<group>"; };
 		D688BD5919FD6794001CCC95 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 				D6269FC319F47F1800BE7A30 /* AirportsProvider.swift */,
 				D6269FBE19F475C700BE7A30 /* AirportsWatcher.swift */,
 				D6269FBD19F475C700BE7A30 /* Brain.swift */,
-				D67416EB19F5B9AE00F05672 /* Executor.swift */,
+				D67416EB19F5B9AE00F05672 /* Notifier.swift */,
 				D6269F9D19F465EF00BE7A30 /* Main.storyboard */,
 				D68343891A0EB39500882174 /* ServiceAvailabilityMonitor.swift */,
 				D6269FA019F465EF00BE7A30 /* Images.xcassets */,
@@ -378,7 +378,7 @@
 				D664C30919F8397900366892 /* CanvasView.swift in Sources */,
 				D690795D19F597C50048E035 /* Dispatcher.swift in Sources */,
 				D688BD651A002764001CCC95 /* Dollar.swift in Sources */,
-				D67416EC19F5B9AE00F05672 /* Executor.swift in Sources */,
+				D67416EC19F5B9AE00F05672 /* Notifier.swift in Sources */,
 				D688BD5A19FD6794001CCC95 /* Airport.swift in Sources */,
 				D664C30319F82DCF00366892 /* Model.swift in Sources */,
 				D664C31119F8686400366892 /* NoNotificationsController.swift in Sources */,

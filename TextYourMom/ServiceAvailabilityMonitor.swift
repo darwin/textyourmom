@@ -14,12 +14,9 @@ class ServiceAvailabilityMonitor {
     var hasRequiredNotificationSettings: Bool
     
     var isAvailable: Bool
-    let delegate: ServiceAvailabilityMonitorDelegate
+    var delegate: ServiceAvailabilityMonitorDelegate?
     
-    init(delegate: ServiceAvailabilityMonitorDelegate) {
-        
-        self.delegate = delegate
-        
+    init() {
         // checked initially
         isBackgroundAppRefreshAvailable = false
         isLocationServicesAuthorized = false
@@ -107,10 +104,10 @@ class ServiceAvailabilityMonitor {
         if changed && notify {
             if isAvailable {
                 log("Services did become available")
-                delegate.serviceDidBecomeAvailable()
+                delegate?.serviceDidBecomeAvailable()
             } else {
                 log("Services did become unavailable")
-                delegate.serviceDidBecomeAvailable()
+                delegate?.serviceDidBecomeAvailable()
             }
         }
     }

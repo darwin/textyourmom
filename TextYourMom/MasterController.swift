@@ -14,13 +14,13 @@ class MasterController {
     var airportsProvider = AirportsProvider()
     var airportsWatcher = AirportsWatcher()
     var brain = Brain()
-    var executor = Executor()
-    var availabilityMonitor : ServiceAvailabilityMonitor! = nil
+    var notifier = Notifier()
+    var availabilityMonitor = ServiceAvailabilityMonitor()
     
     func boot() -> Bool {
-        availabilityMonitor = ServiceAvailabilityMonitor(delegate: self)
+        availabilityMonitor.delegate = self
         model.load()
-        brain.delegate = executor // executor will resond to brain decisions
+        brain.delegate = notifier // notifier will resond to brain decisions
         log("Parsing airports...")
         airportsProvider.parseFromResource("airports")
         log("  ... resolved \(airportsProvider.airports.count) airports")
@@ -87,7 +87,7 @@ class MasterController {
         log("Refresh app to state '\(state!.rawValue)'")
         switch state! {
         case .Normal:
-            executor.setupNotifications()
+            notifier.setupNotifications()
             airportsWatcher.start()
             switchToScreen("Main")
         case .NoLocation:
@@ -116,7 +116,7 @@ class MasterController {
     func confirmIntro() {
         model.introPlayed = true
         airportsWatcher.requestRequiredAuthorizations()
-        executor.setupNotifications()
+        notifier.setupNotifications()
         
         // above calls are non-blocking, UI will react indirectly
         // additionally we do manual refreshApp() for case calls above had no effect
