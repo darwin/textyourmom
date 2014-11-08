@@ -8,17 +8,6 @@ class Executor {
     func setupNotifications() {
         registerForNotifications()
     }
-    
-    func hasRequiredNotificationSettings() -> Bool {
-        if SINCE_IOS8 {
-            let settings = UIApplication.sharedApplication().currentUserNotificationSettings()
-            let hasAlert = (settings.types.rawValue & UIUserNotificationType.Alert.rawValue) != 0
-            let hasSound = (settings.types.rawValue & UIUserNotificationType.Sound.rawValue) != 0
-            return hasAlert
-        } else {
-            return true
-        }
-    }
 }
 
 // MARK: Notifications / Actions

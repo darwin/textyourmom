@@ -40,10 +40,6 @@ class AirportsWatcher: NSObject {
         }
     }
     
-    func isLocationMonitoringAvailable() -> Bool {
-        return CLLocationManager.significantLocationChangeMonitoringAvailable()
-    }
-    
     func hasRequiredAuthorizations() -> Bool {
         let status = CLLocationManager.authorizationStatus()
         log("CLLocationManager.authorizationStatus() returned \(status.rawValue) (expected 3)")
@@ -188,7 +184,7 @@ extension AirportsWatcher : CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         log("didChangeAuthorizationStatus \(status.rawValue)")
-        masterController.refreshApp()
+        masterController.availabilityMonitor.locationAuthorizationStatusDidChange(status)
     }
 }
 

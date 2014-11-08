@@ -15,8 +15,10 @@ class MasterController {
     var airportsWatcher = AirportsWatcher()
     var brain = Brain()
     var executor = Executor()
+    var availabilityMonitor : ServiceAvailabilityMonitor! = nil
     
     func boot() -> Bool {
+        availabilityMonitor = ServiceAvailabilityMonitor(delegate: self)
         model.load()
         brain.delegate = executor // executor will resond to brain decisions
         log("Parsing airports...")
@@ -35,7 +37,6 @@ class MasterController {
     func tearDown() {
         log("tear down")
         model.save()
-        airportsWatcher.stop()
     }
     
     func playIntro() -> Bool {
@@ -47,13 +48,20 @@ class MasterController {
             return .Intro
         }
         
-        if !airportsWatcher.isLocationMonitoringAvailable() {
+        availabilityMonitor.checkAvailability()
+
+        if !availabilityMonitor.isBackgroundAppRefreshAvailable {
+            lastError = stringBackgroundAppRefreshNotAvailableError()
+            return .Error
+        }
+
+        if !availabilityMonitor.isLocationServicesAuthorized {
             lastError = stringLocationMonitoringIsNotAvailableError()
             return .Error
         }
         
-        let locationsApproved = airportsWatcher.hasRequiredAuthorizations()
-        let notificationsApproved = executor.hasRequiredNotificationSettings()
+        let locationsApproved = availabilityMonitor.isLocationServicesEnabled
+        let notificationsApproved = availabilityMonitor.hasRequiredNotificationSettings
         
         if !locationsApproved && !notificationsApproved {
             return .NoLocationAndNotifications
@@ -131,4 +139,16 @@ class MasterController {
             UIApplication.sharedApplication().openURL(settingsUrl)
         }
     }
+}
+
+extension MasterController : ServiceAvailabilityMonitorDelegate {
+
+    func serviceDidBecomeAvailable() {
+        refreshApp()
+    }
+    
+    func serviceDidBecomeUnavailable() {
+        refreshApp()
+    }
+
 }

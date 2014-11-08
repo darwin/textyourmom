@@ -37,6 +37,7 @@
 		D664C31719F9AB7E00366892 /* ErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C31619F9AB7E00366892 /* ErrorController.swift */; };
 		D67416EC19F5B9AE00F05672 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67416EB19F5B9AE00F05672 /* Executor.swift */; };
 		D67AFEC91A0E7C6F00B31732 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67AFEC81A0E7C6F00B31732 /* Assets.swift */; };
+		D683438A1A0EB39500882174 /* ServiceAvailabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68343891A0EB39500882174 /* ServiceAvailabilityMonitor.swift */; };
 		D688BD5A19FD6794001CCC95 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D688BD5919FD6794001CCC95 /* Airport.swift */; };
 		D688BD5C19FFFE0E001CCC95 /* OverlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D688BD5B19FFFE0E001CCC95 /* OverlayButton.swift */; };
 		D688BD651A002764001CCC95 /* Dollar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D688BD641A002764001CCC95 /* Dollar.swift */; };
@@ -92,6 +93,7 @@
 		D664C31619F9AB7E00366892 /* ErrorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorController.swift; sourceTree = "<group>"; };
 		D67416EB19F5B9AE00F05672 /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Executor.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D67AFEC81A0E7C6F00B31732 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		D68343891A0EB39500882174 /* ServiceAvailabilityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceAvailabilityMonitor.swift; sourceTree = "<group>"; };
 		D688BD5919FD6794001CCC95 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
 		D688BD5B19FFFE0E001CCC95 /* OverlayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayButton.swift; sourceTree = "<group>"; };
 		D688BD641A002764001CCC95 /* Dollar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dollar.swift; path = Dollar.swift/Dollar/Dollar/Dollar.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				D6269FBD19F475C700BE7A30 /* Brain.swift */,
 				D67416EB19F5B9AE00F05672 /* Executor.swift */,
 				D6269F9D19F465EF00BE7A30 /* Main.storyboard */,
+				D68343891A0EB39500882174 /* ServiceAvailabilityMonitor.swift */,
 				D6269FA019F465EF00BE7A30 /* Images.xcassets */,
 				D6269FA219F465EF00BE7A30 /* LaunchScreen.xib */,
 				D6269F9719F465EF00BE7A30 /* Supporting Files */,
@@ -379,6 +382,7 @@
 				D688BD5A19FD6794001CCC95 /* Airport.swift in Sources */,
 				D664C30319F82DCF00366892 /* Model.swift in Sources */,
 				D664C31119F8686400366892 /* NoNotificationsController.swift in Sources */,
+				D683438A1A0EB39500882174 /* ServiceAvailabilityMonitor.swift in Sources */,
 				D664C31019F8686400366892 /* NoLocationsAndNotificationsController.swift in Sources */,
 				D607979819FAD2FE008B9CA3 /* MapController.swift in Sources */,
 				D6269F9A19F465EF00BE7A30 /* AppDelegate.swift in Sources */,
