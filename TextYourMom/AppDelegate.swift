@@ -32,6 +32,7 @@ extension AppDelegate : UIApplicationDelegate {
     
     func applicationDidEnterBackground(application: UIApplication) {
         log("applicationDidEnterBackground")
+        model.save()
     }
     
     func applicationWillEnterForeground(application: UIApplication) {

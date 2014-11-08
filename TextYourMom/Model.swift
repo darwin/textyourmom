@@ -8,10 +8,22 @@ class Model {
     }
 
     let introPlayedKey = "IntroPlayed"
-    var introPlayed = false
+    var introPlayed : Bool = false {
+        didSet {
+            onChange()
+        }
+    }
     
     let lastReportedAirportKey = "LastReportedAiport"
-    var lastReportedAirport = ""
+    var lastReportedAirport : String = "" {
+        didSet {
+            onChange()
+        }
+    }
+    
+    func onChange() {
+        save()
+    }
 
     func load() {
         log("model: load")
