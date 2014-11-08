@@ -31,7 +31,7 @@ extension Executor {
 
     private func registerForNotifications() {
         if SINCE_IOS8 {
-            let requestedTypes = UIUserNotificationType.Alert | .Sound
+            let requestedTypes = UIUserNotificationType.Alert | .Sound | .Badge
             let categories = NSSet(object: buildMomNotificationCategory())
             let settingsRequest = UIUserNotificationSettings(forTypes: requestedTypes, categories: categories)
             UIApplication.sharedApplication().registerUserNotificationSettings(settingsRequest)
@@ -51,6 +51,7 @@ extension Executor {
         }
         notification.alertBody = stringWelcomeMessage(city)
         notification.fireDate = NSDate(timeIntervalSinceNow: NSTimeInterval(fireOffset))
+        notification.soundName = UILocalNotificationDefaultSoundName
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
         return true
     }
