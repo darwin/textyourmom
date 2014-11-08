@@ -36,6 +36,7 @@
 		D664C31319F882AC00366892 /* EmptyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C31219F882AC00366892 /* EmptyController.swift */; };
 		D664C31719F9AB7E00366892 /* ErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664C31619F9AB7E00366892 /* ErrorController.swift */; };
 		D67416EC19F5B9AE00F05672 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67416EB19F5B9AE00F05672 /* Executor.swift */; };
+		D67AFEC91A0E7C6F00B31732 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67AFEC81A0E7C6F00B31732 /* Assets.swift */; };
 		D688BD5A19FD6794001CCC95 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D688BD5919FD6794001CCC95 /* Airport.swift */; };
 		D688BD5C19FFFE0E001CCC95 /* OverlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D688BD5B19FFFE0E001CCC95 /* OverlayButton.swift */; };
 		D688BD651A002764001CCC95 /* Dollar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D688BD641A002764001CCC95 /* Dollar.swift */; };
@@ -90,6 +91,7 @@
 		D664C31219F882AC00366892 /* EmptyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyController.swift; sourceTree = "<group>"; };
 		D664C31619F9AB7E00366892 /* ErrorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorController.swift; sourceTree = "<group>"; };
 		D67416EB19F5B9AE00F05672 /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Executor.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D67AFEC81A0E7C6F00B31732 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		D688BD5919FD6794001CCC95 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
 		D688BD5B19FFFE0E001CCC95 /* OverlayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayButton.swift; sourceTree = "<group>"; };
 		D688BD641A002764001CCC95 /* Dollar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dollar.swift; path = Dollar.swift/Dollar/Dollar/Dollar.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 		D6269F9619F465EF00BE7A30 /* TextYourMom */ = {
 			isa = PBXGroup;
 			children = (
+				D67AFEC51A0E7C0E00B31732 /* StyleKit */,
 				D688BD631A00274E001CCC95 /* Dollar */,
 				D664C30B19F8680E00366892 /* Plumbing */,
 				D664C30A19F867F000366892 /* Views */,
@@ -217,6 +220,14 @@
 				D664C30619F8307200366892 /* BaseViewController.swift */,
 			);
 			name = Plumbing;
+			sourceTree = "<group>";
+		};
+		D67AFEC51A0E7C0E00B31732 /* StyleKit */ = {
+			isa = PBXGroup;
+			children = (
+				D67AFEC81A0E7C6F00B31732 /* Assets.swift */,
+			);
+			path = StyleKit;
 			sourceTree = "<group>";
 		};
 		D688BD631A00274E001CCC95 /* Dollar */ = {
@@ -374,6 +385,7 @@
 				D6269FC019F475C700BE7A30 /* AirportsWatcher.swift in Sources */,
 				D6269FBF19F475C700BE7A30 /* Brain.swift in Sources */,
 				D664C30219F82DCF00366892 /* IntroController.swift in Sources */,
+				D67AFEC91A0E7C6F00B31732 /* Assets.swift in Sources */,
 				D664C2FD19F6F2F400366892 /* Globals.swift in Sources */,
 				D664C2FF19F6F32A00366892 /* Logs.swift in Sources */,
 				D690795E19F597C50048E035 /* DispatchGroup.swift in Sources */,

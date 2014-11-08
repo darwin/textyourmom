@@ -128,22 +128,30 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Intro" translatesAutoresizingMaskIntoConstraints="NO" id="zhJ-uR-6kY">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
-                            <button opaque="NO" alpha="0.69999999999999973" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdG-7I-Lyh" customClass="OverlayButton" customModule="TextYourMom" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdG-7I-Lyh" customClass="OverlayButton" customModule="TextYourMom" customModuleProvider="target">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="7bF-qK-d9v">
                                         <variation key="heightClass=regular-widthClass=compact" constant="100"/>
                                     </constraint>
+                                    <constraint firstAttribute="height" constant="80" id="sxB-aW-tbS">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                                    </constraint>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="xlabel" value="Got it"/>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="7bF-qK-d9v"/>
+                                        <exclude reference="sxB-aW-tbS"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="7bF-qK-d9v"/>
+                                        <exclude reference="7bF-qK-d9v"/>
+                                        <include reference="sxB-aW-tbS"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -158,7 +166,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="zhJ-uR-6kY" secondAttribute="trailing" id="OuZ-2N-RaU"/>
-                            <constraint firstItem="h7v-ew-FSz" firstAttribute="top" secondItem="zdG-7I-Lyh" secondAttribute="bottom" constant="37" id="acf-fH-lan">
+                            <constraint firstItem="h7v-ew-FSz" firstAttribute="top" secondItem="zdG-7I-Lyh" secondAttribute="bottom" constant="10" id="acf-fH-lan">
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstItem="zdG-7I-Lyh" firstAttribute="trailing" secondItem="zH8-ay-eiq" secondAttribute="trailingMargin" id="ge4-DL-1bW"/>

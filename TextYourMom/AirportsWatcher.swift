@@ -14,7 +14,7 @@ class AirportsWatcher: NSObject {
         super.init()
         locationManager.delegate = self
         if (PRIOR_IOS8) {
-            locationManager.allowDeferredLocationUpdatesUntilTraveled(allowDeferredLocationUpdatesUntilTraveledDistance, timeout: CLTimeIntervalMax) // 2000 km
+            locationManager.allowDeferredLocationUpdatesUntilTraveled(allowDeferredLocationUpdatesUntilTraveledDistance, timeout: CLTimeIntervalMax)
             locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
             locationManager.distanceFilter = kCLDistanceFilterNone;
         }
