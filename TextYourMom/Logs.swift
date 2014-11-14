@@ -5,7 +5,7 @@ struct LogRecord {
 }
 
 protocol LogsModelDelegate {
-    func refresh()
+    func rowAdded()
 }
 
 class LogsModel {
@@ -18,6 +18,6 @@ class LogsModel {
     func insert(message:String, _ filePath:String, _ fileLine:Int) {
         let record = LogRecord(message:message, filePath:filePath, fileLine:fileLine)
         logs.append(record)
-        delegate?.refresh()
+        delegate?.rowAdded()
     }
 }

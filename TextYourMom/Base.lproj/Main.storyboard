@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B17" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bJI-SH-pTH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bJI-SH-pTH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -785,7 +785,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="20" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XRu-3I-Ow2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="300" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XRu-3I-Ow2">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -795,46 +795,42 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="5Kb-Er-TtM" id="pId-r8-Wrn">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample log linenext line" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtk-dc-SBw">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtk-dc-SBw">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="10"/>
+                                                    <string key="text">Sample log linenext line Sample log linenext line Sample log linenext line Sample log linenext line Sample log linenext line Sample log linenext line Sample log linenext line Sample log linenext line Sample log linenext line Sample log linenext line Sample log linenext line</string>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="8"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="19.5"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Mtk-dc-SBw" firstAttribute="top" secondItem="pId-r8-Wrn" secondAttribute="top" id="0G3-Gz-gA8"/>
-                                                <constraint firstItem="Mtk-dc-SBw" firstAttribute="leading" secondItem="pId-r8-Wrn" secondAttribute="leading" id="Qch-Rz-PCv"/>
-                                                <constraint firstAttribute="trailing" secondItem="Mtk-dc-SBw" secondAttribute="trailing" id="jXr-wD-s8H"/>
-                                                <constraint firstAttribute="bottom" secondItem="Mtk-dc-SBw" secondAttribute="bottom" id="txl-KQ-Xjs"/>
+                                                <constraint firstAttribute="bottom" secondItem="Mtk-dc-SBw" secondAttribute="bottom" id="2Lg-pL-lgD"/>
+                                                <constraint firstItem="Mtk-dc-SBw" firstAttribute="top" secondItem="pId-r8-Wrn" secondAttribute="top" id="Bhc-ag-7Cd"/>
+                                                <constraint firstItem="Mtk-dc-SBw" firstAttribute="leading" secondItem="pId-r8-Wrn" secondAttribute="leading" id="jBp-8D-KUy"/>
+                                                <constraint firstAttribute="trailing" secondItem="Mtk-dc-SBw" secondAttribute="trailing" id="sjf-Jy-bwp"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="Mtk-dc-SBw"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="0G3-Gz-gA8"/>
-                                                    <exclude reference="Qch-Rz-PCv"/>
-                                                    <exclude reference="jXr-wD-s8H"/>
-                                                    <exclude reference="txl-KQ-Xjs"/>
+                                                    <exclude reference="2Lg-pL-lgD"/>
+                                                    <exclude reference="Bhc-ag-7Cd"/>
+                                                    <exclude reference="jBp-8D-KUy"/>
+                                                    <exclude reference="sjf-Jy-bwp"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="Mtk-dc-SBw"/>
                                                 </mask>
-                                                <mask key="constraints">
-                                                    <include reference="0G3-Gz-gA8"/>
-                                                    <include reference="Qch-Rz-PCv"/>
-                                                    <include reference="txl-KQ-Xjs"/>
-                                                </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="constraints">
-                                                    <include reference="jXr-wD-s8H"/>
+                                                    <include reference="2Lg-pL-lgD"/>
+                                                    <include reference="Bhc-ag-7Cd"/>
+                                                    <include reference="jBp-8D-KUy"/>
+                                                    <include reference="sjf-Jy-bwp"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>

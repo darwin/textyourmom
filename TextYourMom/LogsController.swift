@@ -10,8 +10,6 @@ class LogsController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 20.0;
         model.delegate = self
     }
 
@@ -46,7 +44,11 @@ extension LogsController : UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 16
+        var cell = prepareCell()
+        configureCell(cell, row: indexPath.row)
+        cell.message.preferredMaxLayoutWidth = CGRectGetWidth(tableView.bounds)
+        let size = cell.message.intrinsicContentSize()
+        return size.height + 1
     }
     
 }
@@ -56,8 +58,14 @@ extension LogsController : UITableViewDelegate {
 
 extension LogsController : LogsModelDelegate {
 
-    func refresh() {
-        tableView.reloadData()
-        tableView.scrollToRowAtIndexPath(NSIndexPath(forRow:model.logs.count - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+    func rowAdded() {
+        let wasScrolledToBottom = tableView.contentOffset.y >= tableView.contentSize.height - tableView.frame.size.height
+
+        let path = NSIndexPath(forRow: model.logs.count-1, inSection: 0)
+        tableView.insertRowsAtIndexPaths([path], withRowAnimation: .Fade)
+        
+        if wasScrolledToBottom {
+            tableView.scrollToRowAtIndexPath(NSIndexPath(forRow:model.logs.count - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+        }
     }
 }

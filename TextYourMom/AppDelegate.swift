@@ -10,6 +10,9 @@ class AppDelegate: UIResponder {
 extension AppDelegate : UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        if inSimulator() {
+            log("running in simulator")
+        }
         let device = UIDevice.currentDevice()
         log("device: \(device.systemName) \(device.systemVersion) [\(device.model)]")
         mainWindow = window
