@@ -12,15 +12,13 @@ class AirportsWatcher: NSObject {
     override init() {
         super.init()
         locationManager.delegate = self
-        if (PRIOR_IOS8) {
-            if allowDeferredLocationUpdates {
-                locationManager.allowDeferredLocationUpdatesUntilTraveled(allowDeferredLocationUpdatesUntilTraveledDistance, timeout: CLTimeIntervalMax)
-            }
-            // these settings should be relevant only when not using useSignificantLocationChanges
-            locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-            locationManager.distanceFilter = 1000
-            locationManager.activityType = .OtherNavigation
+        if allowDeferredLocationUpdates {
+            locationManager.allowDeferredLocationUpdatesUntilTraveled(allowDeferredLocationUpdatesUntilTraveledDistance, timeout: CLTimeIntervalMax)
         }
+        // these settings should be relevant only when not using useSignificantLocationChanges
+        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+        locationManager.distanceFilter = 500
+        locationManager.activityType = .OtherNavigation
     }
     
     func registerAirports(airportsProvider: AirportsProvider) {
