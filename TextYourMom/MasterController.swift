@@ -20,10 +20,11 @@ class MasterController {
     func boot() -> Bool {
         availabilityMonitor.delegate = self
         model.load()
+        model.debugPrint()
+        brain.state.unserialize(model.visitorState)
         brain.delegate = notifier // notifier will resond to brain decisions
-        log("Parsing airports...")
         airportsProvider.parseFromResource("airports")
-        log("  ... resolved \(airportsProvider.airports.count) airports")
+        log("Resolved \(airportsProvider.airports.count) airports")
         log("Registering airports with airports watcher...")
         airportsWatcher.delegate = brain
         airportsWatcher.registerAirports(airportsProvider)
@@ -36,7 +37,7 @@ class MasterController {
     
     func tearDown() {
         log("tear down")
-        model.save()
+        model.save("tear down")
     }
     
     func playIntro() -> Bool {

@@ -26,6 +26,10 @@ class AirportsVisitorState : Equatable, Printable {
         state[id] = perimeter
     }
     
+    func itemDescription(id:AirportId, _ perimeter: AirportPerimeter) -> String {
+        return "\(id):\(perimeter.rawValue)"
+    }
+    
     var description: String {
         if state.count == 0 {
             return "[no man's land]"
@@ -33,10 +37,44 @@ class AirportsVisitorState : Equatable, Printable {
         
         var parts = [String]()
         for (id, perimeter) in state {
-            parts.append("#\(id)(\(perimeter.rawValue))")
+            parts.append(itemDescription(id, perimeter))
         }
         return ", ".join(parts)
     }
+}
+
+// MARK: serialization
+extension AirportsVisitorState {
+    
+    func serialize() -> String {
+        var parts = [String]()
+        for (id, perimeter) in state {
+            parts.append("\(id):\(perimeter.rawValue)")
+        }
+        return ",".join(parts)
+    }
+    
+    func unserialize(data: String) {
+        state.removeAll(keepCapacity: true)
+        let items = split(data) {$0 == ","}
+        for item in items {
+            let pieces = split(item) {$0 == ":"}
+            if pieces.count != 2 {
+                log("unable to unserialize pair: \(item)")
+                continue
+            }
+            
+            let id = pieces[0].toInt()
+            let perimeter = AirportPerimeter.init(rawValue:pieces[1])
+            
+            if id != nil && perimeter != nil {
+                state[id!] = perimeter!
+            } else {
+                log("unable to unserialize pair: \(item)")
+            }
+        }
+    }
+    
 }
 
 func ==(lhs: AirportsVisitorState, rhs: AirportsVisitorState) -> Bool {
@@ -62,7 +100,10 @@ class AirportsVisitorStateDiff : Printable {
             diff[id] = AirportVisitChange(before:.None, after:newState.state[id]!)
         }
         for id in $.intersection(newIds, oldIds) {
-            diff[id] = AirportVisitChange(before:oldState.state[id]!, after:newState.state[id]!)
+            let change = AirportVisitChange(before:oldState.state[id]!, after:newState.state[id]!)
+            if change.before != change.after {
+                diff[id] = change
+            }
         }
     }
     
@@ -73,8 +114,12 @@ class AirportsVisitorStateDiff : Printable {
         
         var parts = [String]()
         for (id, change) in diff {
-            parts.append("#\(id)(\(change.before.rawValue)->\(change.after.rawValue))")
+            parts.append("\(id):\(change.before.rawValue)->\(change.after.rawValue)")
         }
         return ", ".join(parts)
+    }
+    
+    var empty : Bool {
+        return diff.count == 0
     }
 }

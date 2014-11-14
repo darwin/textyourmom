@@ -1,14 +1,13 @@
 import CoreLocation
 
 protocol AirportsWatcherDelegate {
-    func visitorChangedState(newState: AirportsVisitorState)
+    func visitorPotentialChangeInState(newState: AirportsVisitorState)
 }
 
 class AirportsWatcher: NSObject {
     var locationManager: CLLocationManager = CLLocationManager()
     var delegate: AirportsWatcherDelegate?
     var regions: [CLCircularRegion] = []
-    var lastAirportsVisitorState = AirportsVisitorState()
  
     override init() {
         super.init()
@@ -145,11 +144,7 @@ class AirportsWatcher: NSObject {
             newAirportsVisitorState.update(id, perimeter)
         }
         
-        // report only if there was change in state
-        if lastAirportsVisitorState != newAirportsVisitorState {
-            lastAirportsVisitorState = newAirportsVisitorState
-            delegate?.visitorChangedState(newAirportsVisitorState)
-        }
+        delegate?.visitorPotentialChangeInState(newAirportsVisitorState)
     }
     
     func emitFakeUpdateLocation(latitude: Double, _ longitude:Double) {

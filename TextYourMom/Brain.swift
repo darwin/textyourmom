@@ -26,16 +26,22 @@ class Brain {
 // MARK: AirportsWatcherDelegate
 extension Brain : AirportsWatcherDelegate {
     
-    func visitorChangedState(newState: AirportsVisitorState) {
-        log(">>> changed state to \(newState)")
-        
+    func visitorPotentialChangeInState(newState: AirportsVisitorState) {
         let diff = AirportsVisitorStateDiff(oldState:state, newState:newState)
-        log("  the difference is \(diff)")
+        
+        if diff.empty {
+            return
+        }
+        
+        log("brain: state changed \(diff)")
         
         state = newState
         
+        // new state should be stored in model
+        model.visitorState = state.serialize()
+        
         // we are only interested in airports where user was suddenly teleported in
-        // in other words, airport state changed from .None to .Inner
+        // in other words: the airport state changed from .None to .Inner
         var candidates = [AirportId]()
         for (id, change) in diff.diff {
             if change.before == .None && change.after == .Inner {

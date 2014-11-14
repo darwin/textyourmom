@@ -103,10 +103,8 @@ class ServiceAvailabilityMonitor {
         isAvailable = isAvailableUpdated
         if changed && notify {
             if isAvailable {
-                log("Services did become available")
                 delegate?.serviceDidBecomeAvailable()
             } else {
-                log("Services did become unavailable")
                 delegate?.serviceDidBecomeAvailable()
             }
         }

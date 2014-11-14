@@ -32,7 +32,7 @@ extension AppDelegate : UIApplicationDelegate {
     
     func applicationDidEnterBackground(application: UIApplication) {
         log("applicationDidEnterBackground")
-        model.save()
+        model.save("applicationDidEnterBackground")
     }
     
     func applicationWillEnterForeground(application: UIApplication) {
@@ -57,7 +57,7 @@ extension AppDelegate : UIApplicationDelegate {
 extension AppDelegate : UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        log("didReceiveLocalNotification #\(notification)")
+        log("didReceiveLocalNotification")
         if application.applicationState == .Active {
             // TODO: how to handle notification when active?
         }
