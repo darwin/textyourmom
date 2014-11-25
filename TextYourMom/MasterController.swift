@@ -19,8 +19,6 @@ class MasterController {
     
     func boot() -> Bool {
         availabilityMonitor.delegate = self
-        model.load()
-        model.debugPrint()
         brain.state.unserialize(model.visitorState)
         brain.delegate = notifier // notifier will resond to brain decisions
         airportsProvider.parseFromResource("airports")

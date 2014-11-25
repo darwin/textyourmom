@@ -12,7 +12,7 @@ class LogsController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         model.delegate = self
-        dateFormatter.dateFormat = "hh:mm:ss"
+        dateFormatter.dateFormat = "D hh:mm:ss"
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -73,5 +73,9 @@ extension LogsController : LogsModelDelegate {
         if wasScrolledToBottom {
             tableView.scrollToRowAtIndexPath(NSIndexPath(forRow:model.logs.count - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: true)
         }
+    }
+    
+    func refresh() {
+        tableView.reloadData()
     }
 }

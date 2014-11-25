@@ -20,6 +20,8 @@ class DebugController: BaseViewController {
         masterController.tearDown()
         model.reset()
         masterController = MasterController() // build fresh instance
+        sharedLogsModel.unserialize(model.logs)
+        log("=== AFTER RESET ===")
         masterController.boot()
         masterController.refreshApp()
     }
