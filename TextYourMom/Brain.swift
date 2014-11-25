@@ -37,8 +37,14 @@ extension Brain : AirportsWatcherDelegate {
         
         state = newState
         
-        // new state should be stored in model
+        // new state should be stored in the model
         model.visitorState = state.serialize()
+        
+        if supressNextStateChangeReport {
+            log("supressNextStateChangeReport active => bail out")
+            supressNextStateChangeReport = false
+            return
+        }
         
         // we are only interested in airports where user was suddenly teleported in
         // in other words: the airport state changed from .None to .Inner

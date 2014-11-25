@@ -10,6 +10,12 @@ class AppDelegate: UIResponder {
 extension AppDelegate : UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // we assume application was launched by user with UI
+        // at this point supressNextStateChangeReport is set to true
+        // it means we don't want to report airport visit immediatelly after normal app launch
+        // see *** below for special case
+        supressNextStateChangeReport = true
+        
         pausePresentViewController()
         if inSimulator() {
             log("running in simulator")
@@ -23,8 +29,10 @@ extension AppDelegate : UIApplicationDelegate {
         if let options = launchOptions {
             log("launchOptions: \(launchOptions)")
             if let key: AnyObject = options[UIApplicationLaunchOptionsLocalNotificationKey] {
-                // we are launched in reaction to location change notification
-                // ...
+                // we are launched in reaction to location change notification (in the background without UI)
+                // *** in this special case we want to report potential state change because we just continue
+                // from previous state
+                supressNextStateChangeReport = false
             }
         }
         

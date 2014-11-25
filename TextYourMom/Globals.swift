@@ -11,5 +11,6 @@ var mapController : MapController?
 var lastLatitude : Double = 0
 var lastLongitude : Double = 0
 var useSignificantLocationChanges = true
+var supressNextStateChangeReport = true
 
 var overrideLocation = 0 // 0 means no override
