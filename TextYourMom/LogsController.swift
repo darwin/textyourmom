@@ -6,11 +6,13 @@ class LogItemCell: UITableViewCell {
 
 class LogsController: BaseViewController {
     var model : LogsModel = sharedLogsModel
+    let dateFormatter = NSDateFormatter()
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         model.delegate = self
+        dateFormatter.dateFormat = "hh:mm:ss"
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -22,7 +24,11 @@ class LogsController: BaseViewController {
     }
 
     func configureCell(cell:LogItemCell, row:Int) {
-        cell.message.text = model.logs[row].message
+        let data = model.logs[row]
+        let time = dateFormatter.stringFromDate(NSDate(timeIntervalSince1970:data.timestamp))
+        let msg = data.message
+
+        cell.message.text = "\(time) \(msg)"
     }
     
 }
