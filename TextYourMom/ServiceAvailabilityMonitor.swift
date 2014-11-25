@@ -1,3 +1,5 @@
+// bits taken from https://github.com/jhibberd/pophello-ios/blob/0723de26f0acb11a803ce4af7f630d10357398e9/PopCard/ServiceAvailabilityMonitor.swift
+
 import CoreLocation
 import UIKit
 
@@ -52,7 +54,7 @@ class ServiceAvailabilityMonitor {
     //
     func checkIsBackgroundAppRefreshAvailable() {
         let status = UIApplication.sharedApplication().backgroundRefreshStatus
-        log("UIApplication.sharedApplication().backgroundRefreshStatus is \(status.rawValue)")
+        log("*** UIApplication.sharedApplication().backgroundRefreshStatus is \(status.rawValue)")
         isBackgroundAppRefreshAvailable = status == .Available
     }
     
@@ -67,7 +69,7 @@ class ServiceAvailabilityMonitor {
     //
     func checkIsLocationServicesAuthorized(_ status : CLAuthorizationStatus = CLLocationManager.authorizationStatus()) {
         CLLocationManager.authorizationStatus()
-        log("CLLocationManager.authorizationStatus() is \(status.rawValue)")
+        log("*** CLLocationManager.authorizationStatus() is \(status.rawValue)")
         isLocationServicesAuthorized = status.rawValue == 3 // Swift problem: .AuthorizedAlways is missing
     }
     
@@ -78,7 +80,7 @@ class ServiceAvailabilityMonitor {
     //
     func checkIsLocationServicesEnabled() {
         let status = CLLocationManager.locationServicesEnabled()
-        log("CLLocationManager.locationServicesEnabled() is \(status)")
+        log("*** CLLocationManager.locationServicesEnabled() is \(status)")
         isLocationServicesEnabled = status
     }
     
@@ -111,14 +113,14 @@ class ServiceAvailabilityMonitor {
     }
     
     func locationAuthorizationStatusDidChange(status: CLAuthorizationStatus) {
-        log("Location authorization status changed: \(status)")
+        log("*** Location authorization status changed: \(status)")
         checkIsLocationServicesAuthorized(status)
         updateAvailabilityAndNotifyDelegateIfChanged(true)
     }
     
     func backgroundRefreshStatusDidChange(notification: NSNotification) {
         isBackgroundAppRefreshAvailable = UIApplication.sharedApplication().backgroundRefreshStatus == .Available
-        log("Background App Refresh setting changed: \(isBackgroundAppRefreshAvailable)")
+        log("*** Background App Refresh setting changed: \(isBackgroundAppRefreshAvailable)")
         updateAvailabilityAndNotifyDelegateIfChanged(true)
     }
 }

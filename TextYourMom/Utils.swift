@@ -70,9 +70,22 @@ func storyBoard(name:String? = nil) -> UIStoryboard {
     return UIStoryboard(name: effectiveName!, bundle: NSBundle.mainBundle())
 }
 
+var viewControllerCache = [String: UIViewController]()
+
 func viewController(name:String, storyBoardName:String? = nil) -> UIViewController? {
+    if let controller = viewControllerCache[name] {
+        return controller
+    }
+    
     let storyboard = storyBoard(name:storyBoardName)
-    return storyboard.instantiateViewControllerWithIdentifier(name) as? UIViewController
+    var controller = storyboard.instantiateViewControllerWithIdentifier(name) as? UIViewController
+    if controller != nil {
+//        viewControllerCache[name] = controller
+        return controller
+    }
+    
+    log("!!! unable to instantiate UIViewController \(name) from storyboard \(storyBoardName)")
+    return nil
 }
 
 func topController() -> UIViewController? {
@@ -91,10 +104,8 @@ func topController() -> UIViewController? {
 func switchToScreen(name:String, completion: (() -> Void)? = nil) -> UIViewController {
     let controller = viewController(name)!
     if disableScreenSwitching {
-        log("-x-> \(name)")
         return controller
     }
-    log("---> \(name)")
     queuePresentViewController(controller, false)
     return controller
 }
@@ -104,18 +115,58 @@ func switchToScreen(name:String, completion: (() -> Void)? = nil) -> UIViewContr
 // inspiration: https://gist.github.com/kommen/5743831
 func queuePresentViewController(to:UIViewController, animated:Bool, completion: (() -> Void)? = nil) {
     dispatch_async(presentViewControllerQueue, {
-        var sema = dispatch_semaphore_create(0)
+        var semaphore = dispatch_semaphore_create(0)
         dispatch_async(dispatch_get_main_queue(), {
-            if let from = topController() {
-                from.presentViewController(to, animated:animated, completion:{
-                    dispatch_semaphore_signal(sema);
-                    completion?()
-                })
-            } else {
-                log("failed to retrieve top controller")
-                dispatch_semaphore_signal(sema);
+            var job = { () -> Void in
+                dispatch_semaphore_signal(semaphore)
+                completion?()
             }
-        });
-        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
-    });
+            if let from = topController() {
+                if from == to {
+                    job()
+                } else {
+                    from.presentViewController(to, animated:animated, completion:{
+                        job()
+                    })
+                }
+            } else {
+                log("!!! failed to retrieve top controller")
+                job()
+            }
+        })
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+    })
 }
+
+var presentViewControllerQueueSemaphore : dispatch_semaphore_t?
+
+func pausePresentViewControllerHelper() -> dispatch_semaphore_t {
+    var semaphore = dispatch_semaphore_create(0)
+    dispatch_async(presentViewControllerQueue, {
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+        return
+    })
+    return semaphore
+}
+
+func unpausePresentViewControllerHelper(semaphore:dispatch_semaphore_t) {
+    dispatch_semaphore_signal(semaphore)
+}
+
+func pausePresentViewController() {
+    log("pause UI")
+    if presentViewControllerQueueSemaphore != nil {
+        log("!!! presentViewControllerQueueSemaphore was not nil prior pausePresentViewController call")
+    }
+    presentViewControllerQueueSemaphore = pausePresentViewControllerHelper()
+}
+
+func unpausePresentViewController() {
+    log("unpause UI")
+    if presentViewControllerQueueSemaphore == nil {
+        log("!!! presentViewControllerQueueSemaphore was nil prior unpausePresentViewController call")
+    }
+    unpausePresentViewControllerHelper(presentViewControllerQueueSemaphore!)
+}
+
+

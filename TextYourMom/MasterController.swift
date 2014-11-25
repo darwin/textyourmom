@@ -28,10 +28,6 @@ class MasterController {
         log("Registering airports with airports watcher...")
         airportsWatcher.delegate = brain
         airportsWatcher.registerAirports(airportsProvider)
-
-        // do not call refreshApp() here, EmptyController's animation might be in-flight
-        // see EmptyController.viewDidAppear()
-        
         return true
     }
     
@@ -78,9 +74,6 @@ class MasterController {
     }
     
     func refreshApp(_ overrideState:AppState? = nil) {
-        if !emptyControllerReady {
-            return
-        }
         var state = overrideState
         if state == nil {
             state = detectAppState()

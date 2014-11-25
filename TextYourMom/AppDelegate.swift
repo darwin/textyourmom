@@ -10,6 +10,7 @@ class AppDelegate: UIResponder {
 extension AppDelegate : UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        pausePresentViewController()
         if inSimulator() {
             log("running in simulator")
         }
@@ -22,9 +23,13 @@ extension AppDelegate : UIApplicationDelegate {
         if let options = launchOptions {
             log("launchOptions: \(launchOptions)")
             if let key: AnyObject = options[UIApplicationLaunchOptionsLocalNotificationKey] {
-                masterController.refreshApp()
+                // we are launched in reaction to location change notification
+                // ...
             }
         }
+        
+        masterController.refreshApp()
+
         return true
     }
     
