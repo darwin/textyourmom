@@ -10,24 +10,26 @@ class AppDelegate: UIResponder {
 extension AppDelegate : UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        model.load()
-        sharedLogsModel.unserialize(model.logs)
-        sharedLogsModel.startSerializationTimer()
-        log("============================")
-        model.debugPrint()
-        
         // we assume application was launched by user with UI
         // at this point supressNextStateChangeReport is set to true
         // it means we don't want to report airport visit immediatelly after normal app launch
         // see *** below for special case
         supressNextStateChangeReport = true
-        
-        pausePresentViewController()
+
+        model.load()
+        sharedLogsModel.unserialize(model.logs)
+        sharedLogsModel.startSerializationTimer()
+        log("============================")
+        var versionInfo = "TextYourMom.app " + versionBuild()
         if inSimulator() {
-            log("running in simulator")
+            versionInfo = versionInfo + " [running in simulator]"
         }
+        log(versionInfo)
         let device = UIDevice.currentDevice()
         log("device: \(device.systemName) \(device.systemVersion) [\(device.model)]")
+        model.debugPrint()
+        
+        pausePresentViewController()
         mainWindow = window
         masterController.boot()
         

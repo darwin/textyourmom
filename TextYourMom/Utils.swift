@@ -33,6 +33,20 @@ func isAdHocDistribution() -> Bool {
     }
 }
 
+func appVersion() -> String {
+    return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String
+}
+
+func appBuild() -> String {
+    return NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as NSString) as String
+}
+
+func versionBuild() -> String {
+    let version = appVersion(), build = appBuild()
+    
+    return version == build ? "v\(version)" : "v\(version)(#\(build))"
+}
+
 func wantDebugTooling() -> Bool {
     return inSimulator() || isAdHocDistribution()
 }

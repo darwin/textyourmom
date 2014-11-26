@@ -5,6 +5,5 @@ class EmptyController: BaseViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        log("EmptyController.viewDidAppear => unpausePresentViewController")
         unpausePresentViewController()
     }}

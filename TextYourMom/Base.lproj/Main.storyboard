@@ -386,10 +386,10 @@
                                 <exclude reference="2rB-s9-X2Y"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="ehr-nm-eyv"/>
                                 <exclude reference="FxI-hS-Hkb"/>
                                 <exclude reference="gei-zF-NMp"/>
                                 <exclude reference="xUN-RF-Ck4"/>
+                                <exclude reference="ehr-nm-eyv"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -399,10 +399,10 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="ehr-nm-eyv"/>
                                 <include reference="FxI-hS-Hkb"/>
                                 <include reference="gei-zF-NMp"/>
                                 <include reference="xUN-RF-Ck4"/>
+                                <include reference="ehr-nm-eyv"/>
                             </mask>
                         </variation>
                     </view>

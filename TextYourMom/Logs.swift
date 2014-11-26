@@ -88,5 +88,25 @@ extension LogsModel {
         }
         delegate?.refresh()
     }
-    
+}
+
+// MARK: human readable dump
+extension LogsModel {
+
+    func dump() -> String {
+        let lineSeparator = "\n"
+        let itemSeparator = "\t"
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "D hh:mm:ss"
+        var lines = [String]()
+        for log in logs {
+            var parts = [String]()
+            let time = dateFormatter.stringFromDate(NSDate(timeIntervalSince1970:log.timestamp))
+            parts.append(time)
+            parts.append(log.message)
+            var line = String(itemSeparator).join(parts)
+            lines.append(line)
+        }
+        return String(lineSeparator).join(lines)
+    }
 }

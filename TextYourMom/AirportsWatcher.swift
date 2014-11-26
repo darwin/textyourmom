@@ -176,7 +176,6 @@ extension AirportsWatcher : CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        log("didChangeAuthorizationStatus \(status.rawValue)")
         masterController.availabilityMonitor.locationAuthorizationStatusDidChange(status)
     }
 }

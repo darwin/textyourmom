@@ -113,7 +113,7 @@ class ServiceAvailabilityMonitor {
     }
     
     func locationAuthorizationStatusDidChange(status: CLAuthorizationStatus) {
-        log("*** Location authorization status changed: \(status)")
+        log("*** Location authorization status changed: \(status.rawValue)")
         checkIsLocationServicesAuthorized(status)
         updateAvailabilityAndNotifyDelegateIfChanged(true)
     }
