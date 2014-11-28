@@ -45,22 +45,29 @@ class AirportsVisitorState : Equatable, Printable {
 
 // MARK: serialization
 extension AirportsVisitorState {
+    var partSeparator : Character {
+        get { return ":" }
+    }
+    
+    var itemSeparator : Character {
+        get { return "," }
+    }
     
     func serialize() -> String {
         var parts = [String]()
         for (id, perimeter) in state {
-            parts.append("\(id):\(perimeter.rawValue)")
+            parts.append("\(id)\(partSeparator)\(perimeter.rawValue)")
         }
-        return ",".join(parts)
+        return String(itemSeparator).join(parts)
     }
     
     func unserialize(data: String) {
         state.removeAll(keepCapacity: true)
-        let items = split(data) {$0 == ","}
+        let items = split(data) {$0 == self.itemSeparator}
         for item in items {
-            let pieces = split(item) {$0 == ":"}
+            let pieces = split(item) {$0 == self.partSeparator}
             if pieces.count != 2 {
-                log("unable to unserialize pair: \(item)")
+                log("!!! unable to unserialize pair: \(item)")
                 continue
             }
             
@@ -70,7 +77,7 @@ extension AirportsVisitorState {
             if id != nil && perimeter != nil {
                 state[id!] = perimeter!
             } else {
-                log("unable to unserialize pair: \(item)")
+                log("!!! unable to unserialize pair: \(item)")
             }
         }
     }

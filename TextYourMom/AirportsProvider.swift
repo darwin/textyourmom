@@ -18,17 +18,20 @@ extension AirportsProvider {
     func parseFromResource(name:String, type:String="txt") -> Bool {
         let path = NSBundle.mainBundle().pathForResource(name, ofType: type)
         if path == nil {
-            log("Error forming path for resource \(name) of type \(type)")
+            log("!!! Error forming path for resource \(name) of type \(type)")
             return false;
         }
         return parseFromFile(path!)
     }
 
     func parseFromFile(path:String) -> Bool {
+        let componentSeparator = ","
+        let lineSeparator = "\n"
+        
         var err: NSError?
         let content = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: &err)
         if content == nil {
-            log("\(err)")
+            log("!!! \(err)")
             return false;
         }
         
@@ -50,7 +53,7 @@ extension AirportsProvider {
                 return (s as NSString).doubleValue
             }
             
-            var parts = line.componentsSeparatedByString(",")
+            var parts = line.componentsSeparatedByString(componentSeparator)
             
             // TODO: better error checking here
             var airport = Airport()
@@ -65,7 +68,7 @@ extension AirportsProvider {
         }
 
         var counter = 0
-        var list = content!.componentsSeparatedByString("\n")
+        var list = content!.componentsSeparatedByString(lineSeparator)
         for line in list {
             if line.isEmpty {
                 continue
@@ -74,7 +77,7 @@ extension AirportsProvider {
             if let airport = parseAirportLine(line) {
                 airports.append(airport)
             } else {
-                log("\(line)")
+                log("!!! \(line)")
             }
         }
         
