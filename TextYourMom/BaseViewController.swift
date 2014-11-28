@@ -8,12 +8,12 @@ protocol BaseViewControllerCanvasDelegate {
 class BaseViewController: UIViewController {
     typealias InitLambda = ((UIViewController) -> Void)
     
-    var debugButton : UIButton?
     var feedbackButton : UIButton?
     var canvasView : CanvasView?
     var initializers : [InitLambda] = []
 
     var mailController = MFMailComposeViewController()
+    var feedbackButtonTouchDownDate = NSDate()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,6 @@ class BaseViewController: UIViewController {
         } else {
             canvasView!.delegate = self
         }
-        injectDebugControlsIfRequired()
         injectFeedbackControlsIfRequired()
         
         // execute registered initializers
@@ -33,29 +32,19 @@ class BaseViewController: UIViewController {
         initializers = []
     }
     
-    func debugButton(sender:UIButton!) {
-        switchToScreen("Debug")
-    }
-    
-    func injectDebugControlsIfRequired() {
-        if !wantDebugTooling() {
-            return
-        }
-        if debugButton != nil {
-            return
-        }
-        let button = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        button.frame = CGRectMake(0, 20, 100, 20)
-        button.backgroundColor = UIColor.magentaColor()
-        button.setTitle("DEBUG", forState: UIControlState.Normal)
-        button.addTarget(self, action: "debugButton:", forControlEvents: UIControlEvents.TouchUpInside)
-        view.addSubview(button)
-
-        debugButton = button
+    func touchDown(sender:UIButton!) {
+        feedbackButtonTouchDownDate = NSDate()
     }
 
-    func feedbackButton(sender:UIButton!) {
-        prepareFeedbackEmail()
+    func touchUp(sender:UIButton!) {
+        var timeInterval = abs(feedbackButtonTouchDownDate.timeIntervalSinceNow)
+        
+        // more than 3 seconds press should opend a debug screen instead of feedback email template
+        if timeInterval < 3 {
+            prepareFeedbackEmail()
+        } else {
+            switchToScreen("Debug")
+        }
     }
 
     func injectFeedbackControlsIfRequired() {
@@ -65,7 +54,8 @@ class BaseViewController: UIViewController {
         
         let button = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
         button.frame = CGRectMake(CGRectGetWidth(canvasView!.frame)-40-20, 20, 40, 40)
-        button.addTarget(self, action: "feedbackButton:", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action:"touchUp:", forControlEvents:UIControlEvents.TouchUpInside)
+        button.addTarget(self, action:"touchDown:", forControlEvents:UIControlEvents.TouchDown)
         button.setBackgroundImage(UIImage(named: "PaperPlane"), forState: UIControlState.Normal)
         button.alpha = 0.3
         view.addSubview(button)
@@ -113,10 +103,6 @@ extension BaseViewController: MFMailComposeViewControllerDelegate {
 extension BaseViewController : BaseViewControllerCanvasDelegate {
 
     func subviewAdded(subview: UIView) {
-        if debugButton != nil {
-            canvasView!.bringSubviewToFront(debugButton!)
-        }
-        
         if feedbackButton != nil {
             canvasView!.bringSubviewToFront(feedbackButton!)
         }

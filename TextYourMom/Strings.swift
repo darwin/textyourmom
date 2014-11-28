@@ -15,7 +15,7 @@ func stringSampleError() -> String {
 }
 
 func stringFeedbackEmailTitle() -> String {
-    return "This is a sample error message which could span multiple lines (up to 6)\nlet's see\nline\nline\nline\nline\nline"
+    return "Feedback"
 }
 
 func stringFeedbackEmailBody() -> String {
