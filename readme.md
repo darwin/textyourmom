@@ -1,6 +1,13 @@
 # Text Your Mom!
 
-Receive push notifications straight to your phone when you land at a new destination. The app uses your location in the background and when you appear at an airport, you get a notification. Don't forget to text your mom.
+Oh boy! Never forget to text your mom when traveling.
+
+    Q: Do we really need an app for that?
+    A: Ask your mom.
+
+## Wut?
+
+Receive push notifications straight to your phone when you land at a new destination. The app uses your location in the background and when you appear at an airport, you get a notification.
 
 <img src="https://dl.dropboxusercontent.com/u/559047/text-your-mom-screenshot.png">
 
